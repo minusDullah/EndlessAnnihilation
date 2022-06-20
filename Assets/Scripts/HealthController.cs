@@ -16,7 +16,7 @@ public class HealthController : MonoBehaviour
 
     [Header("Hurt Image Flash")]
     [SerializeField] private Image hurtImage = null;
-    [SerializeField] private float hurtTimer = 0.1f;
+    [SerializeField] public float hurtTimer = 0.1f;
 
     [Header("Heal timer")]
     [SerializeField] private float healCooldown = 3f;

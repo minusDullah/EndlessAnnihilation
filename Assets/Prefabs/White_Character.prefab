@@ -1599,7 +1599,6 @@ GameObject:
   - component: {fileID: 1061182565919872950}
   - component: {fileID: 3647065458952917602}
   - component: {fileID: 1005292398}
-  - component: {fileID: 1005292399}
   - component: {fileID: 1005292397}
   m_Layer: 0
   m_Name: Helmet
@@ -1754,19 +1753,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1005292399
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3441915665194146811}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2213042
-  m_Center: {x: 0, y: 0.2213042, z: 0}
 --- !u!144 &1005292397
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -3823,6 +3809,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDamage: 25
+  attackRange: 5
+  minSpeed: 1
+  maxSpeed: 15
+  speedMultiplier: 1.5
 --- !u!114 &8475770269139270599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3838,6 +3828,7 @@ MonoBehaviour:
   health: 100
   scoreWorth: 50
   randomDeath: 0
+  destroyTimer: 15
   bloodFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   bloodFXPosition: {fileID: 1797469431281146610}
   minimapIcon: {fileID: 1656347689148220888}
@@ -3851,7 +3842,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 9187841338511970925}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 0.5
   m_Speed: 3
   m_Acceleration: 13
   avoidancePriority: 50

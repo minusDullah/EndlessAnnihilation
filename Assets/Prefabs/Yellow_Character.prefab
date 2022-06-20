@@ -2341,6 +2341,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDamage: 25
+  attackRange: 5
+  minSpeed: 1
+  maxSpeed: 15
+  speedMultiplier: 1.5
 --- !u!114 &-1781900202686791276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2356,6 +2360,7 @@ MonoBehaviour:
   health: 100
   scoreWorth: 50
   randomDeath: 0
+  destroyTimer: 15
   bloodFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   bloodFXPosition: {fileID: 3537783746382539391}
   minimapIcon: {fileID: 8629633895657974820}
@@ -2369,7 +2374,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5598414552948696081}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 0.5
   m_Speed: 7
   m_Acceleration: 13
   avoidancePriority: 50

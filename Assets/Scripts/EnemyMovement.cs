@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 15f;
     [SerializeField] private float speedMultiplier = 1.5f;
+    [SerializeField] private bool stillHitting = false;
 
     private void Start()
     {
@@ -39,6 +40,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Scream"))
+        {
+            return;
+        }
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dying") || animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
             Invoke("DisableRB", .5f);
@@ -53,7 +59,7 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 animator.SetBool("Attacking", false);
-                Invoke("enemyDestination", 2.2f);
+                enemyDestination();
             }
         }
     }
@@ -62,9 +68,13 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerHealth.currentPlayerHealth -= enemyDamage;
-            playerHealth.TakeDamage();
+            dealDamage();
         }
+    }    
+
+    private void OnTriggerExit(Collider other)
+    {
+        CancelInvoke();
     }
 
     void enemyDestination()
@@ -87,5 +97,11 @@ public class EnemyMovement : MonoBehaviour
         {
             capsuleCollider.enabled = false;
         }
+    }
+
+    void dealDamage()
+    {
+        playerHealth.currentPlayerHealth -= enemyDamage;
+        playerHealth.TakeDamage();
     }
 }

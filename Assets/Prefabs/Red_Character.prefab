@@ -730,7 +730,7 @@ SphereCollider:
   m_GameObject: {fileID: 2224241937962525468}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.37
   m_Center: {x: 0, y: 0.34, z: 0}
@@ -1197,6 +1197,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDamage: 25
+  attackRange: 5
+  minSpeed: 1
+  maxSpeed: 15
+  speedMultiplier: 1.5
 --- !u!114 &3984953131191963046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,6 +1216,7 @@ MonoBehaviour:
   health: 100
   scoreWorth: 50
   randomDeath: 0
+  destroyTimer: 15
   bloodFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   bloodFXPosition: {fileID: 1213918175019467113}
   minimapIcon: {fileID: 6203660009121495823}
@@ -1225,7 +1230,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3362208893974939512}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 0.5
   m_Speed: 7
   m_Acceleration: 13
   avoidancePriority: 50
