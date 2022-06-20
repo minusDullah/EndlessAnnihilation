@@ -16,6 +16,7 @@ public class Target : MonoBehaviour, IDamageable
     public ScoreUpdate scoreUpdate;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    private bool pointsGained;
     
 
     private void Start()
@@ -25,6 +26,7 @@ public class Target : MonoBehaviour, IDamageable
         scoreUpdate = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
         randomDeath = Random.Range(0, 2);
         animator.SetInteger("randomDeath", randomDeath);
+        pointsGained = false;
     }
     public void TakeDamage(float damage)
     {
@@ -44,8 +46,12 @@ public class Target : MonoBehaviour, IDamageable
 
     private void ScoreOnDeath()
     {
-        scoreUpdate.scoreTotal += scoreWorth;
-        scoreUpdate.updateScore();
+        if(pointsGained == false)
+        {
+            scoreUpdate.scoreTotal += scoreWorth;
+            scoreUpdate.updateScore();
+            pointsGained = true;
+        }
     }
 
     private void FXonDeath()

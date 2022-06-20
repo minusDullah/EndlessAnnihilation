@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     private Animator animator;
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
+    private WaveSpawner waveSpawner;
 
     private void Start()
     {
@@ -18,7 +19,10 @@ public class EnemyMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
+        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
         rb.isKinematic = true;
+        navAgent.speed = (waveSpawner.currWave*1.5f);
+        navAgent.speed = Mathf.Clamp(navAgent.speed, 1f, 15f);
         animator.SetFloat("Speed", navAgent.speed);
     }
 
@@ -26,7 +30,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dying") || animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
-            Invoke("Disable", .5f);
+            Invoke("DisableRB", .5f);
+            DisableCollider();
         }
         else
         {
@@ -48,13 +53,21 @@ public class EnemyMovement : MonoBehaviour
         navAgent.SetDestination(playerTransform.position);
     }
 
-    void Disable()
+    void DisableRB()
     {
         if (animator.isActiveAndEnabled)
         {
             animator.enabled = !animator.enabled;
             rb.isKinematic = false;
-            capsuleCollider.enabled = !capsuleCollider.enabled;
+        }
+    }
+
+    void DisableCollider()
+    {
+        if (animator.isActiveAndEnabled && capsuleCollider.enabled == true)
+        {
+            CapsuleCollider collider = GetComponent<CapsuleCollider>();
+            collider.enabled = !collider.enabled;
         }
     }
 }
