@@ -11,10 +11,12 @@ public class Target : MonoBehaviour, IDamageable
     [SerializeField] private int randomDeath;
     [SerializeField] private GameObject bloodFX;
     [SerializeField] private Transform bloodFXPosition;
+    [SerializeField] private GameObject minimapIcon;
 
     public ScoreUpdate scoreUpdate;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    
 
     private void Start()
     {
@@ -34,13 +36,32 @@ public class Target : MonoBehaviour, IDamageable
             navMeshAgent.Stop();
             #pragma warning restore CS0618 // Type or member is obsolete
             animator.SetBool("Dead", true);
-            scoreUpdate.scoreTotal += scoreWorth;
-            scoreUpdate.updateScore();
-            GameObject bloodfx = Instantiate(bloodFX, bloodFXPosition.position, Quaternion.identity);
-            bloodfx.transform.parent = bloodFXPosition;
-            Destroy(bloodfx, 3f);
-            Destroy(gameObject, 15f);
+            ScoreOnDeath();
+            FXonDeath();
+            RemoveFromMinimap();
         }
     }
 
+    private void ScoreOnDeath()
+    {
+        scoreUpdate.scoreTotal += scoreWorth;
+        scoreUpdate.updateScore();
+    }
+
+    private void FXonDeath()
+    {
+        GameObject bloodfx = Instantiate(bloodFX, bloodFXPosition.position, Quaternion.identity);
+        bloodfx.transform.parent = bloodFXPosition;
+        Destroy(bloodfx, 3f);
+        Destroy(gameObject, 15f);
+    }
+
+    private void RemoveFromMinimap()
+    {
+        if (minimapIcon.activeInHierarchy == true)
+        {
+            minimapIcon.SetActive(false);
+        }
+        
+    }
 }
