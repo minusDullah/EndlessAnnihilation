@@ -8,6 +8,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] public List<Enemy> enemies = new List<Enemy>();
     [SerializeField] public int currWave;
     [SerializeField] private int waveValue;
+    [SerializeField] private int waveMultiplier = 10;
     [SerializeField] public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
     [SerializeField] public List<Transform> spawnLocation = new List<Transform>();
@@ -51,7 +52,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        waveValue = currWave * 10;
+        waveValue = currWave * waveMultiplier;
         GenerateEnemies();
 
         spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies

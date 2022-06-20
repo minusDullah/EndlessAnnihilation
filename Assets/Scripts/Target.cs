@@ -6,9 +6,12 @@ using UnityEngine.AI;
 public class Target : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
-    [SerializeField] public float health = 100;
+    [SerializeField] public float health = 100f;
     [SerializeField] private int scoreWorth = 50;
     [SerializeField] private int randomDeath;
+    [SerializeField] private int destroyTimer = 15;
+
+    [Header("References")]
     [SerializeField] private GameObject bloodFX;
     [SerializeField] private Transform bloodFXPosition;
     [SerializeField] private GameObject minimapIcon;
@@ -59,7 +62,7 @@ public class Target : MonoBehaviour, IDamageable
         GameObject bloodfx = Instantiate(bloodFX, bloodFXPosition.position, Quaternion.identity);
         bloodfx.transform.parent = bloodFXPosition;
         Destroy(bloodfx, 3f);
-        Destroy(gameObject, 15f);
+        Destroy(gameObject, destroyTimer);
     }
 
     private void RemoveFromMinimap()

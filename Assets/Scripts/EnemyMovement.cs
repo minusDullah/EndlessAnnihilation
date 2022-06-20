@@ -13,20 +13,27 @@ public class EnemyMovement : MonoBehaviour
     private CapsuleCollider capsuleCollider;
     private WaveSpawner waveSpawner;
 
+    [Header("Enemy Stats")]
     [SerializeField] private float enemyDamage = 25f;
+    [SerializeField] private float attackRange = 3f;
+    [SerializeField] private float minSpeed = 1f;
+    [SerializeField] private float maxSpeed = 15f;
+    [SerializeField] private float speedMultiplier = 1.5f;
 
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
+        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
+
         navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
-        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
+        
         rb.isKinematic = true;
-        navAgent.speed = (waveSpawner.currWave*1.5f);
-        navAgent.speed = Mathf.Clamp(navAgent.speed, 1f, 15f);
+        navAgent.speed = (waveSpawner.currWave* speedMultiplier);
+        navAgent.speed = Mathf.Clamp(navAgent.speed, minSpeed, maxSpeed);
         animator.SetFloat("Speed", navAgent.speed);
     }
 
@@ -39,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(gameObject.transform.position, playerTransform.position) < 4)
+            if (Vector3.Distance(gameObject.transform.position, playerTransform.position) < attackRange)
             {
                 animator.SetBool("Attacking", true);
             }
