@@ -21,6 +21,10 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [SerializeField]
         private GameObject qualitySettingsPrefab;
 
+        [Tooltip("Canvas prefab spawned at start. Displays minimap.")]
+        [SerializeField]
+        private GameObject Minimap;
+
         #endregion
 
         #region UNITY
@@ -34,6 +38,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             Instantiate(canvasPrefab);
             //Spawn Quality Settings Menu.
             Instantiate(qualitySettingsPrefab);
+            //Spawn Minimap.
+            Instantiate(Minimap);
         }
 
         #endregion

@@ -6,15 +6,19 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent navAgent;
+    private HealthController playerHealth;
     private Transform playerTransform;
     private Animator animator;
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
     private WaveSpawner waveSpawner;
 
+    [SerializeField] private float enemyDamage = 25f;
+
     private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
         navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -38,13 +42,21 @@ public class EnemyMovement : MonoBehaviour
             if (Vector3.Distance(gameObject.transform.position, playerTransform.position) < 4)
             {
                 animator.SetBool("Attacking", true);
-                //player taking damage
             }
             else
             {
                 animator.SetBool("Attacking", false);
                 Invoke("enemyDestination", 2.2f);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerHealth.currentPlayerHealth -= enemyDamage;
+            playerHealth.TakeDamage();
         }
     }
 
@@ -57,17 +69,16 @@ public class EnemyMovement : MonoBehaviour
     {
         if (animator.isActiveAndEnabled)
         {
-            animator.enabled = !animator.enabled;
+            animator.enabled = false;
             rb.isKinematic = false;
         }
     }
 
     void DisableCollider()
     {
-        if (animator.isActiveAndEnabled && capsuleCollider.enabled == true)
+        if (animator.isActiveAndEnabled)
         {
-            CapsuleCollider collider = GetComponent<CapsuleCollider>();
-            collider.enabled = !collider.enabled;
+            capsuleCollider.enabled = false;
         }
     }
 }

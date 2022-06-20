@@ -155,10 +155,15 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			}
 
 			//if bullet collides with "Enemy" tag
-			if (collision.transform.tag == "Enemy")
+
+		}
+
+        private void OnTriggerEnter(Collider other)
+        {
+			if (other.CompareTag("Enemy"))
 			{
 				//Get damageable component on object
-				IDamageable damageable = collision.transform.GetComponent<IDamageable>();
+				IDamageable damageable = other.transform.GetComponent<IDamageable>();
 				//Damage object
 				damageable?.TakeDamage(damage);
 				//Destroy bullet object
@@ -166,7 +171,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			}
 		}
 
-		private IEnumerator DestroyTimer()
+        private IEnumerator DestroyTimer()
 		{
 			//Wait random time based on min and max values
 			yield return new WaitForSeconds

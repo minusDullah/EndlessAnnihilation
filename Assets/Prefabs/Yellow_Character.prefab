@@ -764,7 +764,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4362376913813529034}
   - component: {fileID: 48607129211888670}
-  - component: {fileID: 2357186261649140954}
   - component: {fileID: 2357186261649140953}
   - component: {fileID: 2357186261649140923}
   m_Layer: 0
@@ -904,19 +903,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00016778708, y: 1.7340008, z: 0.028698951}
     m_Extent: {x: 0.3310948, y: 0.42025912, z: 0.39716962}
   m_DirtyAABB: 0
---- !u!135 &2357186261649140954
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2158474730598460807}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.14836055
-  m_Center: {x: 0, y: 0.14836055, z: 0}
 --- !u!54 &2357186261649140953
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2336,7 +2322,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598414552948696081}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1
   m_Height: 3.5
@@ -2354,6 +2340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4929c35893ef94bb0890e363d9db7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamage: 25
 --- !u!114 &-1781900202686791276
 MonoBehaviour:
   m_ObjectHideFlags: 0
