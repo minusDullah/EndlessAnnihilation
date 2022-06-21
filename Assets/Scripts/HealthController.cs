@@ -27,8 +27,9 @@ public class HealthController : MonoBehaviour
     [SerializeField] private float maxHealCooldown = 3f;
     [SerializeField] private bool startCooldown = false;
 
-    [Header("Audio name")]
+    [Header("Audio")]
     [SerializeField] private AudioSource healthAudioSource;
+    [SerializeField] private AudioClip[] playerHit;
 
     private void Start()
     {
@@ -49,6 +50,7 @@ public class HealthController : MonoBehaviour
     {
         if (currentPlayerHealth >= 0 && canTakeDamage == true)
         {
+            PlayerHitAudio();
             currentPlayerHealth -= damage;
             canTakeDamage = false;
             canRegen = false;
@@ -64,6 +66,13 @@ public class HealthController : MonoBehaviour
             //currentPlayerHealth = 0;
         }
     }
+
+    private void PlayerHitAudio()
+    {
+        int clipToPlay = Random.Range(0, playerHit.Length);
+        healthAudioSource.clip = playerHit[clipToPlay];
+        healthAudioSource.Play();
+    }    
 
     IEnumerator HurtFlash()
     {
