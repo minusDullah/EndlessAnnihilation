@@ -53,6 +53,7 @@ public class HealthController : MonoBehaviour
         }
         else
         {
+            //kill player
             currentPlayerHealth = 0;
         }
     }

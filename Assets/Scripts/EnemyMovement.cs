@@ -12,14 +12,18 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
     private WaveSpawner waveSpawner;
+    
+
 
     [Header("Enemy Stats")]
     [SerializeField] private float enemyDamage = 25f;
-    [SerializeField] private float attackRange = 3f;
+    [SerializeField] private float attackRange = 4f;
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 15f;
     [SerializeField] private float speedMultiplier = 1.5f;
-    [SerializeField] private bool stillHitting = false;
+    [SerializeField] private float attackCooldown = .8f;
+    [SerializeField] private float animationBuffer = .3f;
+    [SerializeField] private bool triggerEntered = false;
 
     private void Start()
     {
@@ -35,46 +39,45 @@ public class EnemyMovement : MonoBehaviour
         rb.isKinematic = true;
         navAgent.speed = (waveSpawner.currWave* speedMultiplier);
         navAgent.speed = Mathf.Clamp(navAgent.speed, minSpeed, maxSpeed);
-        animator.SetFloat("Speed", navAgent.speed);
+        animator.CrossFade(movingAnim(), 2, 0);
     }
 
     private void Update()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Scream"))
-        {
-            return;
-        }
-
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dying") || animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
-            Invoke("DisableRB", .5f);
+            Invoke("DisableRB", 1f);
             DisableCollider();
         }
         else
         {
-            if (Vector3.Distance(gameObject.transform.position, playerTransform.position) < attackRange)
-            {
-                animator.SetBool("Attacking", true);
-            }
-            else
-            {
-                animator.SetBool("Attacking", false);
-                enemyDestination();
-            }
+            enemyDestination();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            dealDamage();
+            triggerEntered = true;
+            while (triggerEntered)
+            {
+                animator.CrossFade("Attack", .05f, 0);
+                yield return new WaitForSeconds(animationBuffer);
+                dealDamage();
+                yield return new WaitForSeconds(attackCooldown);
+            }
+            yield break;
         }
-    }    
+    }
 
     private void OnTriggerExit(Collider other)
     {
-        CancelInvoke();
+        if (other.CompareTag("Player"))
+        {
+            animator.CrossFade(movingAnim(), 1.3f, 0);
+            triggerEntered = false;
+        }
     }
 
     void enemyDestination()
@@ -103,5 +106,17 @@ public class EnemyMovement : MonoBehaviour
     {
         playerHealth.currentPlayerHealth -= enemyDamage;
         playerHealth.TakeDamage();
+    }
+
+    string movingAnim()
+    {
+        if (navAgent.speed < 4)
+        {
+            return "Walk";
+        }
+        else
+        {
+            return "Run";
+        }
     }
 }

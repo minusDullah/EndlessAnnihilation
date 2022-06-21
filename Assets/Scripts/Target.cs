@@ -28,19 +28,17 @@ public class Target : MonoBehaviour, IDamageable
         navMeshAgent = GetComponent<NavMeshAgent>();
         scoreUpdate = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
         randomDeath = Random.Range(0, 2);
-        animator.SetInteger("randomDeath", randomDeath);
         pointsGained = false;
     }
     public void TakeDamage(float damage)
     {
         health -= damage;
-        animator.SetFloat("Health", health);
         if (health <= 0)
         {
             #pragma warning disable CS0618 // Type or member is obsolete
             navMeshAgent.Stop();
             #pragma warning restore CS0618 // Type or member is obsolete
-            animator.SetBool("Dead", true);
+            animator.Play("Dying", 0);
             ScoreOnDeath();
             FXonDeath();
             RemoveFromMinimap();
