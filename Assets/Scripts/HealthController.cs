@@ -9,7 +9,11 @@ public class HealthController : MonoBehaviour
     public float currentPlayerHealth = 100f;
     [SerializeField] private float maxPlayerHealth = 100f;
     [SerializeField] private int regenRate = 1;
-    private bool canRegen = false;
+    [SerializeField] private bool canRegen = false;
+
+    [Header("Player Invulnerable when hit")]
+    [SerializeField] private float invulnerableTimer = .5f;
+    [SerializeField] private bool canTakeDamage = true;
 
     [Header("Add the splatter image here")]
     [SerializeField] private Image redSplatterImage = null;
@@ -43,18 +47,20 @@ public class HealthController : MonoBehaviour
 
     public void TakeDamage()
     {
-        if(currentPlayerHealth >= 0)
+        if (currentPlayerHealth >= 0 && canTakeDamage == true)
         {
+            canTakeDamage = false;
             canRegen = false;
             StartCoroutine(HurtFlash());
             UpdateHealth();
             healCooldown = maxHealCooldown;
             startCooldown = true;
+            StartCoroutine(Invulnerable());
         }
-        else
+        else if(currentPlayerHealth <= 0)
         {
             //kill player
-            currentPlayerHealth = 0;
+            //currentPlayerHealth = 0;
         }
     }
 
@@ -66,9 +72,17 @@ public class HealthController : MonoBehaviour
         hurtImage.enabled = false;
     }
 
+    IEnumerator Invulnerable()
+    {
+        yield return new WaitForSeconds(invulnerableTimer);
+        canTakeDamage = true;
+    }
+
     private void Update()
     {
-        if(startCooldown)
+        UpdateHealth();
+
+        if (startCooldown)
         {
             healCooldown -= Time.deltaTime;
             if(healCooldown <= 0)

@@ -37,9 +37,9 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         
         rb.isKinematic = true;
-        navAgent.speed = (waveSpawner.currWave* speedMultiplier);
+        navAgent.speed = (waveSpawner.currWave * speedMultiplier);
         navAgent.speed = Mathf.Clamp(navAgent.speed, minSpeed, maxSpeed);
-        animator.CrossFade(movingAnim(), 2, 0);
+        animator.CrossFade(movingAnim(), 1, 0);
     }
 
     private void Update()

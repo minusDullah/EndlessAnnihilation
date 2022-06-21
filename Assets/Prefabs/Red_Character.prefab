@@ -1199,7 +1199,7 @@ MonoBehaviour:
   enemyDamage: 25
   attackRange: 4.5
   minSpeed: 1
-  maxSpeed: 15
+  maxSpeed: 12
   speedMultiplier: 1.5
   attackCooldown: 0.77
   animationBuffer: 0.3
@@ -1235,7 +1235,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 7
-  m_Acceleration: 13
+  m_Acceleration: 17.2
   avoidancePriority: 50
   m_AngularSpeed: 170
   m_StoppingDistance: 3
