@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private CapsuleCollider characterBlockerCollider;
     private NavMeshAgent navAgent;
     private HealthController playerHealth;
     private Transform playerTransform;
@@ -12,8 +14,6 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
     private WaveSpawner waveSpawner;
-    
-
 
     [Header("Enemy Stats")]
     [SerializeField] private float enemyDamage = 25f;
@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dying") || animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
             Invoke("DisableRB", 1f);
-            DisableCollider();
+            DisableColliders();
         }
         else
         {
@@ -94,11 +94,12 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void DisableCollider()
+    void DisableColliders()
     {
         if (animator.isActiveAndEnabled)
         {
             capsuleCollider.enabled = false;
+            characterBlockerCollider.enabled = false;
         }
     }
 

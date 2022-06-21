@@ -1262,6 +1262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4929c35893ef94bb0890e363d9db7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterBlockerCollider: {fileID: 854452877263254307}
   enemyDamage: 25
   attackRange: 4.5
   minSpeed: 1
