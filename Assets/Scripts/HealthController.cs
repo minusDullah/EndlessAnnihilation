@@ -45,10 +45,11 @@ public class HealthController : MonoBehaviour
         redSplatterImage.color = splatterAlpha;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
         if (currentPlayerHealth >= 0 && canTakeDamage == true)
         {
+            currentPlayerHealth -= damage;
             canTakeDamage = false;
             canRegen = false;
             StartCoroutine(HurtFlash());

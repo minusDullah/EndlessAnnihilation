@@ -181,7 +181,7 @@ namespace InfimaGames.LowPolyShooterPack
         {
             //Cache the controller.
             controller = GetComponent<CharacterController>();
-            
+
             //Save the default height.
             standingHeight = controller.height;
         }

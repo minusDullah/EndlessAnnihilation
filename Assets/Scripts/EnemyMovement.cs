@@ -104,8 +104,7 @@ public class EnemyMovement : MonoBehaviour
 
     void dealDamage()
     {
-        playerHealth.currentPlayerHealth -= enemyDamage;
-        playerHealth.TakeDamage();
+        playerHealth.TakeDamage(enemyDamage);
     }
 
     string movingAnim()
