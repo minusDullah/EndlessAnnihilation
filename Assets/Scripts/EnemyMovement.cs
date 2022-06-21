@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private CapsuleCollider characterBlockerCollider;
+
     private NavMeshAgent navAgent;
     private HealthController playerHealth;
     private Transform playerTransform;
