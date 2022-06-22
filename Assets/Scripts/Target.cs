@@ -34,6 +34,7 @@ public class Target : MonoBehaviour, IDamageable
         scoreUpdate = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
         pointsGained = false;
     }
+
     public void TakeDamage(float damage)
     {
         health -= damage;

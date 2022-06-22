@@ -39,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
         float randomSpeed = Random.Range(waveSpawner.currWave/2, waveSpawner.currWave*2f);
         randomSpeed = Mathf.Clamp(randomSpeed, minSpeed, maxSpeed);
         navAgent.speed = randomSpeed;
-        animator.CrossFade(movingAnim(), 1, 0);
+        animator.CrossFade(MovingAnim(), 1, 0);
     }
 
     private void Update()
@@ -49,7 +49,7 @@ public class EnemyMovement : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dying") || animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
             Invoke("DisableRB", 1f);
-            DisableColliders();
+            DisableCollider();
         }
         else
         {
@@ -68,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
                 if (atkAnim == 0) { animator.CrossFade("Attack_Left", .05f, 0); }
                 if (atkAnim == 1) { animator.CrossFade("Attack_Right", .05f, 0); }
                 yield return new WaitForSeconds(animationBuffer);
-                dealDamage();
+                DealDamage();
                 yield return new WaitForSeconds(attackCooldown);
             }
         }
@@ -76,7 +76,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        animator.CrossFade(movingAnim(), 1.3f, 0);
+        animator.CrossFade(MovingAnim(), 1.3f, 0);
         triggerEntered = false;
     }
 
@@ -94,21 +94,20 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void DisableColliders()
+    void DisableCollider()
     {
         if (animator.isActiveAndEnabled)
         {
             capsuleCollider.enabled = false;
-            characterBlockerCollider.enabled = false;
         }
     }
 
-    void dealDamage()
+    void DealDamage()
     {
         playerHealth.TakeDamage(enemyDamage);
     }
 
-    string movingAnim()
+    string MovingAnim()
     {
         if (navAgent.speed <= 4)
         {

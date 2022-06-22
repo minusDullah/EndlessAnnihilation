@@ -156,32 +156,30 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				Destroy(gameObject);
 			}
 
-			//if bullet collides with "Enemy" tag
-
-		}
-
-        private void OnTriggerEnter(Collider other)
-        {
-			if (other.CompareTag("EnemyBody"))
+			if (collision.transform.tag == "Hitbox")
 			{
 				//Get damageable component on object
-				IDamageable damageable = other.transform.GetComponent<IDamageable>();
+				IDamageable damageable = collision.transform.GetComponentInParent<IDamageable>();
 				//Damage object
 				damageable?.TakeDamage(damage);
 				//Destroy bullet object
 				Destroy(gameObject);
-			}			
+			}
 			
-			if (other.CompareTag("EnemyHead"))
+			if (collision.transform.tag == "HitboxHead")
 			{
 				//Get damageable component on object
-				IDamageable damageable = other.transform.GetComponentInParent<IDamageable>();
+				IDamageable damageable = collision.transform.GetComponentInParent<IDamageable>();
 				//Damage object
-				float bonusDamage = damage * headshotMultiplier;
-				damageable?.TakeDamage(bonusDamage);
+				damageable?.TakeDamage(damage * 1.5f);
 				//Destroy bullet object
 				Destroy(gameObject);
 			}
+		}
+
+        private void OnTriggerEnter(Collider other)
+        {
+	
 		}
 
         private IEnumerator DestroyTimer()
