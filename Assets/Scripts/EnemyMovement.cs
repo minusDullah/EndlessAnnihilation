@@ -20,7 +20,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float enemyDamage = 25f;
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 15f;
-    [SerializeField] private float speedMultiplier = 1.5f;
     [SerializeField] private float attackCooldown = .8f;
     [SerializeField] private float animationBuffer = .3f;
     [SerializeField] private bool triggerEntered = false;
@@ -35,10 +34,11 @@ public class EnemyMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
-        
+
         rb.isKinematic = true;
-        navAgent.speed = (waveSpawner.currWave * speedMultiplier);
-        navAgent.speed = Mathf.Clamp(navAgent.speed, minSpeed, maxSpeed);
+        float randomSpeed = Random.Range(waveSpawner.currWave/2, waveSpawner.currWave*2f);
+        randomSpeed = Mathf.Clamp(randomSpeed, minSpeed, maxSpeed);
+        navAgent.speed = randomSpeed;
         animator.CrossFade(movingAnim(), 1, 0);
     }
 
@@ -71,7 +71,6 @@ public class EnemyMovement : MonoBehaviour
                 dealDamage();
                 yield return new WaitForSeconds(attackCooldown);
             }
-            yield break;
         }
     }
 
@@ -111,11 +110,11 @@ public class EnemyMovement : MonoBehaviour
 
     string movingAnim()
     {
-        if (navAgent.speed <= 3) //round 1 + 2
+        if (navAgent.speed <= 4)
         {
             return "Slow_Walk";
         }
-        else if (navAgent.speed > 3 && navAgent.speed <= 7.5)//round 3,4,5
+        else if (navAgent.speed > 4 && navAgent.speed <= 8)
         {
             int runAnim = Random.Range(0, 3);
             if (runAnim == 0) { return "Walk"; }

@@ -76,8 +76,8 @@ GameObject:
   - component: {fileID: 1981319373812173750}
   - component: {fileID: 6962856633202805462}
   - component: {fileID: 5283732000049483500}
-  - component: {fileID: 8602257817491115913}
   - component: {fileID: 3517625434862670566}
+  - component: {fileID: -3624259874698761338}
   m_Layer: 0
   m_Name: Female_Zomb_B
   m_TagString: EnemyBody
@@ -137,9 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterBlockerCollider: {fileID: 600957851144679638}
   enemyDamage: 15
-  minSpeed: 1
+  minSpeed: 2
   maxSpeed: 12
-  speedMultiplier: 1.5
   attackCooldown: 0.77
   animationBuffer: 0.3
   triggerEntered: 0
@@ -190,7 +189,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 116511490996040332}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.45
+  m_Radius: 0.3
   m_Speed: 7
   m_Acceleration: 17
   avoidancePriority: 50
@@ -213,26 +212,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.45
+  m_Radius: 0.5
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.65, z: 0}
---- !u!54 &8602257817491115913
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116511490996040332}
-  serializedVersion: 2
-  m_Mass: 0.05
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!82 &3517625434862670566
 AudioSource:
   m_ObjectHideFlags: 0
@@ -375,6 +358,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &-3624259874698761338
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116511490996040332}
+  serializedVersion: 2
+  m_Mass: 0.05
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &116511490996040334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,7 +2373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8756188948361416249
 Transform:
   m_ObjectHideFlags: 0

@@ -53,7 +53,6 @@ public class HealthController : MonoBehaviour
     {
         if (currentPlayerHealth >= 0 && canTakeDamage == true)
         {
-            Debug.Log("Hit");
             PlayerHitAudio();
             currentPlayerHealth -= damage;
             canTakeDamage = false;
@@ -66,7 +65,6 @@ public class HealthController : MonoBehaviour
         }
         else if(currentPlayerHealth <= 0)
         {
-            Debug.Log("dead");
             //kill player
             //currentPlayerHealth = 0;
         }
@@ -82,7 +80,7 @@ public class HealthController : MonoBehaviour
     private void PlayerHeartbeatAudio()
     {
         playerHealthSource.volume = Mathf.Abs(1 - (currentPlayerHealth / 100));
-        Mathf.Clamp(playerHealthSource.volume, 0, .8f);
+        playerHealthSource.volume = Mathf.Clamp(playerHealthSource.volume, 0, .8f);
         if (!playerHealthSource.isPlaying && currentPlayerHealth != maxPlayerHealth)
         {
             playerHealthSource.Play();

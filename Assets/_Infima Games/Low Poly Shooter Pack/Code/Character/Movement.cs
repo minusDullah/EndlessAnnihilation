@@ -113,11 +113,6 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private float rigidbodyPushForce = 1.0f;
 
-        [Header("Working ground check")]
-        [SerializeField] public bool IsPlayerGrounded;
-        [SerializeField] public Transform GroundCheck;
-        [SerializeField] public LayerMask GroundMask;
-        [SerializeField] public float GroundDistance = 0.4f;
         #endregion
 
         #region FIELDS
@@ -194,7 +189,6 @@ namespace InfimaGames.LowPolyShooterPack
         /// Moves the camera to the character, processes jumping and plays sounds every frame.
         protected override void Update()
         {
-            isPlayerGrounded();
             //Get the equipped weapon!
             equippedWeapon = playerCharacter.GetInventory().GetEquipped();
 
@@ -384,11 +378,6 @@ namespace InfimaGames.LowPolyShooterPack
             controller.center = controller.height / 2.0f * Vector3.up;
         }
 
-        public void isPlayerGrounded()
-        {
-            IsPlayerGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
-        }
-
         public override void TryCrouch(bool value)
         {
             //Crouch.
@@ -445,7 +434,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Returns the value of Grounded.
         /// </summary>
-        public override bool IsGrounded() => IsPlayerGrounded;
+        public override bool IsGrounded() => controller.isGrounded;
 
         #endregion
     }
