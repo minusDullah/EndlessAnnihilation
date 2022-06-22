@@ -18,7 +18,6 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Enemy Stats")]
     [SerializeField] private float enemyDamage = 25f;
-    [SerializeField] private float attackRange = 4f;
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 15f;
     [SerializeField] private float speedMultiplier = 1.5f;
