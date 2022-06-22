@@ -74,7 +74,7 @@ CapsuleCollider:
   m_Radius: 0.2
   m_Height: 0.12
   m_Direction: 1
-  m_Center: {x: -0.05, y: 0, z: 0}
+  m_Center: {x: -0.12, y: 0, z: 0}
 --- !u!1 &6476294273279576705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,12 +1008,12 @@ GameObject:
   - component: {fileID: 6973056900140600596}
   - component: {fileID: 846720749817298276}
   - component: {fileID: 7382025985049888626}
-  - component: {fileID: 7680270812916193751}
+  - component: {fileID: 7878305907328567640}
   - component: {fileID: 1950328194161123315}
   - component: {fileID: 7091932666840451094}
   m_Layer: 0
   m_Name: Female_Zomb_A
-  m_TagString: EnemyBody
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af058e44fc50114e8ff9cee935e88dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterCollider: {fileID: 7680270812916193751}
+  characterCollider: {fileID: 7878305907328567640}
   characterBlockerCollider: {fileID: 8536324783208304492}
 --- !u!195 &7382025985049888626
 NavMeshAgent:
@@ -1122,12 +1122,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 6476294273279576795}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.45
   m_Speed: 7
   m_Acceleration: 17
   avoidancePriority: 50
   m_AngularSpeed: 170
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1135,7 +1135,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &7680270812916193751
+--- !u!136 &7878305907328567640
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1148,7 +1148,7 @@ CapsuleCollider:
   m_Radius: 0.45
   m_Height: 1.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!54 &1950328194161123315
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -21,7 +21,6 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         GenerateWave();
-        Mathf.Clamp(waveValue, 1, 150);
     }
 
     // Update is called once per frame
@@ -54,9 +53,11 @@ public class WaveSpawner : MonoBehaviour
     public void GenerateWave()
     {
         waveValue = currWave * waveMultiplier;
+        Mathf.Clamp(waveValue, 0, 150);
         GenerateEnemies();
 
-        spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
+        spawnInterval = Random.Range(.5f, 1.5f);
+        // ? lol spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
         waveTimer = waveDuration; // wave duration is read only
     }
 

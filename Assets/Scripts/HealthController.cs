@@ -53,6 +53,7 @@ public class HealthController : MonoBehaviour
     {
         if (currentPlayerHealth >= 0 && canTakeDamage == true)
         {
+            Debug.Log("Hit");
             PlayerHitAudio();
             currentPlayerHealth -= damage;
             canTakeDamage = false;
@@ -65,6 +66,7 @@ public class HealthController : MonoBehaviour
         }
         else if(currentPlayerHealth <= 0)
         {
+            Debug.Log("dead");
             //kill player
             //currentPlayerHealth = 0;
         }

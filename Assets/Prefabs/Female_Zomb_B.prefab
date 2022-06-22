@@ -190,12 +190,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 116511490996040332}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.45
   m_Speed: 7
   m_Acceleration: 17
   avoidancePriority: 50
   m_AngularSpeed: 170
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -216,7 +216,7 @@ CapsuleCollider:
   m_Radius: 0.45
   m_Height: 1.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!54 &8602257817491115913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2402,7 +2402,7 @@ CapsuleCollider:
   m_Radius: 0.2
   m_Height: 0.12
   m_Direction: 1
-  m_Center: {x: -0.08, y: 0, z: 0}
+  m_Center: {x: -0.12, y: 0, z: 0}
 --- !u!1001 &3395373003667105123
 PrefabInstance:
   m_ObjectHideFlags: 0

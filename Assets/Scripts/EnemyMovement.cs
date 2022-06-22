@@ -77,11 +77,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            animator.CrossFade(movingAnim(), 1.3f, 0);
-            triggerEntered = false;
-        }
+        animator.CrossFade(movingAnim(), 1.3f, 0);
+        triggerEntered = false;
     }
 
     void enemyDestination()

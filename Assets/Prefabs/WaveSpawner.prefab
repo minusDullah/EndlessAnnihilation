@@ -219,7 +219,7 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 8754013033573835290, guid: 3e346f6dd55e5694a8e306524b6c755d,
       type: 3}
     cost: 5
-  currWave: 1
+  currWave: 14
   waveValue: 0
   waveMultiplier: 10
   enemiesToSpawn: []
@@ -236,7 +236,7 @@ MonoBehaviour:
   - {fileID: 4553064475341984308}
   waveDuration: 45
   waveTimer: 0
-  spawnInterval: 0
+  spawnInterval: 1
   spawnTimer: 0
 --- !u!1 &4553064474490920217
 GameObject:

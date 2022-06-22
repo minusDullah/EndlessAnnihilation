@@ -174,7 +174,6 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			
 			if (other.CompareTag("EnemyHead"))
 			{
-				Debug.Log("hs");
 				//Get damageable component on object
 				IDamageable damageable = other.transform.GetComponentInParent<IDamageable>();
 				//Damage object
