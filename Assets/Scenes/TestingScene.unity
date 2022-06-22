@@ -108,15 +108,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 2
-    agentHeight: 3.5
+    agentRadius: 0.5
+    agentHeight: 1.5
     agentSlope: 35
     agentClimb: 0.75
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.6666667
+    cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 1
@@ -2308,7 +2308,7 @@ MonoBehaviour:
   maxPlayerHealth: 100
   regenRate: 30
   canRegen: 0
-  invulnerableTimer: 1.5
+  invulnerableTimer: 1
   canTakeDamage: 1
   redSplatterImage: {fileID: 0}
   hurtImage: {fileID: 0}
@@ -10309,7 +10309,7 @@ PrefabInstance:
     - target: {fileID: 4818736797759305148, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: m_Height
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4818736797759305148, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
@@ -11353,7 +11353,7 @@ PrefabInstance:
     - target: {fileID: 4553064474270830345, guid: 067a006d55347ec4aa57b19e867341a4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 8.85
       objectReference: {fileID: 0}
     - target: {fileID: 4553064474270830345, guid: 067a006d55347ec4aa57b19e867341a4,
         type: 3}

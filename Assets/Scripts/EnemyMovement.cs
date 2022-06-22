@@ -45,6 +45,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) { return; }
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dying") || animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
             Invoke("DisableRB", 1f);
@@ -63,7 +65,9 @@ public class EnemyMovement : MonoBehaviour
             triggerEntered = true;
             while (triggerEntered)
             {
-                animator.CrossFade("Attack", .05f, 0);
+                int atkAnim = Random.Range(0, 2);
+                if (atkAnim == 0) { animator.CrossFade("Attack_Left", .05f, 0); }
+                if (atkAnim == 1) { animator.CrossFade("Attack_Right", .05f, 0); }
                 yield return new WaitForSeconds(animationBuffer);
                 dealDamage();
                 yield return new WaitForSeconds(attackCooldown);
@@ -111,9 +115,16 @@ public class EnemyMovement : MonoBehaviour
 
     string movingAnim()
     {
-        if (navAgent.speed < 4)
+        if (navAgent.speed <= 3) //round 1 + 2
         {
-            return "Walk";
+            return "Slow_Walk";
+        }
+        else if (navAgent.speed > 3 && navAgent.speed <= 7.5)//round 3,4,5
+        {
+            int runAnim = Random.Range(0, 3);
+            if (runAnim == 0) { return "Walk"; }
+            else if (runAnim == 1) { return "Walk_2"; }
+            else { return "Walk_Aggressive"; }
         }
         else
         {

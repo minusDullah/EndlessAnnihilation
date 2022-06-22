@@ -19,6 +19,8 @@ TagManager:
   - Enemy
   - ScoreUI
   - waveSpawner
+  - EnemyHead
+  - EnemyBody
   layers:
   - Default
   - TransparentFX

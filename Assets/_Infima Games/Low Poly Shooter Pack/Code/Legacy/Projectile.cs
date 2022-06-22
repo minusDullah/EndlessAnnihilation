@@ -31,11 +31,13 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		public Transform[] concreteImpactPrefabs;
 
 		private float damage;
+		private float headshotMultiplier;
 
 		private void Start()
 		{
 			//Get damage from parent weapon then set parent to nothing so projectiles dont follow when moving weapon
 			damage = gameObject.GetComponentInParent<Weapon>().damagePerBullet;
+			headshotMultiplier = gameObject.GetComponentInParent<Weapon>().headshotMultiplier;
 			gameObject.transform.SetParent(null);
 			//Grab the game mode service, we need it to access the player character!
 			var gameModeService = ServiceLocator.Current.Get<IGameModeService>();
@@ -160,12 +162,24 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
         private void OnTriggerEnter(Collider other)
         {
-			if (other.CompareTag("Enemy"))
+			if (other.CompareTag("EnemyBody"))
 			{
 				//Get damageable component on object
 				IDamageable damageable = other.transform.GetComponent<IDamageable>();
 				//Damage object
 				damageable?.TakeDamage(damage);
+				//Destroy bullet object
+				Destroy(gameObject);
+			}			
+			
+			if (other.CompareTag("EnemyHead"))
+			{
+				Debug.Log("hs");
+				//Get damageable component on object
+				IDamageable damageable = other.transform.GetComponentInParent<IDamageable>();
+				//Damage object
+				float bonusDamage = damage * headshotMultiplier;
+				damageable?.TakeDamage(bonusDamage);
 				//Destroy bullet object
 				Destroy(gameObject);
 			}

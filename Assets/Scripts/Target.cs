@@ -41,7 +41,9 @@ public class Target : MonoBehaviour, IDamageable
         {
             DeathSound();
             navMeshAgent.Stop();
-            animator.Play("Dying", 0);
+            int dieAnim = Random.Range(0, 2);
+            if(dieAnim == 0) { animator.Play("Dying", 0); }
+            if(dieAnim == 1) { animator.Play("Death", 0); }
             ScoreOnDeath();
             FXonDeath();
             RemoveFromMinimap();

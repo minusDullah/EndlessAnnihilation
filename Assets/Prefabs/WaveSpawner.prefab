@@ -204,15 +204,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - enemyPrefab: {fileID: 3362208893974939512, guid: 22d8b3474f4949f4bba82595bd9672d0,
+  - enemyPrefab: {fileID: 6476294273279576795, guid: d9d476b781935794f98c1e798bf1ba0d,
       type: 3}
-    cost: 1
-  - enemyPrefab: {fileID: 9187841338511970925, guid: e4ca7cf120d28cd459abef37cb7851f9,
+    cost: 5
+  - enemyPrefab: {fileID: 116511490996040332, guid: 86d9b2e1ab71fcb43b415724903df706,
       type: 3}
-    cost: 2
-  - enemyPrefab: {fileID: 5598414552948696081, guid: ad896d189303acf449d2e2aabef13ca7,
+    cost: 5
+  - enemyPrefab: {fileID: 5347410572568398771, guid: 7ced635d3d623d247a722a60d13a9b59,
       type: 3}
-    cost: 2
+    cost: 5
+  - enemyPrefab: {fileID: 5311440706196767125, guid: 30eb851480aba944482f1e363f13fd09,
+      type: 3}
+    cost: 5
+  - enemyPrefab: {fileID: 8754013033573835290, guid: 3e346f6dd55e5694a8e306524b6c755d,
+      type: 3}
+    cost: 5
   currWave: 5
   waveValue: 0
   waveMultiplier: 5

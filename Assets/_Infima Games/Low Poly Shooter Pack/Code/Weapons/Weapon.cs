@@ -50,6 +50,10 @@ namespace InfimaGames.LowPolyShooterPack
         [Tooltip("Amount of damage weapon does per bullet.")]
         [SerializeField] 
         public float damagePerBullet = 10;
+        
+        [Tooltip("Multiplies the damage amount by.")]
+        [SerializeField] 
+        public float headshotMultiplier = 1.5f;
 
         [Title(label: "Reloading")]
         
