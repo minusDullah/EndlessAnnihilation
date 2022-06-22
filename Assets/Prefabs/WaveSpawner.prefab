@@ -206,22 +206,22 @@ MonoBehaviour:
   enemies:
   - enemyPrefab: {fileID: 6476294273279576795, guid: d9d476b781935794f98c1e798bf1ba0d,
       type: 3}
-    cost: 5
+    cost: 1
   - enemyPrefab: {fileID: 116511490996040332, guid: 86d9b2e1ab71fcb43b415724903df706,
       type: 3}
-    cost: 5
+    cost: 2
   - enemyPrefab: {fileID: 5347410572568398771, guid: 7ced635d3d623d247a722a60d13a9b59,
       type: 3}
-    cost: 5
+    cost: 3
   - enemyPrefab: {fileID: 5311440706196767125, guid: 30eb851480aba944482f1e363f13fd09,
       type: 3}
-    cost: 5
+    cost: 4
   - enemyPrefab: {fileID: 8754013033573835290, guid: 3e346f6dd55e5694a8e306524b6c755d,
       type: 3}
     cost: 5
-  currWave: 5
+  currWave: 1
   waveValue: 0
-  waveMultiplier: 5
+  waveMultiplier: 10
   enemiesToSpawn: []
   spawnLocation:
   - {fileID: 4553064473831359935}

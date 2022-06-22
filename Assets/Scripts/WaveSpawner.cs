@@ -21,6 +21,7 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         GenerateWave();
+        Mathf.Clamp(waveValue, 1, 150);
     }
 
     // Update is called once per frame
