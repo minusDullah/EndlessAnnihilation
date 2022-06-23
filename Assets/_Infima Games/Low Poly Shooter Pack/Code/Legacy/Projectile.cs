@@ -158,6 +158,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 			if (collision.transform.tag == "Hitbox")
 			{
+				Transform bloodFX = Instantiate(bloodImpactPrefabs[Random.Range(0, bloodImpactPrefabs.Length)], transform.position,Quaternion.LookRotation(collision.contacts[0].normal));
+				bloodFX.transform.parent = collision.transform;
 				//Get damageable component on object
 				IDamageable damageable = collision.transform.GetComponentInParent<IDamageable>();
 				//Damage object
@@ -168,10 +170,12 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			
 			if (collision.transform.tag == "HitboxHead")
 			{
+				Transform bloodFX = Instantiate(bloodImpactPrefabs[Random.Range(0, bloodImpactPrefabs.Length)], transform.position, Quaternion.LookRotation(collision.contacts[0].normal));
+				bloodFX.transform.parent = collision.transform;
 				//Get damageable component on object
 				IDamageable damageable = collision.transform.GetComponentInParent<IDamageable>();
 				//Damage object
-				damageable?.TakeDamage(damage * 1.5f);
+				damageable?.TakeDamage(damage * headshotMultiplier);
 				//Destroy bullet object
 				Destroy(gameObject);
 			}
