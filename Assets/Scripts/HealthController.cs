@@ -53,9 +53,8 @@ public class HealthController : MonoBehaviour
     {
         if (currentPlayerHealth >= 0 && canTakeDamage == true)
         {
-            PlayerHitAudio();
-            currentPlayerHealth -= damage;
             canTakeDamage = false;
+            currentPlayerHealth -= damage;
             canRegen = false;
             StartCoroutine(HurtFlash());
             UpdateHealth();
@@ -102,7 +101,7 @@ public class HealthController : MonoBehaviour
     IEnumerator HurtFlash()
     {
         hurtImage.enabled = true;
-        playerHitSource.Play();
+        PlayerHitAudio();
         yield return new WaitForSeconds(hurtTimer);
         hurtImage.enabled = false;
     }

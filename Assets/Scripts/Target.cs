@@ -24,6 +24,7 @@ public class Target : MonoBehaviour, IDamageable
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private bool pointsGained;
+    private bool soundPlayed;
     
 
     private void Start()
@@ -33,6 +34,8 @@ public class Target : MonoBehaviour, IDamageable
         enemyAudioSource = GetComponent<AudioSource>();
         scoreUpdate = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
         pointsGained = false;
+        soundPlayed = false;
+        pointsGained = false;
     }
 
     public void TakeDamage(float damage)
@@ -40,6 +43,7 @@ public class Target : MonoBehaviour, IDamageable
         health -= damage;
         if (health <= 0)
         {
+            SetAllCollidersStatus();
             DeathSound();
             navMeshAgent.Stop();
             int dieAnim = Random.Range(0, 2);
@@ -80,8 +84,25 @@ public class Target : MonoBehaviour, IDamageable
 
     private void DeathSound()
     {
-        int clipToPlay = Random.Range(0, enemyDie.Length);
-        enemyAudioSource.clip = enemyDie[clipToPlay];
-        enemyAudioSource.Play();
+        if (!enemyAudioSource.isPlaying && soundPlayed == false)
+        {
+            int clipToPlay = Random.Range(0, enemyDie.Length);
+            enemyAudioSource.clip = enemyDie[clipToPlay];
+            enemyAudioSource.Play();
+            soundPlayed = true;
+        }
+    }
+
+    public void SetAllCollidersStatus()
+    {
+        foreach (Collider c in GetComponentsInChildren<Collider>())
+        {
+            //c.enabled = active;
+            if (c.gameObject.tag != null)
+            {
+                c.gameObject.tag = "Untagged";
+            }
+            
+        }
     }
 }

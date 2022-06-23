@@ -731,6 +731,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6373a4a0d18dd76438909a827c95742c, type: 3}
+--- !u!4 &136595093 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6864261471799679059, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2068899750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &140153199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8838522384356870534, guid: 6373a4a0d18dd76438909a827c95742c,
@@ -10290,6 +10296,16 @@ PrefabInstance:
       propertyPath: damagePerBullet
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 17694672315571547, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17694672315571547, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 91241565878795807, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: m_IsActive
@@ -10314,6 +10330,11 @@ PrefabInstance:
         type: 3}
       propertyPath: damagePerBullet
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 311715146319078261, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 311715146319078261, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
@@ -10420,6 +10441,16 @@ PrefabInstance:
       propertyPath: damagePerBullet
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1553274528160968419, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553274528160968419, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1647837264714213205, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: m_IsActive
@@ -10470,6 +10501,16 @@ PrefabInstance:
       propertyPath: damagePerBullet
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2203191837357831097, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203191837357831097, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2214960360259149576, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: m_IsActive
@@ -10505,15 +10546,45 @@ PrefabInstance:
       propertyPath: damagePerBullet
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2541477934819599005, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2541477934819599005, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2551913756577332936, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: damagePerBullet
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551913756577332936, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551913756577332936, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710002102828390999, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: damagePerBullet
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2710002102828390999, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
-      propertyPath: damagePerBullet
-      value: 10
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710002102828390999, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2734684610955545649, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
@@ -10635,6 +10706,16 @@ PrefabInstance:
       propertyPath: damagePerBullet
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2860186493579796399, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860186493579796399, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3215491953047844861, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: gripIndex
@@ -10720,6 +10801,16 @@ PrefabInstance:
       propertyPath: damagePerBullet
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 3544643989408049847, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544643989408049847, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3656227453881430346, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: damagePerBullet
@@ -10765,6 +10856,11 @@ PrefabInstance:
       propertyPath: magazineIndexRandom
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4044913529274317659, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 136595093}
     - target: {fileID: 4063940675811791369, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: m_IsActive
@@ -10809,6 +10905,16 @@ PrefabInstance:
         type: 3}
       propertyPath: damagePerBullet
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709700336397351161, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709700336397351161, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4818736797759305148, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
@@ -10875,6 +10981,16 @@ PrefabInstance:
       propertyPath: damagePerBullet
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 5839450095876205848, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5839450095876205848, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5850004544361478164, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: gripIndex
@@ -10919,6 +11035,16 @@ PrefabInstance:
         type: 3}
       propertyPath: roundsPerMinutes
       value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981542762840296334, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: canReloadWhenFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981542762840296334, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: automaticReloadOnEmpty
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6038379224247088492, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
