@@ -70,7 +70,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region Getters
 
-        public override int GetLastIndex()
+        public override int GetNextIndex()
         {
             //Get last index with wrap around.
             int newIndex = equippedIndex - 1;
@@ -81,7 +81,7 @@ namespace InfimaGames.LowPolyShooterPack
             return newIndex;
         }
 
-        public override int GetNextIndex()
+        public override int GetLastIndex()
         {
             //Get next index with wrap around.
             int newIndex = equippedIndex + 1;
