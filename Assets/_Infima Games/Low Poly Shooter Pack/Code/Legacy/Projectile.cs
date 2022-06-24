@@ -181,11 +181,6 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			}
 		}
 
-        private void OnTriggerEnter(Collider other)
-        {
-	
-		}
-
         private IEnumerator DestroyTimer()
 		{
 			//Wait random time based on min and max values

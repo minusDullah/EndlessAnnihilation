@@ -234,7 +234,7 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 6476294273279576795, guid: d9d476b781935794f98c1e798bf1ba0d,
       type: 3}
     cost: 5
-  currWave: 1
+  currWave: 3
   waveValue: 0
   waveMultiplier: 10
   enemiesToSpawn: []
@@ -244,11 +244,8 @@ MonoBehaviour:
   - {fileID: 4553064474490920218}
   - {fileID: 4553064473907850344}
   - {fileID: 4553064474232458451}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2743118938391601133}
+  - {fileID: 4465340304305548314}
   waveDuration: 60
   waveTimer: 0
   spawnInterval: 1

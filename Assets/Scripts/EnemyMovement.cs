@@ -59,7 +59,7 @@ public class EnemyMovement : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             triggerEntered = true;
-            while (triggerEntered)
+            while (triggerEntered && GetComponent<Target>().health > 0)
             {
                 int atkAnim = Random.Range(0, 2);
                 if (atkAnim == 0) { animator.CrossFade("Attack_Left", .05f, 0); }

@@ -56,8 +56,15 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		         "before destroying object")]
 		public float destroyDelay;
 
+
+		private float damage;
+		private float headshotMultiplier;
+
 		private void Start()
 		{
+			damage = gameObject.GetComponentInParent<Weapon>().damagePerBullet;
+			headshotMultiplier = gameObject.GetComponentInParent<Weapon>().headshotMultiplier;
+			gameObject.transform.SetParent(null);
 			//If not using constant force (grenade launcher projectile)
 			if (!useConstantForce)
 			{
@@ -222,6 +229,16 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 					//If gas tank is within radius, explode it
 					hit.gameObject.GetComponent<GasTankScript>().isHit = true;
 					hit.gameObject.GetComponent<GasTankScript>().explosionTimer = 0.05f;
+				}
+
+				if (hit.transform.tag == "Hitbox" || hit.transform.tag == "HitboxHead")
+				{
+					//Get damageable component on object
+					IDamageable damageable = hit.transform.GetComponentInParent<IDamageable>();
+					//Damage object
+					damageable?.TakeDamage(damage);
+					//Destroy bullet object
+					Destroy(gameObject);
 				}
 			}
 		}

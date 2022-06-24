@@ -121,6 +121,16 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 					//Reduce explosion timer on gas tank object to make it explode faster
 					hit.gameObject.GetComponent<GasTankScript>().explosionTimer = 0.05f;
 				}
+
+				if (hit.transform.tag == "Hitbox" || hit.transform.tag == "HitboxHead")
+				{
+					//Get damageable component on object
+					IDamageable damageable = hit.transform.GetComponentInParent<IDamageable>();
+					//Damage object
+					damageable?.TakeDamage(50f);
+					//Destroy bullet object
+					Destroy(gameObject);
+				}
 			}
 
 			//Destroy the grenade object on explosion
