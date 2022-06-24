@@ -8,12 +8,11 @@ public class ScoreUpdate : MonoBehaviour
     [SerializeField] public int scoreTotal;
     private TextMeshProUGUI scoreText;
     private Animator anim;
-    private TextMeshProUGUI scoreGainText;
 
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         scoreText = gameObject.GetComponent<TextMeshProUGUI>();
-        anim = GameObject.Find("ScoreGain").GetComponent<Animator>();
         scoreText.text = ("" + 0);
     }
 
