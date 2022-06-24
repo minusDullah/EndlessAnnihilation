@@ -73201,7 +73201,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.5
-  m_Radius: 0.5
+  m_Radius: 1
   m_SlopeLimit: 180
   m_StepOffset: 0.02
   m_SkinWidth: 0.02
@@ -74106,7 +74106,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 10
+  m_BaseOffset: 7.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &8225568822306483407
