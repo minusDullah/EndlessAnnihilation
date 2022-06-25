@@ -7,7 +7,7 @@ public class Target : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     [SerializeField] public float health = 100f;
-    [SerializeField] private int scoreWorth = 50;
+    [SerializeField] public int scoreWorth = 50;
     [SerializeField] private int destroyTimer = 15;
 
     [Header("References")]
