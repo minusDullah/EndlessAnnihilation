@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '+50
+  m_text: 'ScoreGain
 
 '
   m_isRightToLeft: 0
@@ -1862,6 +1862,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTotal: 0
+  previousScoreGain: 0
+  scoreGainUI: {fileID: 3477037845535183041}
+  scoreText: {fileID: 6672248031123440771}
+  anim: {fileID: 5166198687468096091}
 --- !u!1 &8526386306062065574
 GameObject:
   m_ObjectHideFlags: 0

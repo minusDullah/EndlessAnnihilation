@@ -59,8 +59,7 @@ public class Target : MonoBehaviour, IDamageable
     {
         if(pointsGained == false)
         {
-            scoreUpdate.scoreTotal += scoreWorth;
-            scoreUpdate.updateScore();
+            scoreUpdate.CalculateScore(scoreWorth);
             pointsGained = true;
         }
     }
