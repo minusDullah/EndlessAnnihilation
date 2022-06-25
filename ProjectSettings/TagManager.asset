@@ -21,6 +21,8 @@ TagManager:
   - waveSpawner
   - Hitbox
   - HitboxHead
+  - FxTemporaire
+  - Knife
   layers:
   - Default
   - TransparentFX
