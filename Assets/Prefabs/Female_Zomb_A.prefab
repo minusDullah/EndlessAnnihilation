@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34517cecc9e0243429a96336253c3056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 75
+  health: 150
   scoreWorth: 50
   destroyTimer: 8
   bloodFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}

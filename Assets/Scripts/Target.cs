@@ -45,7 +45,7 @@ public class Target : MonoBehaviour, IDamageable
         {
             SetAllCollidersStatus();
             DeathSound();
-            navMeshAgent.Stop();
+            navMeshAgent.isStopped = true;
             int dieAnim = Random.Range(0, 2);
             if(dieAnim == 0) { animator.Play("Dying", 0); }
             if(dieAnim == 1) { animator.Play("Death", 0); }

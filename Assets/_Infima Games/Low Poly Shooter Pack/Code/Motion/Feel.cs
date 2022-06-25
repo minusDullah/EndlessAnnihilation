@@ -84,9 +84,11 @@ namespace InfimaGames.LowPolyShooterPack
                         return Standing;
                 }
             }
-            
+
             //Return.
+#pragma warning disable CS0162 // Unreachable code detected
             return Standing;
+#pragma warning restore CS0162 // Unreachable code detected
         }
         
         #endregion

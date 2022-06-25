@@ -34,7 +34,9 @@ namespace InfimaGames.LowPolyShooterPack
         public Feel GetFeel(MotionType motionType)
         {
             //Switch.
+#pragma warning disable CS8524 // The switch expression does not handle some values of its input type (it is not exhaustive) involving an unnamed enum value.
             return motionType switch
+#pragma warning restore CS8524 // The switch expression does not handle some values of its input type (it is not exhaustive) involving an unnamed enum value.
             {
                 //MotionType.Camera.
                 MotionType.Camera => cameraFeel,
