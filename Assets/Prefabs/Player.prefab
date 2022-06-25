@@ -3194,7 +3194,7 @@ MonoBehaviour:
   airControl: 0
   gravity: 35
   jumpGravity: 35
-  jumpForce: 1.5
+  jumpForce: 1
   stickToGroundForce: 1
   canCrouch: 1
   canCrouchWhileFalling: 0

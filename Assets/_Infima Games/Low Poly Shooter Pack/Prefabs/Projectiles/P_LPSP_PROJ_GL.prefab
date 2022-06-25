@@ -373,7 +373,7 @@ MonoBehaviour:
   force: 2500
   despawnTime: 30
   radius: 4
-  power: 2000
+  power: 150
   usesParticles: 0
   smokeParticles: {fileID: 0}
   flameParticles: {fileID: 0}

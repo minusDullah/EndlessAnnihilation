@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         rb.isKinematic = true;
-        float randomSpeed = Random.Range(waveSpawner.currWave/2, waveSpawner.currWave*2f);
+        float randomSpeed = Random.Range(waveSpawner.currWave/1.5F, waveSpawner.currWave);
         randomSpeed = Mathf.Clamp(randomSpeed, minSpeed, maxSpeed);
         navAgent.speed = randomSpeed;
         animator.CrossFade(MovingAnim(), 1, 0);
@@ -45,13 +45,19 @@ public class EnemyMovement : MonoBehaviour
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dying") || animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
-            Invoke("DisableRB", 1f);
-            DisableCollider();
+            DisablePhysics();
         }
         else
         {
             enemyDestination();
         }
+    }
+
+    private void DisablePhysics()
+    {
+        animator.enabled = false;
+        capsuleCollider.enabled = false;
+        rb.isKinematic = false;
     }
 
     IEnumerator OnTriggerEnter(Collider other)
@@ -61,9 +67,7 @@ public class EnemyMovement : MonoBehaviour
             triggerEntered = true;
             while (triggerEntered && GetComponent<Target>().health > 0)
             {
-                int atkAnim = Random.Range(0, 2);
-                if (atkAnim == 0) { animator.CrossFade("Attack_Left", .05f, 0); }
-                if (atkAnim == 1) { animator.CrossFade("Attack_Right", .05f, 0); }
+                ChooseAnimation();
                 yield return new WaitForSeconds(animationBuffer);
                 DealDamage();
                 yield return new WaitForSeconds(attackCooldown);
@@ -82,35 +86,25 @@ public class EnemyMovement : MonoBehaviour
         navAgent.SetDestination(playerTransform.position);
     }
 
-    void DisableRB()
-    {
-        if (animator.isActiveAndEnabled)
-        {
-            animator.enabled = false;
-            rb.isKinematic = false;
-        }
-    }
-
-    void DisableCollider()
-    {
-        if (animator.isActiveAndEnabled)
-        {
-            capsuleCollider.enabled = false;
-        }
-    }
-
     void DealDamage()
     {
         playerHealth.TakeDamage(enemyDamage);
     }
 
+    void ChooseAnimation()
+    {
+        int atkAnim = Random.Range(0, 2);
+        if (atkAnim == 0) { animator.CrossFade("Attack_Left", .05f, 0); }
+        if (atkAnim == 1) { animator.CrossFade("Attack_Right", .05f, 0); }
+    }
+
     string MovingAnim()
     {
-        if (navAgent.speed <= 4)
+        if (navAgent.speed <= 2)
         {
             return "Slow_Walk";
         }
-        else if (navAgent.speed > 4 && navAgent.speed <= 8)
+        else if (navAgent.speed > 2 && navAgent.speed <= 4)
         {
             int runAnim = Random.Range(0, 3);
             if (runAnim == 0) { return "Walk"; }

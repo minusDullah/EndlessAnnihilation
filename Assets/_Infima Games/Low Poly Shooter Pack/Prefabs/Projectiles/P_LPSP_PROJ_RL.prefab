@@ -4771,7 +4771,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c68c048883aa04e98206611bbd70f7, type: 2}
-  - {fileID: 2100000, guid: b1c68c048883aa04e98206611bbd70f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4923,7 +4922,7 @@ MonoBehaviour:
   force: 2500
   despawnTime: 30
   radius: 5
-  power: 2250
+  power: 150
   usesParticles: 1
   smokeParticles: {fileID: 198829711441321964}
   flameParticles: {fileID: 198299060017700864}
@@ -9656,7 +9655,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c28f343ad30573b4099553d8875601a0, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
