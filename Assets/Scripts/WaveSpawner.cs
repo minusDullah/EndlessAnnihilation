@@ -53,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
     public void GenerateWave()
     {
         waveValue = currWave * waveMultiplier;
-        waveValue = Mathf.Clamp(waveValue, 0, 100);
+        waveValue = Mathf.Clamp(waveValue, 0, waveDuration);
         GenerateEnemies();
 
         //spawnInterval = Random.Range(.5f, 1.5f);
