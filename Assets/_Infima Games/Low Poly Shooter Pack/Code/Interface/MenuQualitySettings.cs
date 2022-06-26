@@ -110,6 +110,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Enable depth of field effect.
             if(depthOfField != null)
                 depthOfField.active = true;
+
+            Invoke("ChangeTime", .25f);
         }
         /// <summary>
         /// Hides the menu by playing an animation.
@@ -126,6 +128,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Disable depth of field effect.
             if(depthOfField != null)
                 depthOfField.active = false;
+
+            ChangeTime();
         }
 
         /// <summary>
@@ -201,6 +205,18 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             QualitySettings.SetQualityLevel(5);
             //Enable Post Processing.
             SetPostProcessingState();
+        }
+
+        public void ChangeTime()
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
         }
 
         public void Restart()

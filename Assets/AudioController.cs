@@ -14,8 +14,8 @@ public class AudioController : MonoBehaviour
     {
         UpdateMasterSlider(slider[0]);
         UpdateMusicSlider(slider[1]);
-        UpdatePlayerAudioSlider(slider[3]);
-        UpdateEnemySlider(slider[4]);
+        UpdatePlayerAudioSlider(slider[2]);
+        UpdateEnemySlider(slider[3]);
     }
 
     public void UpdateMasterSlider(Slider volume)

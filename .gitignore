@@ -76,3 +76,5 @@ build/*
 
 TempBuild/*
 !build/build.xml
+
+/Assets/_Creepy_Cat
