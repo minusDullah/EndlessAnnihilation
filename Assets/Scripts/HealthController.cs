@@ -30,8 +30,10 @@ public class HealthController : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource playerHitSource;
     [SerializeField] private AudioSource playerHealthSource;
+    [SerializeField] private AudioSource BGMusic;
     [SerializeField] private AudioClip[] playerHit;
     [SerializeField] private AudioClip[] playerHeartbeat;
+    [SerializeField] private AudioClip[] BGMusicTracks;
 
     private void Start()
     {
@@ -39,6 +41,7 @@ public class HealthController : MonoBehaviour
         redSplatterImage = GameObject.Find("RedSplatter").GetComponent<Image>();
         hurtImage.enabled = false;
         UpdateHealth();
+        StartCoroutine(playBGMusic());
     }
 
     void UpdateHealth()
@@ -111,6 +114,15 @@ public class HealthController : MonoBehaviour
     {
         yield return new WaitForSeconds(invulnerableTimer);
         canTakeDamage = true;
+    }
+
+    IEnumerator playBGMusic()
+    {
+        int randomSong = Random.Range(0, BGMusicTracks.Length);
+        BGMusic.clip = BGMusicTracks[randomSong];
+        BGMusic.Play();
+        yield return new WaitForSeconds(BGMusic.clip.length);
+        StartCoroutine(playBGMusic());
     }
 
     private void Update()
