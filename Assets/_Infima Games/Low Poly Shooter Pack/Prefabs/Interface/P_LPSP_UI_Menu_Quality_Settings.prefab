@@ -4731,6 +4731,7 @@ MonoBehaviour:
   animatedCanvas: {fileID: 5965040679945168711}
   animationShow: {fileID: 7400000, guid: 9fb6ea74a26a0e240b06702882bdf1be, type: 2}
   animationHide: {fileID: 7400000, guid: 8b8ff9da74b20434aa71e9556f0f836c, type: 2}
+  audioMixer: {fileID: 24100000, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
 --- !u!114 &8208181773669361072
 MonoBehaviour:
   m_ObjectHideFlags: 0

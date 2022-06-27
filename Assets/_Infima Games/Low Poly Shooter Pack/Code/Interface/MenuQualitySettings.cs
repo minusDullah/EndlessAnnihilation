@@ -3,6 +3,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Audio;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
@@ -26,6 +27,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [Tooltip("Animation played when hiding this menu.")]
         [SerializeField]
         private AnimationClip animationHide;
+        
+        [SerializeField] private AudioMixer audioMixer;
 
         #endregion
         
@@ -209,13 +212,17 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         public void ChangeTime()
         {
+            float volume = 0;
             if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
+                audioMixer.GetFloat("Master", out volume);
+                audioMixer.SetFloat("Master", -80);
             }
             else
             {
                 Time.timeScale = 1;
+                audioMixer.SetFloat("Master", volume);
             }
         }
 

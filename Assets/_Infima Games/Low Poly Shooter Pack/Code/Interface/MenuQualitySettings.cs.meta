@@ -3,7 +3,11 @@ guid: 4df57ff7f7d31784296215fac767cc5e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - animatedCanvas: {instanceID: 0}
+  - animationShow: {instanceID: 0}
+  - animationHide: {instanceID: 0}
+  - audioMixer: {fileID: 24100000, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
