@@ -424,6 +424,33 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 6476294273279576795, guid: d9d476b781935794f98c1e798bf1ba0d,
       type: 3}
     cost: 1
+  - enemyPrefab: {fileID: 247331376927127281, guid: 1cef12bad845c2342b50b879940c562a,
+      type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 912161980940752616, guid: 324aa409ab2b2ab41af7951cac4f01c3,
+      type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 2016481468405483901, guid: 03d485712fab3254d9be940f1092200a,
+      type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 4649720867494523994, guid: 045ebf4ce580fa44292b18ca9bd95fdb,
+      type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 1694717532445107622, guid: 1949de76afa20214da26992071a31a1d,
+      type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 8562734340728100090, guid: 3e4e43ffd31878f4da390622aeb72ebc,
+      type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 1789629041473156987, guid: 2b9ac401c1e21594badbb54b86d00030,
+      type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 6768964580323835772, guid: 9bd8b51ad91c6af44849bbdbec72e079,
+      type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 4972308482775631872, guid: e66fd7302f888ab4e9b6d518221b238d,
+      type: 3}
+    cost: 1
   currWave: 2
   waveValue: 0
   waveMultiplier: 10
