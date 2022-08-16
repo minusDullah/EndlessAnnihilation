@@ -34,6 +34,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// </summary>
         private void Awake()
         {
+            Time.timeScale = 1;
             //Spawn Interface.
             Instantiate(canvasPrefab);
             //Spawn Quality Settings Menu.
