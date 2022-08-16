@@ -3,6 +3,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
@@ -27,13 +30,19 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [Tooltip("Animation played when hiding this menu.")]
         [SerializeField]
         private AnimationClip animationHide;
-        
-        [SerializeField] private AudioMixer audioMixer;
+
+        [SerializeField] Slider volumeSlider;
+        [SerializeField] Slider volumeMusicSlider;
+        [SerializeField] TMP_Dropdown resolutionDropdown;
+
+        [SerializeField] AudioMixer _Mixer;
+
+        Resolution[] resolutions;
 
         #endregion
-        
+
         #region FIELDS
-        
+
         /// <summary>
         /// Animation Component.
         /// </summary>
@@ -103,6 +112,9 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// </summary>
         private void Show()
         {
+            volumeSlider.value = PlayerPrefs.GetFloat("Volume");
+            volumeMusicSlider.value = PlayerPrefs.GetFloat("VolumeMusic");
+
             //Enabled.
             menuIsEnabled = true;
 
@@ -135,95 +147,77 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             ChangeTime();
         }
 
-        /// <summary>
-        /// Sets whether the post processing is enabled, or disabled.
-        /// </summary>
-        private void SetPostProcessingState(bool value = true)
-        {
-            //Enable/Disable the volumes.
-            if(postProcessingVolume != null)
-                postProcessingVolume.enabled = value;
-            if(postProcessingVolumeScope != null)
-                postProcessingVolumeScope.enabled = value;
-        }
-
-        /// <summary>
-        /// Sets the graphic quality to very low.
-        /// </summary>
-        public void SetQualityVeryLow()
-        {
-            //Set Quality.
-            QualitySettings.SetQualityLevel(0);
-            //Disable Post Processing.
-            SetPostProcessingState(false);
-        }
-        /// <summary>
-        /// Sets the graphic quality to low.
-        /// </summary>
-        public void SetQualityLow()
-        {
-            //Set Quality.
-            QualitySettings.SetQualityLevel(1);
-            //Disable Post Processing.
-            SetPostProcessingState(false);
-        }
-
-        /// <summary>
-        /// Sets the graphic quality to medium.
-        /// </summary>
-        public void SetQualityMedium()
-        {
-            //Set Quality.
-            QualitySettings.SetQualityLevel(2);
-            //Enable Post Processing.
-            SetPostProcessingState();
-        }
-        /// <summary>
-        /// Sets the graphic quality to high.
-        /// </summary>
-        public void SetQualityHigh()
-        {
-            //Set Quality.
-            QualitySettings.SetQualityLevel(3);
-            //Enable Post Processing.
-            SetPostProcessingState();
-        }
-
-        /// <summary>
-        /// Sets the graphic quality to very high.
-        /// </summary>
-        public void SetQualityVeryHigh()
-        {
-            //Set Quality.
-            QualitySettings.SetQualityLevel(4);
-            //Enable Post Processing.
-            SetPostProcessingState();
-        }
-        /// <summary>
-        /// Sets the graphic quality to ultra.
-        /// </summary>
-        public void SetQualityUltra()
-        {
-            //Set Quality.
-            QualitySettings.SetQualityLevel(5);
-            //Enable Post Processing.
-            SetPostProcessingState();
-        }
-
         public void ChangeTime()
         {
-            float volume = 0;
             if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
-                audioMixer.GetFloat("Master", out volume);
-                audioMixer.SetFloat("Master", -80);
             }
             else
             {
                 Time.timeScale = 1;
-                audioMixer.SetFloat("Master", volume);
             }
+        }
+
+        public void SetVolume(float _volume)
+        {
+            // Adjust volume
+            AudioListener.volume = _volume;
+
+            // Save volume
+            PlayerPrefs.SetFloat("Volume", _volume);
+        }        
+        
+        public void SetMusicVolume(float _volumeMusic)
+        {
+            // Adjust volume
+            _Mixer.SetFloat("Music", _volumeMusic);
+
+            // Save volume
+            PlayerPrefs.SetFloat("VolumeMusic", _volumeMusic);
+        }
+
+        public void SetQuality(int _qualityIndex)
+        {
+            QualitySettings.SetQualityLevel(_qualityIndex);
+        }
+
+        public void SetFullscreen(bool isFullscreen)
+        {
+            Screen.fullScreen = isFullscreen;
+        }
+
+        public void PrepareResolutions()
+        {
+            resolutions = Screen.resolutions;
+            resolutionDropdown.ClearOptions();
+
+            List<string> options = new List<string>();
+
+            int currentResolutionIndex = 0;
+
+            for (int i = 0; i < resolutions.Length; i++)
+            {
+                string option = resolutions[i].width + " x " + resolutions[i].height;
+
+                if (!options.Contains(option))
+                    options.Add(option);
+
+                if (i == resolutions.Length - 1)
+                {
+                    currentResolutionIndex = i;
+                }
+            }
+
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.value = currentResolutionIndex;
+            resolutionDropdown.RefreshShownValue();
+        }
+
+        public void SetResolution(int _resolutionIndex)
+        {
+            Resolution resolution = resolutions[_resolutionIndex];
+            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         }
 
         public void Restart()

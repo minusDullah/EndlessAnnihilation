@@ -14,8 +14,6 @@ public class AudioController : MonoBehaviour
     {
         UpdateMasterSlider(slider[0]);
         UpdateMusicSlider(slider[1]);
-        UpdatePlayerAudioSlider(slider[2]);
-        UpdateEnemySlider(slider[3]);
     }
 
     public void UpdateMasterSlider(Slider volume)
@@ -32,20 +30,6 @@ public class AudioController : MonoBehaviour
         volume.value = startingVolume;
     }
 
-    public void UpdatePlayerAudioSlider(Slider volume)
-    {
-        _MasterMixer.GetFloat("PlayerAudio", out startingVolume);
-        _MasterMixer.SetFloat("PlayerAudio", startingVolume);
-        volume.value = startingVolume;
-    }
-
-    public void UpdateEnemySlider(Slider volume)
-    {
-        _MasterMixer.GetFloat("Enemy", out startingVolume);
-        _MasterMixer.SetFloat("Enemy", startingVolume);
-        volume.value = startingVolume;
-    }
-
 
     public void SetMasterVolume(Slider volume)
     {
@@ -55,16 +39,6 @@ public class AudioController : MonoBehaviour
     public void SetMusicVolume(Slider volume)
     {
         _MasterMixer.SetFloat("Music", volume.value);
-    }
-
-    public void SetPlayerVolume(Slider volume)
-    {
-        _MasterMixer.SetFloat("PlayerAudio", volume.value);
-    }
-    
-    public void SetEnemyVolume(Slider volume)
-    {
-        _MasterMixer.SetFloat("Enemy", volume.value);
     }
 
 }
