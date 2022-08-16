@@ -3,10 +3,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using System.Collections.Generic;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
@@ -88,6 +88,28 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Get depth of field setting from main post process volume.
             if(postProcessingVolume != null)
                 postProcessingVolume.profile.TryGetSettings(out depthOfField);
+
+            resolutions = Screen.resolutions;
+
+            resolutionDropdown.ClearOptions();
+
+            List<string> options = new List<string>();
+
+            int currentResolutionIndex = 0;
+            for (int i = 0; i < resolutions.Length; i++)
+            {
+                string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + resolutions[i].refreshRate + "hz";
+                options.Add(option);
+
+                if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+                {
+                    currentResolutionIndex = i;
+                }
+            }
+
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.value = currentResolutionIndex;
+            resolutionDropdown.RefreshShownValue();
         }
 
         protected override void Tick()
@@ -114,6 +136,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// <summary>
         /// Shows the menu by playing an animation.
         /// </summary>
+        ///
+
         private void Show()
         {
             volumeSlider.value = PlayerPrefs.GetFloat("Volume");
@@ -191,32 +215,6 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             Screen.fullScreen = isFullscreen;
         }
 
-        public void PrepareResolutions()
-        {
-            resolutions = Screen.resolutions;
-            resolutionDropdown.ClearOptions();
-
-            List<string> options = new List<string>();
-
-            int currentResolutionIndex = 0;
-
-            for (int i = 0; i < resolutions.Length; i++)
-            {
-                string option = resolutions[i].width + " x " + resolutions[i].height;
-
-                if (!options.Contains(option))
-                    options.Add(option);
-
-                if (i == resolutions.Length - 1)
-                {
-                    currentResolutionIndex = i;
-                }
-            }
-
-            resolutionDropdown.AddOptions(options);
-            resolutionDropdown.value = currentResolutionIndex;
-            resolutionDropdown.RefreshShownValue();
-        }
 
         public void SetResolution(int _resolutionIndex)
         {
