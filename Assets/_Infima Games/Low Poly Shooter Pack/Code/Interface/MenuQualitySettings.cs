@@ -36,6 +36,10 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [SerializeField] TMP_Dropdown resolutionDropdown;
 
         [SerializeField] AudioMixer _Mixer;
+        [SerializeField] AudioSource audioSource;
+        [SerializeField] AudioClip uiClick;
+        [SerializeField] AudioClip uiHover;
+        [SerializeField] AudioClip uiSpecial;
 
         Resolution[] resolutions;
 
@@ -219,6 +223,22 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             Resolution resolution = resolutions[_resolutionIndex];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         }
+
+        public void UIClick()
+        {
+            audioSource.PlayOneShot(uiClick);
+        }
+
+        public void UIHover()
+        {
+            audioSource.PlayOneShot(uiHover);
+        }
+
+        public void UISpecial()
+        {
+            audioSource.PlayOneShot(uiSpecial);
+        }
+
 
         public void Restart()
         {
