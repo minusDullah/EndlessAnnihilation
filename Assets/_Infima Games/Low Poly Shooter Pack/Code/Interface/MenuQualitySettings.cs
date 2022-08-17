@@ -7,6 +7,8 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+using System.Linq;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
@@ -40,6 +42,12 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [SerializeField] AudioClip uiClick;
         [SerializeField] AudioClip uiHover;
         [SerializeField] AudioClip uiSpecial;
+
+        [SerializeField] private InputActionAsset inputActionAsset;
+        [SerializeField] private TMP_InputField mouseSensitivity;
+        [SerializeField] private Toggle fullscreenToggle;
+        private const string MOUSE_PATH = "<Pointer>";
+        private InputAction action;
 
         Resolution[] resolutions;
 
@@ -84,10 +92,16 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Find post process volumes in scene and assign them.
             postProcessingVolume = GameObject.Find("Post Processing Volume")?.GetComponent<PostProcessVolume>();
             postProcessingVolumeScope = GameObject.Find("Post Processing Volume Scope")?.GetComponent<PostProcessVolume>();
-            
+
             //Get depth of field setting from main post process volume.
-            if(postProcessingVolume != null)
+            if (postProcessingVolume != null)
                 postProcessingVolume.profile.TryGetSettings(out depthOfField);
+
+            action = inputActionAsset.FindAction("Look");
+            mouseSensitivity.onValueChanged.AddListener(delegate { if (float.TryParse(mouseSensitivity.text, out float mouseSens)) { SetMouseSensitivity(mouseSens); }; });
+            fullscreenToggle.onValueChanged.AddListener(delegate { SetFullscreen(fullscreenToggle.isOn); });
+
+            #region Resolution
 
             resolutions = Screen.resolutions;
 
@@ -110,7 +124,58 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             resolutionDropdown.AddOptions(options);
             resolutionDropdown.value = currentResolutionIndex;
             resolutionDropdown.RefreshShownValue();
+
+            #endregion
+
+            LoadSensitivity();
+            LoadFullscreen();
         }
+
+        public void SetFullscreen(bool isFullscreen)
+        {
+            Screen.fullScreen = isFullscreen;
+            PlayerPrefs.SetString("Fullscreen", isFullscreen.ToString());
+        }
+
+        public void LoadFullscreen()
+        {
+            if (PlayerPrefs.GetString("Fullscreen") == "True")
+            {
+                fullscreenToggle.isOn = true;
+            }
+            else
+            {
+                fullscreenToggle.isOn = false;
+            }
+        }
+
+        #region MouseSens
+
+        private static void SetScale(InputAction action, string bindingPathStart, Vector2 scale)
+        {
+            var bindings = action.bindings;
+            for (var i = 0; i < bindings.Count; i++)
+            {
+                if (bindings[i].isPartOfComposite || !bindings[i].path.StartsWith(bindingPathStart)) continue;
+                action.ApplyBindingOverride(i,
+                    new InputBinding { overrideProcessors = $"ScaleVector2(x={scale.x},y={scale.y})" });
+                return;
+            }
+        }
+
+        public void SetMouseSensitivity(float _sens)
+        {
+            SetScale(action, MOUSE_PATH, new Vector2(_sens, _sens));
+
+            PlayerPrefs.SetFloat("MouseSensitivity", _sens);
+        }
+
+        public void LoadSensitivity()
+        {
+            mouseSensitivity.text = PlayerPrefs.GetFloat("MouseSensitivity").ToString();
+        }
+
+        #endregion
 
         protected override void Tick()
         {
@@ -209,12 +274,6 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         {
             QualitySettings.SetQualityLevel(_qualityIndex);
         }
-
-        public void SetFullscreen(bool isFullscreen)
-        {
-            Screen.fullScreen = isFullscreen;
-        }
-
 
         public void SetResolution(int _resolutionIndex)
         {
