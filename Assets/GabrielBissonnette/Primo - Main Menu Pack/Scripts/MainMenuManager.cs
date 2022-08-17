@@ -83,7 +83,7 @@ public class MainMenuManager : MonoBehaviour
     [Space(10)] [SerializeField] TextMeshProUGUI playText;
     [SerializeField] TextMeshProUGUI settingsText;
     [SerializeField] TextMeshProUGUI quitText;
-    [SerializeField] TextMeshProUGUI versionText;   
+    [SerializeField] TextMeshProUGUI versionText;
 
     [Header("Settings")]
     [Space(10)] [SerializeField] Slider volumeSlider;
@@ -127,7 +127,7 @@ public class MainMenuManager : MonoBehaviour
         {
             string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + resolutions[i].refreshRate + "hz";
             options.Add(option);
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }
@@ -146,7 +146,7 @@ public class MainMenuManager : MonoBehaviour
     private void Awake()
     {
         action = inputActionAsset.FindAction("Look");
-        mouseSensitivity.onValueChanged.AddListener(delegate { if (float.TryParse(mouseSensitivity.text, out float mouseSens)) { SetMouseSensitivity(mouseSens); } ; });
+        mouseSensitivity.onValueChanged.AddListener(delegate { if (float.TryParse(mouseSensitivity.text, out float mouseSens)) { SetMouseSensitivity(mouseSens); }; });
         //DebugBindings(action);
         //SetScale(action, MOUSE_PATH, new Vector2(5, 5));
         //DebugBindings(action);
@@ -310,7 +310,7 @@ public class MainMenuManager : MonoBehaviour
     #region Links
     public void OpenLink(int _index)
     {
-        if(links[_index].Length > 0)
+        if (links[_index].Length > 0)
             Application.OpenURL(links[_index]);
     }
 
@@ -366,8 +366,8 @@ public class MainMenuManager : MonoBehaviour
         else
         {
             LoadVolume();
-        }        
-        
+        }
+
         if (!PlayerPrefs.HasKey("VolumeMusic"))
         {
             PlayerPrefs.SetFloat("VolumeMusic", -15f);
@@ -377,6 +377,11 @@ public class MainMenuManager : MonoBehaviour
         {
             LoadVolume();
         }
+    }
+
+    public void triggerFade()
+    {
+        fadeAnimator.SetTrigger("FadeOut");
     }
 
     public void LoadVolume()

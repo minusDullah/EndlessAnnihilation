@@ -114,6 +114,10 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             {
                 string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + resolutions[i].refreshRate + "hz";
                 options.Add(option);
+                if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+                {
+                    currentResolutionIndex = i;
+                }
             }
 
             resolutionDropdown.AddOptions(options);
