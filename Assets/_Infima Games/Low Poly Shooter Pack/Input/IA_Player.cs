@@ -233,6 +233,15 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Damage Boost"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bda6b03-5634-432d-9480-3966ff1f704f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -796,6 +805,17 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61d00689-b3b2-40b2-af55-07e1b2ed6f8c"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Damage Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -827,6 +847,7 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         m_Player_Leaning = m_Player.FindAction("Leaning", throwIfNotFound: true);
         m_Player_ToggleLaser = m_Player.FindAction("Toggle Laser", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_DamageBoost = m_Player.FindAction("Damage Boost", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -909,6 +930,7 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Leaning;
     private readonly InputAction m_Player_ToggleLaser;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_DamageBoost;
     public struct PlayerActions
     {
         private @IA_Player m_Wrapper;
@@ -936,6 +958,7 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         public InputAction @Leaning => m_Wrapper.m_Player_Leaning;
         public InputAction @ToggleLaser => m_Wrapper.m_Player_ToggleLaser;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @DamageBoost => m_Wrapper.m_Player_DamageBoost;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1014,6 +1037,9 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @DamageBoost.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
+                @DamageBoost.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
+                @DamageBoost.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1087,6 +1113,9 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @DamageBoost.started += instance.OnDamageBoost;
+                @DamageBoost.performed += instance.OnDamageBoost;
+                @DamageBoost.canceled += instance.OnDamageBoost;
             }
         }
     }
@@ -1116,5 +1145,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         void OnLeaning(InputAction.CallbackContext context);
         void OnToggleLaser(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnDamageBoost(InputAction.CallbackContext context);
     }
 }

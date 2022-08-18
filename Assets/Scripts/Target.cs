@@ -14,6 +14,7 @@ public class Target : MonoBehaviour, IDamageable
     [SerializeField] private GameObject bloodFX;
     [SerializeField] private Transform bloodFXPosition;
     [SerializeField] private GameObject minimapIcon;
+    [SerializeField] private WaveSpawner waveSpawner;
     public ScoreUpdate scoreUpdate;
 
     [Header("Audio")]
@@ -33,9 +34,12 @@ public class Target : MonoBehaviour, IDamageable
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyAudioSource = GetComponent<AudioSource>();
         scoreUpdate = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
+        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
         pointsGained = false;
         soundPlayed = false;
         pointsGained = false;
+        health *= waveSpawner.currWave/4;
+        health = Mathf.Clamp(health, 100, 500);
     }
 
     public void TakeDamage(float damage)

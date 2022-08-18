@@ -36,6 +36,11 @@ namespace InfimaGames.LowPolyShooterPack
 
 		[Title(label: "Grenade")]
 
+		[SerializeField]
+		public bool grenadeCD;
+		[SerializeField]
+		public float grenadeCDTimer = 3f;
+
 		[Tooltip("If true, the character's grenades will never run out.")]
 		[SerializeField]
 		private bool grenadesUnlimited;
@@ -129,7 +134,13 @@ namespace InfimaGames.LowPolyShooterPack
 		[Tooltip("If true, the aiming input has to be held to be active.")]
 		[SerializeField]
 		private bool holdToAim = true;
-		
+
+		[SerializeField] public float currDamage;
+		[SerializeField] public float oldDamage;
+		[SerializeField] public bool damageBoostCD;
+		[SerializeField] public float damageBoost = 2f;
+		[SerializeField] public float damageBoostCDTimer = 5f;
+
 		#endregion
 
 		#region FIELDS
@@ -309,6 +320,8 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		protected override void Start()
 		{
+			currDamage = gameObject.GetComponentInChildren<Weapon>().damagePerBullet;
+
 			//Max out the grenades.
 			grenadeCount = grenadeTotal;
 			
@@ -1192,25 +1205,72 @@ namespace InfimaGames.LowPolyShooterPack
 		}
 		/// <summary>
 		/// Throw Grenade. 
-		/// </summary>
+		/// </summary
+
 		public void OnTryThrowGrenade(InputAction.CallbackContext context)
 		{
-			//Block while the cursor is unlocked.
-			if (!cursorLocked)
-				return;
-			
-			//Switch.
-			switch (context.phase)
+			if (!grenadeCD)
 			{
-				//Performed.
-				case InputActionPhase.Performed:
-					//Try Play.
-					if (CanPlayAnimationGrenadeThrow())
-						PlayGrenadeThrow();
-					break;
+				//Block while the cursor is unlocked.
+				if (!cursorLocked)
+					return;
+
+				//Switch.
+				switch (context.phase)
+				{
+					//Performed.
+					case InputActionPhase.Performed:
+						//Try Play.
+						if (CanPlayAnimationGrenadeThrow())
+							PlayGrenadeThrow();
+							StartCoroutine(GrenadeCooldown());
+						break;
+				}
 			}
 		}
-		
+
+		IEnumerator GrenadeCooldown()
+        {
+			grenadeCD = true;
+
+			yield return new WaitForSeconds(grenadeCDTimer);
+			
+			grenadeCD = false;
+		}
+
+		public void OnTryDamageBoost(InputAction.CallbackContext context)
+		{
+			if (!damageBoostCD)
+			{
+				//Block while the cursor is unlocked.
+				if (!cursorLocked)
+					return;
+
+				//Switch.
+				switch (context.phase)
+				{
+					//Performed.
+					case InputActionPhase.Performed:
+							oldDamage = currDamage;
+							currDamage *= damageBoost;
+							gameObject.GetComponentInChildren<Weapon>().damagePerBullet = currDamage;
+							StartCoroutine(DamageBoostCooldown());
+						break;
+				}
+			}
+		}
+
+		IEnumerator DamageBoostCooldown()
+		{
+			damageBoostCD = true;
+
+			yield return new WaitForSeconds(damageBoostCDTimer);
+
+			gameObject.GetComponentInChildren<Weapon>().damagePerBullet = oldDamage;
+			currDamage = oldDamage;
+			damageBoostCD = false;
+		}
+
 		/// <summary>
 		/// Melee.
 		/// </summary>

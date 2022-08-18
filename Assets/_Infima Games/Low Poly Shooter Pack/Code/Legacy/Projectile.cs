@@ -30,7 +30,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		public Transform[] dirtImpactPrefabs;
 		public Transform[] concreteImpactPrefabs;
 
-		private float damage;
+		public float damage;
 		private float headshotMultiplier;
 
 		private void Start()
