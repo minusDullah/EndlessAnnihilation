@@ -743,7 +743,7 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""59413d97-c602-4903-aad8-4431c1a75e61"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -754,7 +754,7 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""175d3f8c-31d0-4904-b1d8-63260c5ea0ad"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -809,7 +809,7 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""61d00689-b3b2-40b2-af55-07e1b2ed6f8c"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

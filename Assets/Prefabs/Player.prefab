@@ -3224,6 +3224,8 @@ MonoBehaviour:
   gravity: 35
   jumpGravity: 35
   jumpForce: 1
+  remainingJumps: 0
+  allowedJumps: 0
   stickToGroundForce: 1
   canCrouch: 1
   canCrouchWhileFalling: 0
@@ -3266,7 +3268,9 @@ MonoBehaviour:
   lowerWeapon: {fileID: 7061792312243856577}
   weaponIndexEquippedAtStart: 0
   inventory: {fileID: 2710922818280816936}
-  grenadesUnlimited: 0
+  grenadeCD: 0
+  grenadeCDTimer: 3
+  grenadesUnlimited: 1
   grenadeTotal: 10
   grenadeSpawnOffset: 1
   grenadePrefab: {fileID: 1948591290861370, guid: 7b04fe350ed10a741a1e245447860d9e,
@@ -3294,6 +3298,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 058ad0f0e88b6054990c6e98008ae4ea, type: 3}
   holdToRun: 1
   holdToAim: 1
+  currDamage: 0
+  oldDamage: 0
+  damageBoostCD: 0
+  damageBoost: 2
+  damageBoostCDTimer: 5
 --- !u!114 &2696837353676366594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3311,6 +3320,8 @@ MonoBehaviour:
   qualitySettingsPrefab: {fileID: 5965040680208419700, guid: 458b1dae88c7baf46a163b218ce42a30,
     type: 3}
   Minimap: {fileID: 1551641363761437451, guid: b02585e43c45e80478735905fac48f00, type: 3}
+  UpgradeMenu: {fileID: 5965040680208419700, guid: 7dd0fc39fdc02e1469e18f88ee02e1dc,
+    type: 3}
 --- !u!114 &7930221748467007111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3720,6 +3731,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e1ba90be-8b16-4d83-b537-6b079e5a19ea
     m_ActionName: Player/Interact[/Keyboard/f,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6063123540233522779}
+        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
+        m_MethodName: OnTryDamageBoost
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3bda6b03-5634-432d-9480-3966ff1f704f
+    m_ActionName: Player/Damage Boost[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -4022,7 +4049,7 @@ AudioSource:
   m_GameObject: {fileID: 8217125002488325618}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 3fcdb23bde063e94fa0b60ccf87604d6,
+  OutputAudioMixerGroup: {fileID: -4227319174840226057, guid: 3fcdb23bde063e94fa0b60ccf87604d6,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1

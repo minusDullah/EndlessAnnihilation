@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 114853094415237424}
   m_Layer: 15
   m_Name: P_LPSP_PROJ_Grenade_01
-  m_TagString: Untagged
+  m_TagString: Grenade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,11 +491,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077210c8970fd2b418f3ecd3191ef5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenadeTimer: 1.2
+  grenadeTimer: 1.5
   explosionPrefab: {fileID: 4811645123968692, guid: 301583a5af63a494298d60cd9f296909,
     type: 3}
-  radius: 5
+  radius: 15
   power: 100
-  minimumForce: 4500
-  maximumForce: 15000
+  grenadeDamage: 125
+  minimumForce: 3000
+  maximumForce: 10000
   impactSound: {fileID: 82305533685823640}

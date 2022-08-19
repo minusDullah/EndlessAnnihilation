@@ -135,6 +135,7 @@ namespace InfimaGames.LowPolyShooterPack
 		[SerializeField]
 		private bool holdToAim = true;
 
+		[Title(label: "Damage Boost")]
 		[SerializeField] public float currDamage;
 		[SerializeField] public float oldDamage;
 		[SerializeField] public bool damageBoostCD;
@@ -1222,8 +1223,10 @@ namespace InfimaGames.LowPolyShooterPack
 					case InputActionPhase.Performed:
 						//Try Play.
 						if (CanPlayAnimationGrenadeThrow())
+                        {
 							PlayGrenadeThrow();
 							StartCoroutine(GrenadeCooldown());
+						}
 						break;
 				}
 			}

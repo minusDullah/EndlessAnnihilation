@@ -23,6 +23,7 @@ TagManager:
   - HitboxHead
   - FxTemporaire
   - Knife
+  - Grenade
   layers:
   - Default
   - TransparentFX

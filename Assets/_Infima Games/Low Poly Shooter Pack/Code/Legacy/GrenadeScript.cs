@@ -26,6 +26,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		[Tooltip("The intensity of the explosion force")]
 		public float power = 350.0F;
 
+		public float grenadeDamage = 50f;
+
 		[Header("Throw Force")]
 		[Tooltip("Minimum throw force")]
 		public float minimumForce = 1500.0f;
@@ -127,7 +129,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 					//Get damageable component on object
 					IDamageable damageable = hit.transform.GetComponentInParent<IDamageable>();
 					//Damage object
-					damageable?.TakeDamage(50f);
+					damageable?.TakeDamage(grenadeDamage);
 					//Destroy bullet object
 					Destroy(gameObject);
 				}

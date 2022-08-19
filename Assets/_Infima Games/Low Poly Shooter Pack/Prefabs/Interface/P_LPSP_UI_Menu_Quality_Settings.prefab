@@ -3793,8 +3793,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.2, y: -200}
-  m_SizeDelta: {x: 123.9, y: 321}
+  m_AnchoredPosition: {x: 39.2, y: -179.90001}
+  m_SizeDelta: {x: 145, y: 321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6237361745414856794
 CanvasRenderer:
@@ -3824,7 +3824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD\nLeft MB\nRight MB\nSpace\nR\n H\nG\nV\nLeft Shift\nT\nC\nQ/E\n J"
+  m_text: "WASD\nLeft MB\nRight MB\nSpace\nC\nR\nLeft Shift\nG\nV\nT\n H\n J"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ab8f94a8e4dd744c99c73fedd26f8f8, type: 2}
   m_sharedMaterial: {fileID: 2383952268681313545, guid: 3ab8f94a8e4dd744c99c73fedd26f8f8,
@@ -3852,7 +3852,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.25
+  m_fontSize: 21.9
   m_fontSizeBase: 20.95
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5179,7 +5179,7 @@ GameObject:
   - component: {fileID: 2209128639682442008}
   - component: {fileID: 8695751988529794512}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6533,8 +6533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39.1, y: -200}
-  m_SizeDelta: {x: 123.9, y: 321}
+  m_AnchoredPosition: {x: -39.1, y: -179.9}
+  m_SizeDelta: {x: 145, y: 321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4225067249223389293
 CanvasRenderer:
@@ -6572,21 +6572,19 @@ MonoBehaviour:
 
     Jump
 
+    Crouch
+
     Reload
 
-    Holster
+    Run
 
     Grenade
 
     Melee
 
-    Run
-
     Inspect
 
-    Crouch
-
-    Lean
+    Holster
 
     Toggle
     Laser'
@@ -6617,7 +6615,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.4
+  m_fontSize: 21.9
   m_fontSizeBase: 20.95
   m_fontWeight: 400
   m_enableAutoSizing: 1

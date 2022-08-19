@@ -11,9 +11,6 @@ public class AbilitiesUI : MonoBehaviour
     [SerializeField] private Slider damageBoostSlider;
     [SerializeField] private Character character;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
@@ -21,7 +18,6 @@ public class AbilitiesUI : MonoBehaviour
         grenadeSlider.maxValue = character.grenadeCDTimer;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (character.grenadeCD)

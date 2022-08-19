@@ -24,6 +24,9 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [Tooltip("Canvas prefab spawned at start. Displays minimap.")]
         [SerializeField]
         private GameObject Minimap;
+        
+        [SerializeField]
+        private GameObject UpgradeMenu;
 
         #endregion
 

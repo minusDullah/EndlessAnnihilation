@@ -36,14 +36,14 @@ namespace InfimaGames.LowPolyShooterPack
         
         [Tooltip("How fast the player moves while aiming.")]
         [SerializeField]
-        private float speedAiming = 3.2f;
+        public float speedAiming = 3.2f;
         
         [Tooltip("How fast the player moves while aiming.")]
         [SerializeField]
-        private float speedCrouching = 3.5f;
+        public float speedCrouching = 3.5f;
 
         [Tooltip("How fast the player moves while running."), SerializeField]
-        private float speedRunning = 6.8f;
+        public float speedRunning = 6.8f;
         
         [Title(label: "Walking Multipliers")]
         
@@ -78,7 +78,13 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("The force of the jump.")]
         [SerializeField]
-        private float jumpForce = 100.0f;
+        public float jumpForce = 100.0f;
+
+        [SerializeField]
+        private float remainingJumps = 1f;
+
+        [SerializeField]
+        public float allowedJumps = 1f;
 
         [Tooltip("Force applied to keep the character from flying away while descending slopes.")]
         [SerializeField]
@@ -198,6 +204,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Check if it has changed from last frame.
             if (isGrounded && !wasGrounded)
             {
+                remainingJumps = allowedJumps;
                 //Set jumping.
                 jumping = false;
                 //Set lastJumpTime.
@@ -354,11 +361,12 @@ namespace InfimaGames.LowPolyShooterPack
                 return;
             
             //Block jumping when we're not grounded. This avoids us double jumping.
-            if (!isGrounded)
+            if (!isGrounded && remainingJumps < 0)
                 return;
 
             //Jump.
             jumping = true;
+            remainingJumps--;
             //Apply Jump Velocity.
             velocity = new Vector3(velocity.x, Mathf.Sqrt(2.0f * jumpForce * jumpGravity), velocity.z);
 
