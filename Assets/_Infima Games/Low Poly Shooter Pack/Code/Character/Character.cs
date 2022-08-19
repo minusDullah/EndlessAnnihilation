@@ -1387,14 +1387,15 @@ namespace InfimaGames.LowPolyShooterPack
 			{
 				//Performed.
 				case {phase: InputActionPhase.Performed}:
-					//Toggle the cursor locked value.
+                    //Toggle the cursor locked value.
 					cursorLocked = !cursorLocked;
+					
 					//Update the cursor's state.
 					UpdateCursorState();
 					break;
 			}
 		}
-		
+
 		/// <summary>
 		/// Movement.
 		/// </summary>

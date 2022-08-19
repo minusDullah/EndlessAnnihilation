@@ -226,15 +226,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""e1ba90be-8b16-4d83-b537-6b079e5a19ea"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Damage Boost"",
                     ""type"": ""Button"",
                     ""id"": ""3bda6b03-5634-432d-9480-3966ff1f704f"",
@@ -654,6 +645,17 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c7d2744e-deb3-4f4d-b4ca-476235ac817e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lock Cursor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e2c127bc-a838-4782-a49c-063fa51f1d76"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
@@ -786,28 +788,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""17563b9a-58b2-42c8-a076-6b072becd0e9"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f3bb831e-417c-421e-ac1a-d0b7ea51d41c"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""61d00689-b3b2-40b2-af55-07e1b2ed6f8c"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
@@ -846,7 +826,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Leaning = m_Player.FindAction("Leaning", throwIfNotFound: true);
         m_Player_ToggleLaser = m_Player.FindAction("Toggle Laser", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_DamageBoost = m_Player.FindAction("Damage Boost", throwIfNotFound: true);
     }
 
@@ -929,7 +908,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Leaning;
     private readonly InputAction m_Player_ToggleLaser;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_DamageBoost;
     public struct PlayerActions
     {
@@ -957,7 +935,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Leaning => m_Wrapper.m_Player_Leaning;
         public InputAction @ToggleLaser => m_Wrapper.m_Player_ToggleLaser;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @DamageBoost => m_Wrapper.m_Player_DamageBoost;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -1034,9 +1011,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 @ToggleLaser.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleLaser;
                 @ToggleLaser.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleLaser;
                 @ToggleLaser.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleLaser;
-                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @DamageBoost.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
                 @DamageBoost.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
                 @DamageBoost.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
@@ -1110,9 +1084,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 @ToggleLaser.started += instance.OnToggleLaser;
                 @ToggleLaser.performed += instance.OnToggleLaser;
                 @ToggleLaser.canceled += instance.OnToggleLaser;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
                 @DamageBoost.started += instance.OnDamageBoost;
                 @DamageBoost.performed += instance.OnDamageBoost;
                 @DamageBoost.canceled += instance.OnDamageBoost;
@@ -1144,7 +1115,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnLeaning(InputAction.CallbackContext context);
         void OnToggleLaser(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
         void OnDamageBoost(InputAction.CallbackContext context);
     }
 }

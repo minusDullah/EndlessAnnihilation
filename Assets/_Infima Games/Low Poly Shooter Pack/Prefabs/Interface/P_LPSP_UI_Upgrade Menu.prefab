@@ -2490,7 +2490,7 @@ GameObject:
   - component: {fileID: 224209287084921949}
   m_Layer: 0
   m_Name: P_LPSP_UI_Upgrade Menu
-  m_TagString: Untagged
+  m_TagString: UpgradeMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2525,7 +2525,6 @@ MonoBehaviour:
   character: {fileID: 0}
   movement: {fileID: 0}
   grenade: {fileID: 114853094415237424, guid: 7b04fe350ed10a741a1e245447860d9e, type: 3}
-  UpgradeMenuUI: {fileID: 0}
   damageBoostIncrease: 0.5
   DamageBoostCDTimerDecrease: 0.5
   grenadeDamageIncrease: 25

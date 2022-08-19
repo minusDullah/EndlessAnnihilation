@@ -204,15 +204,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "e1ba90be-8b16-4d83-b537-6b079e5a19ea",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Damage Boost",
                     "type": "Button",
                     "id": "3bda6b03-5634-432d-9480-3966ff1f704f",
@@ -632,6 +623,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c7d2744e-deb3-4f4d-b4ca-476235ac817e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lock Cursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e2c127bc-a838-4782-a49c-063fa51f1d76",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
@@ -759,28 +761,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Toggle Laser",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "17563b9a-58b2-42c8-a076-6b072becd0e9",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f3bb831e-417c-421e-ac1a-d0b7ea51d41c",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

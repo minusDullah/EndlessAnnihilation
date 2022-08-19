@@ -4709,7 +4709,7 @@ GameObject:
   - component: {fileID: 3065512383278704587}
   m_Layer: 0
   m_Name: P_LPSP_UI_Menu_Quality_Settings
-  m_TagString: Untagged
+  m_TagString: SettingsMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4753,6 +4753,7 @@ MonoBehaviour:
   uiClick: {fileID: 8300000, guid: de9c34734d6d2c047b95c118b46aa835, type: 3}
   uiHover: {fileID: 8300000, guid: a7bb4fb392407334495c3582d31cf384, type: 3}
   uiSpecial: {fileID: 8300000, guid: 505ca3812bdbf5a4c90ac131fa071ee5, type: 3}
+  UpgradeMenuUI: {fileID: 0}
   inputActionAsset: {fileID: -944628639613478452, guid: d4580ddb403296c4e8150653f661069e,
     type: 3}
   mouseSensitivity: {fileID: 311370810049645888}

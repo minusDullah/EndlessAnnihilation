@@ -44,6 +44,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             Instantiate(qualitySettingsPrefab);
             //Spawn Minimap.
             Instantiate(Minimap);
+
+            Instantiate(UpgradeMenu);
         }
 
         #endregion

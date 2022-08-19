@@ -46,6 +46,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [SerializeField] private InputActionAsset inputActionAsset;
         [SerializeField] private TMP_InputField mouseSensitivity;
         [SerializeField] private Toggle fullscreenToggle;
+
         private const string MOUSE_PATH = "<Pointer>";
         private InputAction action;
 
@@ -180,16 +181,17 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         {
             //Switch. Fades in or out the menu based on the cursor's state.
             bool cursorLocked = characterBehaviour.IsCursorLocked();
-            switch (cursorLocked)
+            if (Keyboard.current.escapeKey.wasPressedThisFrame && gameObject.activeSelf)
             {
                 //Hide.
-                case true when menuIsEnabled:
+                if (menuIsEnabled)
+                {
                     Hide();
-                    break;
-                //Show.
-                case false when !menuIsEnabled:
+                }
+                else
+                {
                     Show();
-                    break;
+                }
             }
         }
 
@@ -200,7 +202,6 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// <summary>
         /// Shows the menu by playing an animation.
         /// </summary>
-        ///
 
         private void Show()
         {
