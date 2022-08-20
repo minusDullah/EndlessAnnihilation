@@ -18,7 +18,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         [Tooltip("Text that gets modified when looking at something to pick up.")]
         [SerializeField]
-        private TextMeshProUGUI textToModify;
+        public TextMeshProUGUI textToModify;
         
         [Title(label: "Setup")]
         
@@ -46,6 +46,10 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// <summary>
         /// Awake.
         /// </summary>
+        /// 
+
+        /*
+
         protected override void Awake()
         {
             //Base.
@@ -85,6 +89,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             }
         }
         
+
+        */
         #endregion
     }
 }

@@ -25,6 +25,9 @@ TagManager:
   - Knife
   - Grenade
   - UpgradeMenu
+  - SettingsMenu
+  - InteractUI
+  - CanvasUI
   layers:
   - Default
   - TransparentFX

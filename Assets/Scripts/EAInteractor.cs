@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using InfimaGames.LowPolyShooterPack;
+using System;
+using TMPro;
+using InfimaGames.LowPolyShooterPack.Interface;
 
 public class EAInteractor : MonoBehaviour
 {
@@ -8,8 +11,12 @@ public class EAInteractor : MonoBehaviour
     [SerializeField] private float _interactionPointRadius;
     [SerializeField] private LayerMask _interactableMask;
     [SerializeField] private Character character;
-    [SerializeField] private GameObject SettingsMenu;
-    [SerializeField] private GameObject UpgradeMenu;
+    [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject upgradeMenu;
+    [SerializeField] private GameObject interactUI;
+    [SerializeField] private TextMeshProUGUI interactionText;
+    [SerializeField] private Animator animator;
+    [SerializeField]private string stateName = "Visible";
 
     private readonly Collider[] _colliders = new Collider[3];
 
@@ -17,8 +24,11 @@ public class EAInteractor : MonoBehaviour
 
     public void Start()
     {
-        SettingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
-        UpgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
+        settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
+        upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
+        interactUI = GameObject.FindGameObjectWithTag("InteractUI");
+        interactionText = interactUI.GetComponentInChildren<TextInteraction>().textToModify;
+        animator = interactUI.GetComponentInChildren<Animator>();
         character = gameObject.GetComponent<Character>();
     }
 
@@ -28,9 +38,15 @@ public class EAInteractor : MonoBehaviour
 
         if (_numFound > 0)
         {
-            SettingsMenu.SetActive(false);
-
             var interactable = _colliders[0].GetComponent<IInteractable>();
+
+            settingsMenu.SetActive(false);
+            animator.SetBool(stateName, true);
+
+            if (interactionText.text == "")
+            {
+                interactionText.text = interactable.InteractionPrompt;
+            }
 
             if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame)
             {
@@ -44,16 +60,22 @@ public class EAInteractor : MonoBehaviour
         }
         else
         {
-            if (!SettingsMenu.activeSelf)
+            if (interactionText.text != "")
             {
-                SettingsMenu.SetActive(true);
+                interactionText.text = "";
+                animator.SetBool(stateName, false);
             }
-            
-            if (UpgradeMenu.activeSelf)
+               
+            if (!settingsMenu.activeSelf)
+            {
+                settingsMenu.SetActive(true);
+            }
+
+            if (upgradeMenu.activeSelf)
             {
                 character.cursorLocked = true;
                 character.UpdateCursorState();
-                UpgradeMenu.SetActive(false);
+                upgradeMenu.SetActive(false);
             }
         }
     }
