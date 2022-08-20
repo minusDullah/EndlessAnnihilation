@@ -123,15 +123,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Inventory Next",
-                    "type": "Button",
-                    "id": "98c0547a-0a5e-484e-ba12-a7812face9b0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Inventory Next Wheel",
                     "type": "Value",
                     "id": "8dfbac0a-435e-4fa0-a00f-21b90315bd84",
@@ -141,42 +132,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Time Speed Up",
-                    "type": "Button",
-                    "id": "418359b7-9253-4bb8-a363-e1fb23da7133",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Time Speed Down",
-                    "type": "Button",
-                    "id": "e3ef7edf-7ab7-43b4-8fdc-67547435a45b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Time Speed Toggle",
-                    "type": "Button",
-                    "id": "bfdda7d2-cee8-4cb7-91a0-f3d4411e7f97",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Tutorial",
-                    "type": "Button",
-                    "id": "207fb2a2-8add-4ddb-bda7-c1887aeb313a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Crouch",
                     "type": "Button",
                     "id": "885a3c54-aad8-4b06-8b4d-8a026bbb94f1",
@@ -184,15 +139,6 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Leaning",
-                    "type": "Value",
-                    "id": "26aac017-d754-4777-a1c8-2ae5121d9795",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 },
                 {
                     "name": "Toggle Laser",
@@ -207,6 +153,15 @@
                     "name": "Damage Boost",
                     "type": "Button",
                     "id": "3bda6b03-5634-432d-9480-3966ff1f704f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "ec9b54a7-a5b0-47fa-9fa5-581afb53e75b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -436,83 +391,6 @@
                 },
                 {
                     "name": "",
-                    "id": "8a482ba6-21ca-4c8f-9727-9fbb2368f00f",
-                    "path": "<Keyboard>/9",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Time Speed Up",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5e79e440-5045-4bbc-a8a7-30167589d397",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Time Speed Up",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "83f69484-fcc2-48ee-8c04-6c5d1e4f6e60",
-                    "path": "<Keyboard>/8",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Time Speed Down",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "65c0a406-e8d6-434f-aeff-75269e0cbaaa",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Time Speed Down",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "64767df0-dd96-438b-878e-fe24248339dd",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ced9121a-056b-40fc-a663-9d1e81066727",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7bfee678-d7c2-4845-b78a-7b0479dbb478",
-                    "path": "<Keyboard>/5",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Time Speed Toggle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6473f700-7e8d-42ea-a8d7-b52064620abb",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
@@ -623,39 +501,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c7d2744e-deb3-4f4d-b4ca-476235ac817e",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Lock Cursor",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e2c127bc-a838-4782-a49c-063fa51f1d76",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Tutorial",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6a9054cd-1ecc-4095-a089-d0e32b67ab2c",
-                    "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Tutorial",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e34aa957-68ff-4253-9abe-971e52e76acf",
                     "path": "<Keyboard>/c",
                     "interactions": "",
@@ -710,39 +555,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Axis",
-                    "id": "68aa6a8d-a25f-4d8e-9d6c-a30a3a8785d5",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Leaning",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "59413d97-c602-4903-aad8-4431c1a75e61",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Leaning",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "175d3f8c-31d0-4904-b1d8-63260c5ea0ad",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Leaning",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "307728e7-3fce-4425-8ef6-4c59a83c83ae",
                     "path": "<Keyboard>/j",
@@ -772,6 +584,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Damage Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ffa0d02-6615-49c3-ae84-df9fab4d1cb1",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

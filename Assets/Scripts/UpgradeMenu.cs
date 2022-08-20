@@ -21,8 +21,18 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private float allowedJumpsIncrease = 1f;
     [SerializeField] private float jumpForceIncrease = .5f;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip uiClick;
+    [SerializeField] private AudioClip uiHover;
+
+    [SerializeField] public GameObject animatedCanvas;
+    [SerializeField] public AnimationClip animationShow;
+    [SerializeField] public AnimationClip animationHide;
+    public Animation animationComponent;
+
     void Start()
     {
+        animationComponent = animatedCanvas.GetComponent<Animation>();
         gameObject.SetActive(false);
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
@@ -88,6 +98,20 @@ public class UpgradeMenu : MonoBehaviour
     public void JumpForceIncrease()
     {
         movement.jumpForce += jumpForceIncrease;
+    }
+
+    #endregion
+
+    #region Audio
+
+    public void UIClick()
+    {
+        audioSource.PlayOneShot(uiClick);
+    }
+
+    public void UIHover()
+    {
+        audioSource.PlayOneShot(uiHover);
     }
 
     #endregion

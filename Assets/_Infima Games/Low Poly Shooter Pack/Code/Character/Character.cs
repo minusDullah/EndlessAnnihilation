@@ -283,7 +283,7 @@ namespace InfimaGames.LowPolyShooterPack
 		/// <summary>
 		/// True if the game cursor is locked! Used when pressing "Escape" to allow developers to more easily access the editor.
 		/// </summary>
-		private bool cursorLocked;
+		public bool cursorLocked;
 		/// <summary>
 		/// Amount of shots fired in succession. We use this value to increase the spread, and also to apply recoil
 		/// </summary>
@@ -721,7 +721,7 @@ namespace InfimaGames.LowPolyShooterPack
 		/// <summary>
 		/// Updates the cursor state based on the value of the cursorLocked variable.
 		/// </summary>
-		private void UpdateCursorState()
+		public void UpdateCursorState()
 		{
 			//Update cursor visibility.
 			Cursor.visible = !cursorLocked;
@@ -1308,7 +1308,8 @@ namespace InfimaGames.LowPolyShooterPack
 			{
 				//Performed.
 				case InputActionPhase.Performed:
-					//Use this if we're using run toggle.
+					//Use this if we're using run
+					//.
 					if(!holdToRun)
 						holdingButtonRun = !holdingButtonRun;
 					break;

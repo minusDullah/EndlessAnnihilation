@@ -145,15 +145,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Inventory Next"",
-                    ""type"": ""Button"",
-                    ""id"": ""98c0547a-0a5e-484e-ba12-a7812face9b0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Inventory Next Wheel"",
                     ""type"": ""Value"",
                     ""id"": ""8dfbac0a-435e-4fa0-a00f-21b90315bd84"",
@@ -163,42 +154,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Time Speed Up"",
-                    ""type"": ""Button"",
-                    ""id"": ""418359b7-9253-4bb8-a363-e1fb23da7133"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Time Speed Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""e3ef7edf-7ab7-43b4-8fdc-67547435a45b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Time Speed Toggle"",
-                    ""type"": ""Button"",
-                    ""id"": ""bfdda7d2-cee8-4cb7-91a0-f3d4411e7f97"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Tutorial"",
-                    ""type"": ""Button"",
-                    ""id"": ""207fb2a2-8add-4ddb-bda7-c1887aeb313a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold"",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Crouch"",
                     ""type"": ""Button"",
                     ""id"": ""885a3c54-aad8-4b06-8b4d-8a026bbb94f1"",
@@ -206,15 +161,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Leaning"",
-                    ""type"": ""Value"",
-                    ""id"": ""26aac017-d754-4777-a1c8-2ae5121d9795"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Toggle Laser"",
@@ -229,6 +175,15 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""name"": ""Damage Boost"",
                     ""type"": ""Button"",
                     ""id"": ""3bda6b03-5634-432d-9480-3966ff1f704f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec9b54a7-a5b0-47fa-9fa5-581afb53e75b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -458,83 +413,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8a482ba6-21ca-4c8f-9727-9fbb2368f00f"",
-                    ""path"": ""<Keyboard>/9"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Time Speed Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5e79e440-5045-4bbc-a8a7-30167589d397"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Time Speed Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""83f69484-fcc2-48ee-8c04-6c5d1e4f6e60"",
-                    ""path"": ""<Keyboard>/8"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Time Speed Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""65c0a406-e8d6-434f-aeff-75269e0cbaaa"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Time Speed Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""64767df0-dd96-438b-878e-fe24248339dd"",
-                    ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Inventory Next"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ced9121a-056b-40fc-a663-9d1e81066727"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Inventory Next"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7bfee678-d7c2-4845-b78a-7b0479dbb478"",
-                    ""path"": ""<Keyboard>/5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Time Speed Toggle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6473f700-7e8d-42ea-a8d7-b52064620abb"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
@@ -645,39 +523,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c7d2744e-deb3-4f4d-b4ca-476235ac817e"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Lock Cursor"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e2c127bc-a838-4782-a49c-063fa51f1d76"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Tutorial"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6a9054cd-1ecc-4095-a089-d0e32b67ab2c"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Tutorial"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e34aa957-68ff-4253-9abe-971e52e76acf"",
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
@@ -732,39 +577,6 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Axis"",
-                    ""id"": ""68aa6a8d-a25f-4d8e-9d6c-a30a3a8785d5"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Leaning"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""59413d97-c602-4903-aad8-4431c1a75e61"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Leaning"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""175d3f8c-31d0-4904-b1d8-63260c5ea0ad"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Leaning"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""307728e7-3fce-4425-8ef6-4c59a83c83ae"",
                     ""path"": ""<Keyboard>/j"",
@@ -796,6 +608,17 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                     ""action"": ""Damage Boost"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ffa0d02-6615-49c3-ae84-df9fab4d1cb1"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -817,16 +640,11 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Inspect = m_Player.FindAction("Inspect", throwIfNotFound: true);
         m_Player_LockCursor = m_Player.FindAction("Lock Cursor", throwIfNotFound: true);
-        m_Player_InventoryNext = m_Player.FindAction("Inventory Next", throwIfNotFound: true);
         m_Player_InventoryNextWheel = m_Player.FindAction("Inventory Next Wheel", throwIfNotFound: true);
-        m_Player_TimeSpeedUp = m_Player.FindAction("Time Speed Up", throwIfNotFound: true);
-        m_Player_TimeSpeedDown = m_Player.FindAction("Time Speed Down", throwIfNotFound: true);
-        m_Player_TimeSpeedToggle = m_Player.FindAction("Time Speed Toggle", throwIfNotFound: true);
-        m_Player_Tutorial = m_Player.FindAction("Tutorial", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
-        m_Player_Leaning = m_Player.FindAction("Leaning", throwIfNotFound: true);
         m_Player_ToggleLaser = m_Player.FindAction("Toggle Laser", throwIfNotFound: true);
         m_Player_DamageBoost = m_Player.FindAction("Damage Boost", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -899,16 +717,11 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Inspect;
     private readonly InputAction m_Player_LockCursor;
-    private readonly InputAction m_Player_InventoryNext;
     private readonly InputAction m_Player_InventoryNextWheel;
-    private readonly InputAction m_Player_TimeSpeedUp;
-    private readonly InputAction m_Player_TimeSpeedDown;
-    private readonly InputAction m_Player_TimeSpeedToggle;
-    private readonly InputAction m_Player_Tutorial;
     private readonly InputAction m_Player_Crouch;
-    private readonly InputAction m_Player_Leaning;
     private readonly InputAction m_Player_ToggleLaser;
     private readonly InputAction m_Player_DamageBoost;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @IA_Player m_Wrapper;
@@ -926,16 +739,11 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Inspect => m_Wrapper.m_Player_Inspect;
         public InputAction @LockCursor => m_Wrapper.m_Player_LockCursor;
-        public InputAction @InventoryNext => m_Wrapper.m_Player_InventoryNext;
         public InputAction @InventoryNextWheel => m_Wrapper.m_Player_InventoryNextWheel;
-        public InputAction @TimeSpeedUp => m_Wrapper.m_Player_TimeSpeedUp;
-        public InputAction @TimeSpeedDown => m_Wrapper.m_Player_TimeSpeedDown;
-        public InputAction @TimeSpeedToggle => m_Wrapper.m_Player_TimeSpeedToggle;
-        public InputAction @Tutorial => m_Wrapper.m_Player_Tutorial;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
-        public InputAction @Leaning => m_Wrapper.m_Player_Leaning;
         public InputAction @ToggleLaser => m_Wrapper.m_Player_ToggleLaser;
         public InputAction @DamageBoost => m_Wrapper.m_Player_DamageBoost;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -984,36 +792,21 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 @LockCursor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockCursor;
                 @LockCursor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockCursor;
                 @LockCursor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockCursor;
-                @InventoryNext.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryNext;
-                @InventoryNext.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryNext;
-                @InventoryNext.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryNext;
                 @InventoryNextWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryNextWheel;
                 @InventoryNextWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryNextWheel;
                 @InventoryNextWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryNextWheel;
-                @TimeSpeedUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedUp;
-                @TimeSpeedUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedUp;
-                @TimeSpeedUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedUp;
-                @TimeSpeedDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedDown;
-                @TimeSpeedDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedDown;
-                @TimeSpeedDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedDown;
-                @TimeSpeedToggle.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedToggle;
-                @TimeSpeedToggle.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedToggle;
-                @TimeSpeedToggle.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTimeSpeedToggle;
-                @Tutorial.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTutorial;
-                @Tutorial.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTutorial;
-                @Tutorial.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTutorial;
                 @Crouch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
                 @Crouch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
                 @Crouch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
-                @Leaning.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeaning;
-                @Leaning.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeaning;
-                @Leaning.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeaning;
                 @ToggleLaser.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleLaser;
                 @ToggleLaser.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleLaser;
                 @ToggleLaser.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleLaser;
                 @DamageBoost.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
                 @DamageBoost.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
                 @DamageBoost.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDamageBoost;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1057,36 +850,21 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
                 @LockCursor.started += instance.OnLockCursor;
                 @LockCursor.performed += instance.OnLockCursor;
                 @LockCursor.canceled += instance.OnLockCursor;
-                @InventoryNext.started += instance.OnInventoryNext;
-                @InventoryNext.performed += instance.OnInventoryNext;
-                @InventoryNext.canceled += instance.OnInventoryNext;
                 @InventoryNextWheel.started += instance.OnInventoryNextWheel;
                 @InventoryNextWheel.performed += instance.OnInventoryNextWheel;
                 @InventoryNextWheel.canceled += instance.OnInventoryNextWheel;
-                @TimeSpeedUp.started += instance.OnTimeSpeedUp;
-                @TimeSpeedUp.performed += instance.OnTimeSpeedUp;
-                @TimeSpeedUp.canceled += instance.OnTimeSpeedUp;
-                @TimeSpeedDown.started += instance.OnTimeSpeedDown;
-                @TimeSpeedDown.performed += instance.OnTimeSpeedDown;
-                @TimeSpeedDown.canceled += instance.OnTimeSpeedDown;
-                @TimeSpeedToggle.started += instance.OnTimeSpeedToggle;
-                @TimeSpeedToggle.performed += instance.OnTimeSpeedToggle;
-                @TimeSpeedToggle.canceled += instance.OnTimeSpeedToggle;
-                @Tutorial.started += instance.OnTutorial;
-                @Tutorial.performed += instance.OnTutorial;
-                @Tutorial.canceled += instance.OnTutorial;
                 @Crouch.started += instance.OnCrouch;
                 @Crouch.performed += instance.OnCrouch;
                 @Crouch.canceled += instance.OnCrouch;
-                @Leaning.started += instance.OnLeaning;
-                @Leaning.performed += instance.OnLeaning;
-                @Leaning.canceled += instance.OnLeaning;
                 @ToggleLaser.started += instance.OnToggleLaser;
                 @ToggleLaser.performed += instance.OnToggleLaser;
                 @ToggleLaser.canceled += instance.OnToggleLaser;
                 @DamageBoost.started += instance.OnDamageBoost;
                 @DamageBoost.performed += instance.OnDamageBoost;
                 @DamageBoost.canceled += instance.OnDamageBoost;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -1106,15 +884,10 @@ public partial class @IA_Player : IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnInspect(InputAction.CallbackContext context);
         void OnLockCursor(InputAction.CallbackContext context);
-        void OnInventoryNext(InputAction.CallbackContext context);
         void OnInventoryNextWheel(InputAction.CallbackContext context);
-        void OnTimeSpeedUp(InputAction.CallbackContext context);
-        void OnTimeSpeedDown(InputAction.CallbackContext context);
-        void OnTimeSpeedToggle(InputAction.CallbackContext context);
-        void OnTutorial(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
-        void OnLeaning(InputAction.CallbackContext context);
         void OnToggleLaser(InputAction.CallbackContext context);
         void OnDamageBoost(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

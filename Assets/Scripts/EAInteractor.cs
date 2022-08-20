@@ -1,27 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using InfimaGames.LowPolyShooterPack;
 
 public class EAInteractor : MonoBehaviour
 {
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius;
     [SerializeField] private LayerMask _interactableMask;
+    [SerializeField] private Character character;
+    [SerializeField] private GameObject SettingsMenu;
+    [SerializeField] private GameObject UpgradeMenu;
 
-    [SerializeField] GameObject SettingsMenu;
-
-    [SerializeField] public bool canPause = true;
     private readonly Collider[] _colliders = new Collider[3];
 
     [SerializeField] private int _numFound;
 
-    private void Start()
+    public void Start()
     {
         SettingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
+        UpgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
+        character = gameObject.GetComponent<Character>();
     }
 
-    private void Update()
+    public void FixedUpdate()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
@@ -43,7 +44,17 @@ public class EAInteractor : MonoBehaviour
         }
         else
         {
-            SettingsMenu.SetActive(true);
+            if (!SettingsMenu.activeSelf)
+            {
+                SettingsMenu.SetActive(true);
+            }
+            
+            if (UpgradeMenu.activeSelf)
+            {
+                character.cursorLocked = true;
+                character.UpdateCursorState();
+                UpgradeMenu.SetActive(false);
+            }
         }
     }
 
