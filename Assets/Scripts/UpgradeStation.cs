@@ -12,6 +12,11 @@ public class UpgradeStation : MonoBehaviour, IInteractable
 
     public void Awake()
     {
+        
+    }
+
+    private void Start()
+    {
         UpgradeMenuUI = GameObject.FindGameObjectWithTag("UpgradeMenu");
         UpgradeMenuAnimation = UpgradeMenuUI.GetComponent<UpgradeMenu>();
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
