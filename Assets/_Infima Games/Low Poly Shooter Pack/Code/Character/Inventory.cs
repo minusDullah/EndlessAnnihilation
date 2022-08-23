@@ -14,7 +14,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Currently equipped WeaponBehaviour.
         /// </summary>
-        private WeaponBehaviour equipped;
+        public WeaponBehaviour equipped;
         /// <summary>
         /// Currently equipped index.
         /// </summary>

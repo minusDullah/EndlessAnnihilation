@@ -23,7 +23,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("Selected Scope Index. If you set this to a negative number, ironsights will be selected as the enabled scope.")]
         [SerializeField]
-        private int scopeIndex = -1;
+        public int scopeIndex = -1;
 
         [Tooltip("First scope index when using random scopes.")]
         [SerializeField]
@@ -35,13 +35,13 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("All possible Scope Attachments that this Weapon can use!")]
         [SerializeField]
-        private ScopeBehaviour[] scopeArray;
+        public ScopeBehaviour[] scopeArray;
         
         [Title(label: "Muzzle")]
 
         [Tooltip("Selected Muzzle Index.")]
         [SerializeField]
-        private int muzzleIndex;
+        public int muzzleIndex;
         
         [Tooltip("Should we pick a random index when starting the game?")]
         [SerializeField]
@@ -49,13 +49,13 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("All possible Muzzle Attachments that this Weapon can use!")]
         [SerializeField]
-        private MuzzleBehaviour[] muzzleArray;
+        public MuzzleBehaviour[] muzzleArray;
         
         [Title(label: "Laser")]
 
         [Tooltip("Selected Laser Index.")]
         [SerializeField]
-        private int laserIndex = -1;
+        public int laserIndex = -1;
         
         [Tooltip("Should we pick a random index when starting the game?")]
         [SerializeField]
@@ -63,13 +63,13 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("All possible Laser Attachments that this Weapon can use!")]
         [SerializeField]
-        private LaserBehaviour[] laserArray;
+        public LaserBehaviour[] laserArray;
         
         [Title(label: "Grip")]
 
         [Tooltip("Selected Grip Index.")]
         [SerializeField]
-        private int gripIndex = -1;
+        public int gripIndex = -1;
         
         [Tooltip("Should we pick a random index when starting the game?")]
         [SerializeField]
@@ -77,13 +77,13 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("All possible Grip Attachments that this Weapon can use!")]
         [SerializeField]
-        private GripBehaviour[] gripArray;
+        public GripBehaviour[] gripArray;
         
         [Title(label: "Magazine")]
 
         [Tooltip("Selected Magazine Index.")]
         [SerializeField]
-        private int magazineIndex;
+        public int magazineIndex;
         
         [Tooltip("Should we pick a random index when starting the game?")]
         [SerializeField]
@@ -91,7 +91,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("All possible Magazine Attachments that this Weapon can use!")]
         [SerializeField]
-        private Magazine[] magazineArray;
+        public Magazine[] magazineArray;
 
         #endregion
 
@@ -164,7 +164,31 @@ namespace InfimaGames.LowPolyShooterPack
                 magazineIndex = Random.Range(0, magazineArray.Length);
             //Select Magazine!
             magazineBehaviour = magazineArray.SelectAndSetActive(magazineIndex);
-        }        
+        }
+        
+        public override WeaponAttachmentManagerBehaviour UpdateAttachments()
+        {
+            //Select Scope!
+            scopeBehaviour = scopeArray.SelectAndSetActive(scopeIndex);
+            //Check if we have no scope. This could happen if we have an incorrect index.
+            if (scopeBehaviour == null)
+            {
+                //Select Default Scope.
+                scopeBehaviour = scopeDefaultBehaviour;
+                //Set Active.
+                scopeBehaviour.gameObject.SetActive(scopeDefaultShow);
+            }
+            //Select Muzzle!
+            muzzleBehaviour = muzzleArray.SelectAndSetActive(muzzleIndex);
+            //Select Laser!
+            laserBehaviour = laserArray.SelectAndSetActive(laserIndex);
+            //Select Grip!
+            gripBehaviour = gripArray.SelectAndSetActive(gripIndex);
+            //Select Magazine!
+            magazineBehaviour = magazineArray.SelectAndSetActive(magazineIndex);
+
+            return null;
+        }
 
         #endregion
 

@@ -3112,6 +3112,7 @@ Transform:
   - {fileID: 6063123538425190306}
   - {fileID: 6063123538867594364}
   - {fileID: 46987063}
+  - {fileID: 334939493471480396}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3335,6 +3336,12 @@ MonoBehaviour:
   damageBoostCD: 0
   damageBoost: 2
   damageBoostCDTimer: 5
+  attachmentMenu: {fileID: 782634761376698170}
+  weaponAttachment: {fileID: 0}
+  scopeMenu: {fileID: 7205746530376061077}
+  muzzleMenu: {fileID: 7118776832051212802}
+  gripMenu: {fileID: 5507107540346467706}
+  laserMenu: {fileID: 6053282248032061094}
   cursorLocked: 0
 --- !u!114 &2696837353676366594
 MonoBehaviour:
@@ -4084,8 +4091,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65536
   character: {fileID: 0}
-  SettingsMenu: {fileID: 0}
-  UpgradeMenu: {fileID: 0}
+  settingsMenu: {fileID: 0}
+  upgradeMenu: {fileID: 0}
+  interactUI: {fileID: 0}
+  interactionText: {fileID: 0}
+  animator: {fileID: 0}
+  stateName: Visible
   _numFound: 0
 --- !u!1 &8225568822306483407
 GameObject:
@@ -4639,6 +4650,11 @@ PrefabInstance:
       propertyPath: magazineIndexRandom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 236544275665136189, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
     - target: {fileID: 271494776789735087, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
       propertyPath: scopeIndex
@@ -4668,6 +4684,81 @@ PrefabInstance:
         type: 3}
       propertyPath: magazineIndexRandom
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 292366441516234638, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 395863595505652889, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 404486423397210933, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 404486423397210935, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 538811749998703180, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 852573471953570092, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 852573471953570094, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 854981965482986173, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480943635345939706, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485133759300745349, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493640029431336940, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599328586204170493, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613309744491955607, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647804062331289908, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672775596244343625, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
       objectReference: {fileID: 0}
     - target: {fileID: 1752391029565291924, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
@@ -4729,6 +4820,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_LPSP_Inventory
       objectReference: {fileID: 0}
+    - target: {fileID: 1803617858109856490, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804095578685099042, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
     - target: {fileID: 1833617889397435953, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
       propertyPath: scopeIndex
@@ -4758,6 +4859,81 @@ PrefabInstance:
         type: 3}
       propertyPath: magazineIndexRandom
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840742163595649601, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840742163595649603, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844917046257673295, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926421388563701081, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967916230054823350, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975190841238778591, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998215466505998061, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011211461636211591, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102134298744628575, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119338886480099264, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119338886480099266, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2160966238116089920, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2160966238116089922, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237788791970852912, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237788791970852914, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
       objectReference: {fileID: 0}
     - target: {fileID: 2344154413588530343, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
@@ -4793,6 +4969,136 @@ PrefabInstance:
         type: 3}
       propertyPath: magazineIndexRandom
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481780949534442133, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662918953359315172, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685942085370773320, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740410656407908500, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779786242977928980, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822070289501731972, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870182941436141283, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939866053931448664, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972649496944372263, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014268051555618215, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3061596737286869551, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071705054344182420, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109637164318092759, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288259622703366054, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404956683907755832, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404956683907755834, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415680048486242385, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415680048486242387, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466935149356540910, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469792823595526761, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469792823595526763, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471814269971999224, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509842054095685436, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581656692154336978, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714337507197441578, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939121244025280889, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
       objectReference: {fileID: 0}
     - target: {fileID: 4090800308746928346, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
@@ -4859,6 +5165,16 @@ PrefabInstance:
       propertyPath: roundsPerMinutes
       value: 680
       objectReference: {fileID: 0}
+    - target: {fileID: 4260532136786370409, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 4322797517969611166, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
     - target: {fileID: 4384061244789319997, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
       propertyPath: scopeIndex
@@ -4889,6 +5205,21 @@ PrefabInstance:
       propertyPath: magazineIndexRandom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4405960024962148244, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268464539215358, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467879559419793466, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
     - target: {fileID: 4490556347812220961, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
       propertyPath: muzzleIndex
@@ -4913,6 +5244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: magazineIndexRandom
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496749547194285025, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
       objectReference: {fileID: 0}
     - target: {fileID: 4539030851961040069, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
@@ -4973,6 +5309,31 @@ PrefabInstance:
         type: 3}
       propertyPath: magazineIndexRandom
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610960909986911435, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670042126446433055, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698141576276891630, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802486135054262826, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831312776084391702, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
       objectReference: {fileID: 0}
     - target: {fileID: 4992355120444928962, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
@@ -5044,10 +5405,45 @@ PrefabInstance:
       propertyPath: magazineIndexRandom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5065317971043378078, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303182006913998509, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425766211659856415, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568050110684255503, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581907836466536217, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
     - target: {fileID: 5646240018676377441, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
       propertyPath: automatic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658394554891157766, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683567970078501597, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
       objectReference: {fileID: 0}
     - target: {fileID: 5736079660451952168, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
@@ -5089,6 +5485,16 @@ PrefabInstance:
       propertyPath: magazineIndexRandom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5809845817461036252, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809845817461036254, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
     - target: {fileID: 5811096848861843769, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
       propertyPath: gripIndex
@@ -5113,6 +5519,71 @@ PrefabInstance:
         type: 3}
       propertyPath: magazineIndexRandom
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949255806971426930, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058916621286648323, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166234305732066624, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172020723237307823, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229259904328445427, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261950460224096883, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458014607823596563, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503740220827484275, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517935776813267100, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587649448268762211, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627086846831586275, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642040989711319416, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642040989711319418, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
       objectReference: {fileID: 0}
     - target: {fileID: 6680832964127499785, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
@@ -5154,6 +5625,36 @@ PrefabInstance:
       propertyPath: magazineIndexRandom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6735134575067619236, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735134575067619238, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813206150964315012, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853038426546896482, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887974154439378633, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887974154439378635, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
     - target: {fileID: 6967412678311308434, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
       propertyPath: scopeIndex
@@ -5184,6 +5685,16 @@ PrefabInstance:
       propertyPath: magazineIndexRandom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7042295993214247077, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042295993214247079, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
     - target: {fileID: 7059151149083490198, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
       propertyPath: scopeIndex
@@ -5213,6 +5724,91 @@ PrefabInstance:
         type: 3}
       propertyPath: magazineIndexRandom
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231505071457711371, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236247070129563165, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 7241031136458867298, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244365969345235257, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 7386658302777474928, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482707381562188206, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495356045466688669, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589021379552789059, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625039528351757083, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627132969551965606, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635762961582605426, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735522093762819082, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight C
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764030340068530990, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952727490882839929, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952727490882839931, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026746857790099066, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283495937642371280, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
       objectReference: {fileID: 0}
     - target: {fileID: 8323525996672253884, guid: f5469ede14e9a784ea44da9828f1cdd7,
         type: 3}
@@ -5244,6 +5840,51 @@ PrefabInstance:
       propertyPath: magazineIndexRandom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8438260629142751753, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438260629142751755, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542277614531280845, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542277614531280847, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554144583901148746, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565035629767938328, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880130536226009178, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lasers
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057073628865594184, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057073628865594186, guid: f5469ede14e9a784ea44da9828f1cdd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser Sight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5469ede14e9a784ea44da9828f1cdd7, type: 3}
 --- !u!114 &2710922818280816936 stripped
@@ -5263,4 +5904,493 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1752391029565291924, guid: f5469ede14e9a784ea44da9828f1cdd7,
     type: 3}
   m_PrefabInstance: {fileID: 4453672642430434495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6346819613466608718
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8215290643301807696}
+    m_Modifications:
+    - target: {fileID: 870878002086003432, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 870878002086003432, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870878002086003432, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6063123540233522779}
+    - target: {fileID: 870878002086003432, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeLaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 870878002086003432, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 870878002086003432, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475285044704653620, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475285044704653620, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475285044704653620, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475285044704653620, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6063123540233522779}
+    - target: {fileID: 1475285044704653620, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeGrip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475285044704653620, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475285044704653620, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512294962653580759, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264233060181208521, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188420240788842645, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Name
+      value: Scope
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[4].m_Text
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6063123540233522779}
+    - target: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243553213317270238, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Name
+      value: Muzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[2].m_Text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[4].m_Text
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[5].m_Text
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[6].m_Text
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[7].m_Text
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6063123540233522779}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScope
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4789592178637029558, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040679779390070, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040680208419700, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Name
+      value: P_LPSP_UI_Attachment_Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040680208419700, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965040680208419700, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827535651117093284, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_Name
+      value: Grip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219706186653070285, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 664
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219706186653070285, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -229
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863827211718932684, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6063123540233522779}
+    - target: {fileID: 8863827211718932684, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863827211718932684, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863827211718932684, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: afb6adc34c5cb3343a99de9f6ab0d12d, type: 3}
+--- !u!1 &782634761376698170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5965040680208419700, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6346819613466608718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7205746530376061077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4317714565643719899, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6346819613466608718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7118776832051212802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4241993925681329740, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6346819613466608718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5507107540346467706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1475285044704653620, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6346819613466608718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6053282248032061094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 870878002086003432, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6346819613466608718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &334939493471480396 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6679295086346710530, guid: afb6adc34c5cb3343a99de9f6ab0d12d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6346819613466608718}
   m_PrefabAsset: {fileID: 0}

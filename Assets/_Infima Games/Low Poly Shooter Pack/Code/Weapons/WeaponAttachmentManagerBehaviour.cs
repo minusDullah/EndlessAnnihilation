@@ -39,6 +39,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// Returns the equipped scope.
         /// </summary>
         public abstract ScopeBehaviour GetEquippedScope();
+        public abstract WeaponAttachmentManagerBehaviour UpdateAttachments();
         /// <summary>
         /// Returns the equipped scope default.
         /// </summary>

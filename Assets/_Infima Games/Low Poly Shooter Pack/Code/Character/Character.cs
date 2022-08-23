@@ -6,6 +6,8 @@ using System.Collections;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
+using TMPro;
+using System.Collections.Generic;
 
 namespace InfimaGames.LowPolyShooterPack
 {
@@ -142,6 +144,13 @@ namespace InfimaGames.LowPolyShooterPack
 		[SerializeField] public float damageBoost = 2f;
 		[SerializeField] public float damageBoostCDTimer = 5f;
 
+		[Title(label: "Attachemnt UI")]
+		[SerializeField] public GameObject attachmentMenu;
+		[SerializeField] public WeaponAttachmentManager weaponAttachment;
+		[SerializeField] public TMP_Dropdown scopeMenu;
+		[SerializeField] public TMP_Dropdown muzzleMenu;
+		[SerializeField] public TMP_Dropdown gripMenu;
+		[SerializeField] public TMP_Dropdown laserMenu;
 		#endregion
 
 		#region FIELDS
@@ -310,7 +319,8 @@ namespace InfimaGames.LowPolyShooterPack
 			//Cache the movement behaviour.
 			movementBehaviour = GetComponent<MovementBehaviour>();
 
-			//Initialize Inventory.
+            //Initialize Inventory.
+
 			inventory.Init(weaponIndexEquippedAtStart);
 
 			//Refresh!
@@ -322,6 +332,13 @@ namespace InfimaGames.LowPolyShooterPack
 		protected override void Start()
 		{
 			currDamage = gameObject.GetComponentInChildren<Weapon>().damagePerBullet;
+
+			weaponAttachment = equippedWeapon.GetAttachmentManager().GetComponent<WeaponAttachmentManager>();
+
+			ScopeMenuUpdate();
+			MuzzleMenuUpdate();
+			LaserMenuUpdate();
+			GripMenuUpdate();
 
 			//Max out the grenades.
 			grenadeCount = grenadeTotal;
@@ -600,7 +617,46 @@ namespace InfimaGames.LowPolyShooterPack
 			inspecting = true;
 			//Play.
 			characterAnimator.CrossFade("Inspect", 0.0f, layerActions, 0);
+			Invoke("Pause", 1f);
 		}
+
+		private void Pause()
+        {
+			cursorLocked = false;
+			UpdateCursorState();
+			attachmentMenu.SetActive(true);
+			Time.timeScale = 0;
+		}
+
+		public void UnPause()
+		{
+			cursorLocked = true;
+			UpdateCursorState();
+			attachmentMenu.SetActive(false);
+			Time.timeScale = 1;
+		}
+
+		public void ChangeScope(int scope)
+        {
+			weaponAttachment.scopeIndex = scope;
+			WeaponAttachmentUpdate();
+		}		
+		public void ChangeMuzzle(int muzzle)
+        {
+			weaponAttachment.muzzleIndex = muzzle;
+			WeaponAttachmentUpdate();
+		}		
+		public void ChangeLaser(int laser)
+        {
+			weaponAttachment.laserIndex = laser;
+			WeaponAttachmentUpdate();
+		}		
+		public void ChangeGrip(int grip)
+        {
+			weaponAttachment.gripIndex = grip;
+			WeaponAttachmentUpdate();
+		}		
+
 		/// <summary>
 		/// Fires the character's weapon.
 		/// </summary>
@@ -1440,6 +1496,63 @@ namespace InfimaGames.LowPolyShooterPack
 				//Default.
 				_ => tutorialTextVisible
 			};
+		}
+
+		public void WeaponAttachmentUpdate()
+        {
+			if (weaponAttachment == null)
+				return;
+
+			weaponAttachment.UpdateAttachments();
+			RefreshWeaponSetup();
+		}
+
+		public void MuzzleMenuUpdate()
+        {
+			muzzleMenu.ClearOptions();
+			List<string> weaponAttachmentList = new List<string>();
+			for (int i = 0; i < weaponAttachment.muzzleArray.Length; i++)
+			{
+				string weaponAttachmentCurrent = "Muzzle " + (i + 1);
+				weaponAttachmentList.Add(weaponAttachmentCurrent);
+			}
+			muzzleMenu.AddOptions(weaponAttachmentList);
+		}		
+		
+		public void ScopeMenuUpdate()
+        {
+			scopeMenu.ClearOptions();
+			List<string> weaponAttachmentList = new List<string>();
+			for (int i = 0; i < weaponAttachment.scopeArray.Length; i++)
+			{
+				string weaponAttachmentCurrent = "Scope " + (i + 1);
+				weaponAttachmentList.Add(weaponAttachmentCurrent);
+			}
+			scopeMenu.AddOptions(weaponAttachmentList);
+		}		
+		
+		public void LaserMenuUpdate()
+        {
+			laserMenu.ClearOptions();
+			List<string> weaponAttachmentList = new List<string>();
+			for (int i = 0; i < weaponAttachment.laserArray.Length; i++)
+			{
+				string weaponAttachmentCurrent = "Laser " + (i + 1);
+				weaponAttachmentList.Add(weaponAttachmentCurrent);
+			}
+			laserMenu.AddOptions(weaponAttachmentList);
+		}		
+		
+		public void GripMenuUpdate()
+        {
+			gripMenu.ClearOptions();
+			List<string> weaponAttachmentList = new List<string>();
+			for (int i = 0; i < weaponAttachment.gripArray.Length; i++)
+			{
+				string weaponAttachmentCurrent = "Grip " + (i + 1);
+				weaponAttachmentList.Add(weaponAttachmentCurrent);
+			}
+			gripMenu.AddOptions(weaponAttachmentList);
 		}
 
 		#endregion

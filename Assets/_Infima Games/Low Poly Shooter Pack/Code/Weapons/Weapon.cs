@@ -145,6 +145,7 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private AudioClip audioClipBoltAction;
 
+        [SerializeField] public bool weaponOwned;
         #endregion
 
         #region FIELDS
@@ -210,6 +211,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         protected override void Awake()
         {
+            weaponOwned = false;
             //Get Animator.
             animator = GetComponent<Animator>();
             //Get Attachment Manager.
@@ -493,7 +495,6 @@ namespace InfimaGames.LowPolyShooterPack
             if(prefabCasing != null && socketEjection != null)
                 Instantiate(prefabCasing, socketEjection.position, socketEjection.rotation);
         }
-
         #endregion
     }
 }

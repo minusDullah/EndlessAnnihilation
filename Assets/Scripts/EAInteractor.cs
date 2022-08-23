@@ -22,7 +22,7 @@ public class EAInteractor : MonoBehaviour
 
     [SerializeField] private int _numFound;
 
-    public void OnEnable()
+    public void Start()
     {
         settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
         upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");

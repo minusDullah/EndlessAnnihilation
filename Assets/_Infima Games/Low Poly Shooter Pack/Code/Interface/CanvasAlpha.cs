@@ -17,17 +17,17 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [SerializeField, NotNull]
         private CanvasGroup canvasGroup;
 
-        [Title(label: "Settings")]
+        //[Title(label: "Settings")]
 
-        [Tooltip("Speed of interpolation.")]
-        [Range(0.0f, 25.0f)]
-        [SerializeField]
-        private float interpolationSpeed = 12.0f;
+        //[Tooltip("Speed of interpolation.")]
+        //[Range(0.0f, 25.0f)]
+        //[SerializeField]
+        //private float interpolationSpeed = 12.0f;
         
-        [Tooltip("Alpha of the canvasGroup while the cursor is unlocked (pause menu is open).")]
-        [Range(0.0f, 1.0f)]
-        [SerializeField]
-        private float cursorUnlockedAlpha = 0.6f;
+        //[Tooltip("Alpha of the canvasGroup while the cursor is unlocked (pause menu is open).")]
+        //[Range(0.0f, 1.0f)]
+        //[SerializeField]
+        //private float cursorUnlockedAlpha = 0.6f;
         
         #endregion
         
