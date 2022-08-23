@@ -16,13 +16,13 @@ public class EAInteractor : MonoBehaviour
     [SerializeField] private GameObject interactUI;
     [SerializeField] private TextMeshProUGUI interactionText;
     [SerializeField] private Animator animator;
-    [SerializeField]private string stateName = "Visible";
+    [SerializeField] private string stateName = "Visible";
 
     private readonly Collider[] _colliders = new Collider[3];
 
     [SerializeField] private int _numFound;
 
-    public void Start()
+    public void OnEnable()
     {
         settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
         upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
@@ -32,7 +32,7 @@ public class EAInteractor : MonoBehaviour
         character = gameObject.GetComponent<Character>();
     }
 
-    public void FixedUpdate()
+    public void LateUpdate()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
@@ -48,7 +48,7 @@ public class EAInteractor : MonoBehaviour
                 interactionText.text = interactable.InteractionPrompt;
             }
 
-            if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame)
+            if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame && !upgradeMenu.activeSelf)
             {
                 interactable.Interact(this);
             }

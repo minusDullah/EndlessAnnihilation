@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
@@ -68,8 +69,15 @@ public class HealthController : MonoBehaviour
         else if(currentPlayerHealth <= 0)
         {
 
-            //kill player
-            //currentPlayerHealth = 0;
+            string sceneToLoad = SceneManager.GetActiveScene().path;
+
+            #if UNITY_EDITOR
+            //Load the scene.
+            UnityEditor.SceneManagement.EditorSceneManager.LoadSceneAsyncInPlayMode(sceneToLoad, new LoadSceneParameters(LoadSceneMode.Single));
+            #else
+            //Load the scene.
+            SceneManager.LoadSceneAsync(sceneToLoad, new LoadSceneParameters(LoadSceneMode.Single));
+            #endif
         }
     }
 
