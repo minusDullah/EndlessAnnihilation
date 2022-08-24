@@ -14,7 +14,8 @@ public class EAInteractor : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject upgradeMenu;
     [SerializeField] private GameObject interactUI;
-    [SerializeField] private TextMeshProUGUI interactionText;
+    [SerializeField] private GameObject attachmentUI;
+    [SerializeField] public TextMeshProUGUI interactionText;
     [SerializeField] private Animator animator;
     [SerializeField] private string stateName = "Visible";
 
@@ -27,6 +28,7 @@ public class EAInteractor : MonoBehaviour
         settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
         upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
         interactUI = GameObject.FindGameObjectWithTag("InteractUI");
+        attachmentUI = GameObject.FindGameObjectWithTag("AttachmentMenu");
         interactionText = interactUI.GetComponentInChildren<TextInteraction>().textToModify;
         animator = interactUI.GetComponentInChildren<Animator>();
         character = gameObject.GetComponent<Character>();
@@ -40,10 +42,9 @@ public class EAInteractor : MonoBehaviour
         {
             var interactable = _colliders[0].GetComponent<IInteractable>();
 
-            settingsMenu.SetActive(false);
             animator.SetBool(stateName, true);
 
-            if (interactionText.text == "")
+            if (interactionText.text == "" && !upgradeMenu.activeSelf)
             {
                 interactionText.text = interactable.InteractionPrompt;
             }
@@ -51,12 +52,17 @@ public class EAInteractor : MonoBehaviour
             if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame && !upgradeMenu.activeSelf)
             {
                 interactable.Interact(this);
+                settingsMenu.SetActive(false);
             }
 
             if(interactable != null && Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 interactable.Close(this);
+                settingsMenu.SetActive(true);
             }
+
+            if(character.characterAnimator.speed != 1f) { character.UnPause(); }
+            
         }
         else
         {
@@ -64,11 +70,6 @@ public class EAInteractor : MonoBehaviour
             {
                 interactionText.text = "";
                 animator.SetBool(stateName, false);
-            }
-               
-            if (!settingsMenu.activeSelf)
-            {
-                settingsMenu.SetActive(true);
             }
 
             if (upgradeMenu.activeSelf)

@@ -28,6 +28,10 @@ TagManager:
   - SettingsMenu
   - InteractUI
   - CanvasUI
+  - Weapon
+  - Inventory
+  - ItemContainer
+  - AttachmentMenu
   layers:
   - Default
   - TransparentFX
@@ -47,7 +51,7 @@ TagManager:
   - Projectile
   - Interactable
   - CharacterBlockerCollider
-  - 
+  - Weapon
   - 
   - 
   - 

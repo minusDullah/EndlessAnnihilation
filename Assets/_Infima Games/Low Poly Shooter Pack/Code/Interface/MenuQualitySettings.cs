@@ -180,8 +180,9 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         protected override void Tick()
         {
             //Switch. Fades in or out the menu based on the cursor's state.
-            if (Keyboard.current.escapeKey.wasPressedThisFrame && gameObject.activeInHierarchy)
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
+                gameObject.SetActive(true);
                 //Hide.
                 if (menuIsEnabled)
                 {

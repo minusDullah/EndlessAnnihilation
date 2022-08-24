@@ -101,7 +101,7 @@ namespace InfimaGames.LowPolyShooterPack
 		
 		[Tooltip("Character Animator.")]
 		[SerializeField]
-		private Animator characterAnimator;
+		public Animator characterAnimator;
 
 		[Title(label: "Field Of View")]
 
@@ -146,6 +146,8 @@ namespace InfimaGames.LowPolyShooterPack
 
 		[Title(label: "Attachemnt UI")]
 		[SerializeField] public GameObject attachmentMenu;
+		[SerializeField] public GameObject settingsMenu;
+		[SerializeField] public GameObject upgradeMenu;
 		[SerializeField] public WeaponAttachmentManager weaponAttachment;
 		[SerializeField] public TMP_Dropdown scopeMenu;
 		[SerializeField] public TMP_Dropdown muzzleMenu;
@@ -308,7 +310,6 @@ namespace InfimaGames.LowPolyShooterPack
 		protected override void Awake()
 		{
 			#region Lock Cursor
-
 			//Always make sure that our cursor is locked when the game starts!
 			cursorLocked = true;
 			//Update the cursor's state.
@@ -334,6 +335,9 @@ namespace InfimaGames.LowPolyShooterPack
 			currDamage = gameObject.GetComponentInChildren<Weapon>().damagePerBullet;
 
 			weaponAttachment = equippedWeapon.GetAttachmentManager().GetComponent<WeaponAttachmentManager>();
+
+			settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
+			upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
 
 			ScopeMenuUpdate();
 			MuzzleMenuUpdate();
@@ -611,6 +615,9 @@ namespace InfimaGames.LowPolyShooterPack
 		/// <summary>
 		/// Plays the inspect animation.
 		/// </summary>
+		/// 
+
+		//uhhh optimize ?
 		private void Inspect()
 		{
 			//State.
@@ -622,18 +629,20 @@ namespace InfimaGames.LowPolyShooterPack
 
 		private void Pause()
         {
+			settingsMenu.SetActive(false);
+			characterAnimator.speed = .01f;
 			cursorLocked = false;
 			UpdateCursorState();
 			attachmentMenu.SetActive(true);
-			Time.timeScale = 0;
 		}
 
 		public void UnPause()
 		{
+			characterAnimator.speed = 1f;
 			cursorLocked = true;
 			UpdateCursorState();
+			settingsMenu.SetActive(true);
 			attachmentMenu.SetActive(false);
-			Time.timeScale = 1;
 		}
 
 		public void ChangeScope(int scope)
@@ -1459,7 +1468,7 @@ namespace InfimaGames.LowPolyShooterPack
 		public void OnMove(InputAction.CallbackContext context)
 		{
 			//Read.
-			axisMovement = cursorLocked ? context.ReadValue<Vector2>() : default;
+			axisMovement = context.ReadValue<Vector2>();
 		}
 		/// <summary>
 		/// Look.
@@ -1511,48 +1520,76 @@ namespace InfimaGames.LowPolyShooterPack
         {
 			muzzleMenu.ClearOptions();
 			List<string> weaponAttachmentList = new List<string>();
+			int currentMuzzle = 0;
 			for (int i = 0; i < weaponAttachment.muzzleArray.Length; i++)
 			{
 				string weaponAttachmentCurrent = "Muzzle " + (i + 1);
 				weaponAttachmentList.Add(weaponAttachmentCurrent);
+				if(weaponAttachment.muzzleIndex == i)
+                {
+					currentMuzzle = i;
+				}
 			}
 			muzzleMenu.AddOptions(weaponAttachmentList);
+			muzzleMenu.value = currentMuzzle;
+			muzzleMenu.RefreshShownValue();
 		}		
 		
 		public void ScopeMenuUpdate()
         {
 			scopeMenu.ClearOptions();
 			List<string> weaponAttachmentList = new List<string>();
+			int currentScope = 0;
 			for (int i = 0; i < weaponAttachment.scopeArray.Length; i++)
 			{
 				string weaponAttachmentCurrent = "Scope " + (i + 1);
 				weaponAttachmentList.Add(weaponAttachmentCurrent);
+				if (weaponAttachment.scopeIndex == i)
+				{
+					currentScope = i;
+				}
 			}
 			scopeMenu.AddOptions(weaponAttachmentList);
+			scopeMenu.value = currentScope;
+			scopeMenu.RefreshShownValue();
 		}		
 		
 		public void LaserMenuUpdate()
         {
 			laserMenu.ClearOptions();
 			List<string> weaponAttachmentList = new List<string>();
+			int currentLaser = 0;
 			for (int i = 0; i < weaponAttachment.laserArray.Length; i++)
 			{
 				string weaponAttachmentCurrent = "Laser " + (i + 1);
 				weaponAttachmentList.Add(weaponAttachmentCurrent);
+				if (weaponAttachment.laserIndex == i)
+				{
+					currentLaser = i;
+				}
 			}
 			laserMenu.AddOptions(weaponAttachmentList);
+			laserMenu.value = currentLaser;
+			laserMenu.RefreshShownValue();
 		}		
 		
 		public void GripMenuUpdate()
         {
 			gripMenu.ClearOptions();
 			List<string> weaponAttachmentList = new List<string>();
+			int currentGrip = 0;
 			for (int i = 0; i < weaponAttachment.gripArray.Length; i++)
 			{
 				string weaponAttachmentCurrent = "Grip " + (i + 1);
 				weaponAttachmentList.Add(weaponAttachmentCurrent);
+				if (weaponAttachment.gripIndex == i)
+				{
+					currentGrip = i;
+				}
 			}
 			gripMenu.AddOptions(weaponAttachmentList);
+			gripMenu.value = currentGrip;
+			gripMenu.RefreshShownValue();
 		}
 
 		#endregion
