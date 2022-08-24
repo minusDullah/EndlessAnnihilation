@@ -3080,14 +3080,14 @@ GameObject:
   - component: {fileID: 6063123540233522779}
   - component: {fileID: 2696837353676366594}
   - component: {fileID: 7930221748467007111}
-  - component: {fileID: 6661764859005094463}
   - component: {fileID: 1092499816185117272}
+  - component: {fileID: 6063123540268673650}
+  - component: {fileID: 2888206304065857966}
+  - component: {fileID: 6661764859005094463}
   - component: {fileID: 6063123540268673651}
   - component: {fileID: 6063123540268673653}
-  - component: {fileID: 6063123540268673650}
-  - component: {fileID: 6063123540268673652}
   - component: {fileID: 1829031060790925190}
-  - component: {fileID: 2888206304065857966}
+  - component: {fileID: 6063123540268673652}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -3340,6 +3340,7 @@ MonoBehaviour:
   settingsMenu: {fileID: 0}
   upgradeMenu: {fileID: 0}
   weaponAttachment: {fileID: 0}
+  settingsMenuExten: {fileID: 0}
   scopeMenu: {fileID: 6511123463345090689}
   muzzleMenu: {fileID: 6494913325533569353}
   gripMenu: {fileID: 4798901224417484411}
@@ -3362,7 +3363,7 @@ MonoBehaviour:
   qualitySettingsPrefab: {fileID: 5965040680208419700, guid: 458b1dae88c7baf46a163b218ce42a30,
     type: 3}
   Minimap: {fileID: 1551641363761437451, guid: b02585e43c45e80478735905fac48f00, type: 3}
-  UpgradeMenu: {fileID: 5965040680208419700, guid: 7dd0fc39fdc02e1469e18f88ee02e1dc,
+  UpgradeMenu: {fileID: 54101948572953000, guid: 7dd0fc39fdc02e1469e18f88ee02e1dc,
     type: 3}
 --- !u!114 &7930221748467007111
 MonoBehaviour:
@@ -3377,6 +3378,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increment: 0.1
+--- !u!114 &1092499816185117272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217125002488325618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef46ecb879c940f3bd09e457dd5a4e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 8804724872549053193}
+  armLeftTarget: {fileID: 4622947358622379912}
+  armLeftWeightPosition: 1
+  armLeftWeightRotation: 1
+  armLeftHierarchy:
+  - {fileID: 4415077890910739412}
+  - {fileID: 4388988098211082031}
+  - {fileID: 8457519496035271447}
+  armRightTarget: {fileID: 8290928441746352789}
+  armRightWeightPosition: 1
+  armRightWeightRotation: 1
+  armRightHierarchy:
+  - {fileID: 8467295805682651927}
+  - {fileID: 6069191529265264180}
+  - {fileID: 7922483236244308895}
+  hint: {fileID: 0}
+  weightHint: 0
+--- !u!114 &6063123540268673650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217125002488325618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d4aa21f92fd21449bd5d5171630019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlayerHealth: 100
+  maxPlayerHealth: 100
+  regenRate: 30
+  canRegen: 0
+  invulnerableTimer: 1
+  canTakeDamage: 1
+  redSplatterImage: {fileID: 0}
+  hurtImage: {fileID: 0}
+  hurtTimer: 0.3
+  healCooldown: 5
+  maxHealCooldown: 5
+  startCooldown: 0
+  playerHitSource: {fileID: 6063123540268673651}
+  playerHealthSource: {fileID: 6063123540268673653}
+  BGMusic: {fileID: 1829031060790925190}
+  playerHit:
+  - {fileID: 8300000, guid: a6bba1d36e436f34ab50851eb36a1f08, type: 3}
+  - {fileID: 8300000, guid: 06f3c7f58f57f374b981c583019e1344, type: 3}
+  - {fileID: 8300000, guid: 2b19c4dd116b13042a9b95ff0a5dc287, type: 3}
+  playerHeartbeat:
+  - {fileID: 8300000, guid: a64e109d16c8c2f428b6eb7a44faf17c, type: 3}
+  - {fileID: 8300000, guid: 62ca6090428bc4c4b87893a17aed80e1, type: 3}
+  BGMusicTracks:
+  - {fileID: 8300000, guid: a2f8a52263e165e99922746a5c738d17, type: 3}
+  - {fileID: 8300000, guid: 7a1a45f63778cb0ebac9005a0364193e, type: 3}
+  - {fileID: 8300000, guid: 6e5e6e8dd41cb7df09964086b86ab2fd, type: 3}
+  - {fileID: 8300000, guid: 8936b978c6e61df60b656d1d8cda2720, type: 3}
+  - {fileID: 8300000, guid: 93ae29c5fd00ecf939995ea3845edd75, type: 3}
+  - {fileID: 8300000, guid: b74a219e9c6aa6b0a92d5f620d0e519c, type: 3}
+  - {fileID: 8300000, guid: d96fd457599ffae40bd20969b1629e38, type: 3}
+  - {fileID: 8300000, guid: d61fdeab0ceca55debdfa6fcd36fa968, type: 3}
+--- !u!114 &2888206304065857966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217125002488325618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd1324a4d8c4c304a9b1a0737f24832a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionPoint: {fileID: 46987063}
+  _interactionPointRadius: 2
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 65536
+  character: {fileID: 0}
+  upgradeMenu: {fileID: 0}
+  interactUI: {fileID: 0}
+  interactionText: {fileID: 0}
+  animator: {fileID: 0}
+  stateName: Visible
+  _numFound: 0
 --- !u!114 &6661764859005094463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,35 +3799,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1092499816185117272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8217125002488325618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef46ecb879c940f3bd09e457dd5a4e8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterAnimator: {fileID: 8804724872549053193}
-  armLeftTarget: {fileID: 4622947358622379912}
-  armLeftWeightPosition: 1
-  armLeftWeightRotation: 1
-  armLeftHierarchy:
-  - {fileID: 4415077890910739412}
-  - {fileID: 4388988098211082031}
-  - {fileID: 8457519496035271447}
-  armRightTarget: {fileID: 8290928441746352789}
-  armRightWeightPosition: 1
-  armRightWeightRotation: 1
-  armRightHierarchy:
-  - {fileID: 8467295805682651927}
-  - {fileID: 6069191529265264180}
-  - {fileID: 7922483236244308895}
-  hint: {fileID: 0}
-  weightHint: 0
 --- !u!82 &6063123540268673651
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3925,71 +3993,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6063123540268673650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8217125002488325618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d4aa21f92fd21449bd5d5171630019, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPlayerHealth: 100
-  maxPlayerHealth: 100
-  regenRate: 30
-  canRegen: 0
-  invulnerableTimer: 1
-  canTakeDamage: 1
-  redSplatterImage: {fileID: 0}
-  hurtImage: {fileID: 0}
-  hurtTimer: 0.3
-  healCooldown: 5
-  maxHealCooldown: 5
-  startCooldown: 0
-  playerHitSource: {fileID: 6063123540268673651}
-  playerHealthSource: {fileID: 6063123540268673653}
-  BGMusic: {fileID: 1829031060790925190}
-  playerHit:
-  - {fileID: 8300000, guid: a6bba1d36e436f34ab50851eb36a1f08, type: 3}
-  - {fileID: 8300000, guid: 06f3c7f58f57f374b981c583019e1344, type: 3}
-  - {fileID: 8300000, guid: 2b19c4dd116b13042a9b95ff0a5dc287, type: 3}
-  playerHeartbeat:
-  - {fileID: 8300000, guid: a64e109d16c8c2f428b6eb7a44faf17c, type: 3}
-  - {fileID: 8300000, guid: 62ca6090428bc4c4b87893a17aed80e1, type: 3}
-  BGMusicTracks:
-  - {fileID: 8300000, guid: a2f8a52263e165e99922746a5c738d17, type: 3}
-  - {fileID: 8300000, guid: 7a1a45f63778cb0ebac9005a0364193e, type: 3}
-  - {fileID: 8300000, guid: 6e5e6e8dd41cb7df09964086b86ab2fd, type: 3}
-  - {fileID: 8300000, guid: 8936b978c6e61df60b656d1d8cda2720, type: 3}
-  - {fileID: 8300000, guid: 93ae29c5fd00ecf939995ea3845edd75, type: 3}
-  - {fileID: 8300000, guid: b74a219e9c6aa6b0a92d5f620d0e519c, type: 3}
-  - {fileID: 8300000, guid: d96fd457599ffae40bd20969b1629e38, type: 3}
-  - {fileID: 8300000, guid: d61fdeab0ceca55debdfa6fcd36fa968, type: 3}
---- !u!195 &6063123540268673652
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8217125002488325618}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 3
-  m_BaseOffset: 7.5
-  m_WalkableMask: 11
-  m_ObstacleAvoidanceType: 4
 --- !u!82 &1829031060790925190
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4087,32 +4090,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2888206304065857966
-MonoBehaviour:
+--- !u!195 &6063123540268673652
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8217125002488325618}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd1324a4d8c4c304a9b1a0737f24832a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactionPoint: {fileID: 46987063}
-  _interactionPointRadius: 2
-  _interactableMask:
-    serializedVersion: 2
-    m_Bits: 65536
-  character: {fileID: 0}
-  settingsMenu: {fileID: 0}
-  upgradeMenu: {fileID: 0}
-  interactUI: {fileID: 0}
-  attachmentUI: {fileID: 0}
-  interactionText: {fileID: 0}
-  animator: {fileID: 0}
-  stateName: Visible
-  _numFound: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3
+  m_BaseOffset: 7.5
+  m_WalkableMask: 11
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8225568822306483407
 GameObject:
   m_ObjectHideFlags: 0

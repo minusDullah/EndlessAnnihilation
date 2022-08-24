@@ -6,6 +6,7 @@ public class UpgradeMenu : MonoBehaviour
 {
     [SerializeField] private Character character;
     [SerializeField] private Movement movement;
+    [SerializeField] private GameObject _player;
     [SerializeField] private GrenadeScript grenade;
 
     [SerializeField] private float damageBoostIncrease = .5f;
@@ -30,15 +31,16 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] public AnimationClip animationHide;
     public Animation animationComponent;
 
-    void Start()
+    private void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
+        character = _player.GetComponent<Character>();
+        movement = _player.GetComponent<Movement>();
         animationComponent = animatedCanvas.GetComponent<Animation>();
-        gameObject.SetActive(false);
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        movement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
         grenade.grenadeDamage = 50f;
         grenade.radius = 5f;
         character.grenadeCDTimer = 3f;
+        gameObject.SetActive(false);
     }
 
     #region Damage Boost

@@ -4443,7 +4443,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &5965040679779390064
 MonoBehaviour:
@@ -4670,6 +4670,7 @@ MonoBehaviour:
     type: 3}
   mouseSensitivity: {fileID: 311370810049645888}
   fullscreenToggle: {fileID: 3376182379298668778}
+  menuIsEnabled: 0
 --- !u!82 &3065512383278704587
 AudioSource:
   m_ObjectHideFlags: 0

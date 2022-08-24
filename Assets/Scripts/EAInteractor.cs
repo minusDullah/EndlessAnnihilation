@@ -10,28 +10,26 @@ public class EAInteractor : MonoBehaviour
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius;
     [SerializeField] private LayerMask _interactableMask;
+
     [SerializeField] private Character character;
-    [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject upgradeMenu;
     [SerializeField] private GameObject interactUI;
-    [SerializeField] private GameObject attachmentUI;
     [SerializeField] public TextMeshProUGUI interactionText;
     [SerializeField] private Animator animator;
     [SerializeField] private string stateName = "Visible";
 
     private readonly Collider[] _colliders = new Collider[3];
+    
 
     [SerializeField] private int _numFound;
 
     public void Start()
     {
-        settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
+        character = gameObject.GetComponent<Character>();
         upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
         interactUI = GameObject.FindGameObjectWithTag("InteractUI");
-        attachmentUI = GameObject.FindGameObjectWithTag("AttachmentMenu");
         interactionText = interactUI.GetComponentInChildren<TextInteraction>().textToModify;
         animator = interactUI.GetComponentInChildren<Animator>();
-        character = gameObject.GetComponent<Character>();
     }
 
     public void LateUpdate()
@@ -44,25 +42,15 @@ public class EAInteractor : MonoBehaviour
 
             animator.SetBool(stateName, true);
 
-            if (interactionText.text == "" && !upgradeMenu.activeSelf)
+            if (interactionText.text == "")
             {
                 interactionText.text = interactable.InteractionPrompt;
             }
 
-            if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame && !upgradeMenu.activeSelf)
+            if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame)
             {
                 interactable.Interact(this);
-                settingsMenu.SetActive(false);
             }
-
-            if(interactable != null && Keyboard.current.escapeKey.wasPressedThisFrame)
-            {
-                interactable.Close(this);
-                settingsMenu.SetActive(true);
-            }
-
-            if(character.characterAnimator.speed != 1f) { character.UnPause(); }
-            
         }
         else
         {
@@ -72,7 +60,7 @@ public class EAInteractor : MonoBehaviour
                 animator.SetBool(stateName, false);
             }
 
-            if (upgradeMenu.activeSelf)
+            if (_numFound == 0)
             {
                 character.cursorLocked = true;
                 character.UpdateCursorState();

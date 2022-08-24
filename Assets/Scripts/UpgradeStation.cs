@@ -10,36 +10,31 @@ public class UpgradeStation : MonoBehaviour, IInteractable
 
     public string InteractionPrompt => _prompt;
 
-    public void Awake()
+    public void Start()
     {
-        
-    }
-
-    private void Start()
-    {
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         UpgradeMenuUI = GameObject.FindGameObjectWithTag("UpgradeMenu");
         UpgradeMenuAnimation = UpgradeMenuUI.GetComponent<UpgradeMenu>();
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
     }
 
-    public bool Interact(EAInteractor interactor)
+    public void Interact(EAInteractor interactor)
     {
-        UpgradeMenuAnimation.animationComponent.clip = UpgradeMenuAnimation.animationShow;
-        UpgradeMenuAnimation.animationComponent.Play();
-        UpgradeMenuUI.SetActive(true);
-        character.cursorLocked = false;
-        character.UpdateCursorState();
-        return true;
-    }
-
-    public bool Close(EAInteractor interactor)
-    {
-        UpgradeMenuAnimation.animationComponent.clip = UpgradeMenuAnimation.animationHide;
-        UpgradeMenuAnimation.animationComponent.Play();
-        character.cursorLocked = true;
-        character.UpdateCursorState();
-        Invoke("DisableMenu", .1f);
-        return true;
+        if (UpgradeMenuUI.activeInHierarchy)
+        {
+            UpgradeMenuAnimation.animationComponent.clip = UpgradeMenuAnimation.animationHide;
+            UpgradeMenuAnimation.animationComponent.Play();
+            character.cursorLocked = true;
+            character.UpdateCursorState();
+            Invoke("DisableMenu", .1f);
+        }
+        else
+        {
+            UpgradeMenuAnimation.animationComponent.clip = UpgradeMenuAnimation.animationShow;
+            UpgradeMenuAnimation.animationComponent.Play();
+            character.cursorLocked = false;
+            character.UpdateCursorState();
+            UpgradeMenuUI.SetActive(true);
+        }
     }
     
     private void DisableMenu()

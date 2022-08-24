@@ -27,7 +27,6 @@ TagManager:
   - UpgradeMenu
   - SettingsMenu
   - InteractUI
-  - CanvasUI
   - Weapon
   - Inventory
   - ItemContainer

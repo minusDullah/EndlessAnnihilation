@@ -172,7 +172,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 1904662666095563591}
   m_Layer: 5
   m_Name: P_LPSP_UI_Interaction
-  m_TagString: Untagged
+  m_TagString: InteractUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

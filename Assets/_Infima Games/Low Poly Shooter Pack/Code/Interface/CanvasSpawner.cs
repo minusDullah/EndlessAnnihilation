@@ -1,4 +1,5 @@
-﻿//Copyright 2022, Infima Games. All Rights Reserved.
+﻿//Copyright 2022, Infima
+//s. All Rights Reserved.
 
 using UnityEngine;
 

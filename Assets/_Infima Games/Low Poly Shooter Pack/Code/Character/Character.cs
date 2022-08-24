@@ -8,6 +8,7 @@ using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 using TMPro;
 using System.Collections.Generic;
+using InfimaGames.LowPolyShooterPack.Interface;
 
 namespace InfimaGames.LowPolyShooterPack
 {
@@ -149,6 +150,7 @@ namespace InfimaGames.LowPolyShooterPack
 		[SerializeField] public GameObject settingsMenu;
 		[SerializeField] public GameObject upgradeMenu;
 		[SerializeField] public WeaponAttachmentManager weaponAttachment;
+		[SerializeField] public MenuQualitySettings settingsMenuExten;
 		[SerializeField] public TMP_Dropdown scopeMenu;
 		[SerializeField] public TMP_Dropdown muzzleMenu;
 		[SerializeField] public TMP_Dropdown gripMenu;
@@ -326,6 +328,10 @@ namespace InfimaGames.LowPolyShooterPack
 
 			//Refresh!
 			RefreshWeaponSetup();
+
+			settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
+			settingsMenuExten = settingsMenu.GetComponent<MenuQualitySettings>();
+			upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
 		}
 		/// <summary>
 		/// Start.
@@ -335,9 +341,6 @@ namespace InfimaGames.LowPolyShooterPack
 			currDamage = gameObject.GetComponentInChildren<Weapon>().damagePerBullet;
 
 			weaponAttachment = equippedWeapon.GetAttachmentManager().GetComponent<WeaponAttachmentManager>();
-
-			settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
-			upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
 
 			ScopeMenuUpdate();
 			MuzzleMenuUpdate();
@@ -421,6 +424,20 @@ namespace InfimaGames.LowPolyShooterPack
 			
 			//Save Aiming Value.
 			wasAiming = aiming;
+
+			if (Keyboard.current.escapeKey.wasReleasedThisFrame)
+			{
+				if (settingsMenuExten.menuIsEnabled)
+				{
+					settingsMenuExten.Hide();
+					settingsMenu.SetActive(false);
+				}
+				else
+				{
+					settingsMenuExten.Show();
+					settingsMenu.SetActive(true);
+				}
+			}
 		}
 
 		#endregion
@@ -617,7 +634,6 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		/// 
 
-		//uhhh optimize ?
 		private void Inspect()
 		{
 			//State.
@@ -629,10 +645,10 @@ namespace InfimaGames.LowPolyShooterPack
 
 		private void Pause()
         {
-			settingsMenu.SetActive(false);
-			characterAnimator.speed = .01f;
+			characterAnimator.speed = .001f;
 			cursorLocked = false;
 			UpdateCursorState();
+
 			attachmentMenu.SetActive(true);
 		}
 
@@ -641,7 +657,7 @@ namespace InfimaGames.LowPolyShooterPack
 			characterAnimator.speed = 1f;
 			cursorLocked = true;
 			UpdateCursorState();
-			settingsMenu.SetActive(true);
+
 			attachmentMenu.SetActive(false);
 		}
 
@@ -1025,6 +1041,9 @@ namespace InfimaGames.LowPolyShooterPack
 
 			//Block.
 			if (reloading || bolting)
+				return false;
+			
+			if (!cursorLocked)
 				return false;
 
 			//Block.

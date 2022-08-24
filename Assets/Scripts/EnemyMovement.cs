@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
     private WaveSpawner waveSpawner;
+    private GameObject _player;
 
     [Header("Enemy Stats")]
     [SerializeField] private float enemyDamage = 25f;
@@ -23,8 +24,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = _player.transform;
+        playerHealth = _player.GetComponent<HealthController>();
         waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
 
         navAgent = GetComponent<NavMeshAgent>();

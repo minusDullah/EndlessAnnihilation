@@ -63,7 +63,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// <summary>
         /// If true, it means that this menu is enabled and showing properly.
         /// </summary>
-        private bool menuIsEnabled;
+        public bool menuIsEnabled;
 
         /// <summary>
         /// Main Post Processing Volume.
@@ -85,8 +85,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         private void Start()
         {
-            //Hide pause menu on start.
-            animatedCanvas.GetComponent<CanvasGroup>().alpha = 0;
+            animatedCanvas.GetComponent<CanvasGroup>().alpha = 1;
             //Get canvas animation component.
             animationComponent = animatedCanvas.GetComponent<Animation>();
 
@@ -129,6 +128,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
             LoadSensitivity();
             LoadFullscreen();
+
+            gameObject.SetActive(false);
         }
 
         public void SetFullscreen(bool isFullscreen)
@@ -177,24 +178,6 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         #endregion
 
-        protected override void Tick()
-        {
-            //Switch. Fades in or out the menu based on the cursor's state.
-            if (Keyboard.current.escapeKey.wasPressedThisFrame)
-            {
-                gameObject.SetActive(true);
-                //Hide.
-                if (menuIsEnabled)
-                {
-                    Hide();
-                }
-                else
-                {
-                    Show();
-                }
-            }
-        }
-
         #endregion
 
         #region METHODS
@@ -203,7 +186,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// Shows the menu by playing an animation.
         /// </summary>
 
-        private void Show()
+        public void Show()
         {
             volumeSlider.value = PlayerPrefs.GetFloat("Volume");
             volumeMusicSlider.value = PlayerPrefs.GetFloat("VolumeMusic");
@@ -215,16 +198,12 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             animationComponent.clip = animationShow;
             animationComponent.Play();
 
-            //Enable depth of field effect.
-            if(depthOfField != null)
-                depthOfField.active = true;
-
             Invoke("ChangeTime", .25f);
         }
         /// <summary>
         /// Hides the menu by playing an animation.
         /// </summary>
-        private void Hide()
+        public void Hide()
         {
             //Disabled.
             menuIsEnabled = false;
@@ -232,10 +211,6 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Play Clip.
             animationComponent.clip = animationHide;
             animationComponent.Play();
-
-            //Disable depth of field effect.
-            if(depthOfField != null)
-                depthOfField.active = false;
 
             ChangeTime();
         }
