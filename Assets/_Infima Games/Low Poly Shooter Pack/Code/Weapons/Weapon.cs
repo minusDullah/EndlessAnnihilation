@@ -10,7 +10,7 @@ namespace InfimaGames.LowPolyShooterPack
     public class Weapon : WeaponBehaviour
     {
         #region FIELDS SERIALIZED
-        
+
         [Title(label: "Settings")]
         
         [Tooltip("Weapon Name. Currently not used for anything, but in the future, we will use this for pickups!")]

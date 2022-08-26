@@ -1,16 +1,21 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace InfimaGames.LowPolyShooterPack
 {
     public class Inventory : InventoryBehaviour
     {
         #region FIELDS
-        
+
+        [Tooltip("The max amount of weapons that can be stored in the inventory")]
+        public int size;
         /// <summary>
         /// Array of all weapons. These are gotten in the order that they are parented to this object.
         /// </summary>
-        private WeaponBehaviour[] weapons;
-        
+        public List<WeaponBehaviour> weapons;
+
         /// <summary>
         /// Currently equipped WeaponBehaviour.
         /// </summary>
@@ -18,7 +23,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Currently equipped index.
         /// </summary>
-        private int equippedIndex = -1;
+        public int equippedIndex = -1;
 
         #endregion
         
@@ -27,8 +32,11 @@ namespace InfimaGames.LowPolyShooterPack
         public override void Init(int equippedAtStart = 0)
         {
             //Cache all weapons. Beware that weapons need to be parented to the object this component is on!
-            weapons = GetComponentsInChildren<WeaponBehaviour>(true);
-            
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                weapons.Add(transform.GetChild(i).GetComponent < WeaponBehaviour > ());
+            }
+
             //Disable all weapons. This makes it easier for us to only activate the one we need.
             foreach (WeaponBehaviour weapon in weapons)
                 weapon.gameObject.SetActive(false);
@@ -44,12 +52,12 @@ namespace InfimaGames.LowPolyShooterPack
                 return equipped;
             
             //The index needs to be within the array's bounds.
-            if (index > weapons.Length - 1)
+            if (index > weapons.Count - 1)
                 return equipped;
 
             //No point in allowing equipping the already-equipped weapon.
-            if (equippedIndex == index)
-                return equipped;
+            //if (equippedIndex == index)
+                //return equipped;
             
             //Disable the currently equipped weapon, if we have one.
             if (equipped != null)
@@ -75,7 +83,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Get last index with wrap around.
             int newIndex = equippedIndex - 1;
             if (newIndex < 0)
-                newIndex = weapons.Length - 1;
+                newIndex = weapons.Count - 1;
 
             //Return.
             return newIndex;
@@ -85,7 +93,7 @@ namespace InfimaGames.LowPolyShooterPack
         {
             //Get next index with wrap around.
             int newIndex = equippedIndex + 1;
-            if (newIndex > weapons.Length - 1)
+            if (newIndex > weapons.Count - 1)
                 newIndex = 0;
 
             //Return.

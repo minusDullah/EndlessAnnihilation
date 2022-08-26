@@ -40,6 +40,7 @@ public class UpgradeMenu : MonoBehaviour
         grenade.grenadeDamage = 50f;
         grenade.radius = 5f;
         character.grenadeCDTimer = 3f;
+        gameObject.SetActive(false);
     }
 
     #region Damage Boost

@@ -12,6 +12,7 @@ public class EAInteractor : MonoBehaviour
     [SerializeField] private LayerMask _interactableMask;
 
     [SerializeField] private Character character;
+    [SerializeField] private GameObject lastInteractableObject;
     [SerializeField] private GameObject upgradeMenu;
     [SerializeField] private GameObject interactUI;
     [SerializeField] public TextMeshProUGUI interactionText;
@@ -26,7 +27,6 @@ public class EAInteractor : MonoBehaviour
     public void Start()
     {
         character = gameObject.GetComponent<Character>();
-        upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
         interactUI = GameObject.FindGameObjectWithTag("InteractUI");
         interactionText = interactUI.GetComponentInChildren<TextInteraction>().textToModify;
         animator = interactUI.GetComponentInChildren<Animator>();
@@ -39,6 +39,8 @@ public class EAInteractor : MonoBehaviour
         if (_numFound > 0)
         {
             var interactable = _colliders[0].GetComponent<IInteractable>();
+
+            lastInteractableObject = _colliders[0].GetComponent<GameObject>();
 
             animator.SetBool(stateName, true);
 
@@ -60,11 +62,11 @@ public class EAInteractor : MonoBehaviour
                 animator.SetBool(stateName, false);
             }
 
-            if (upgradeMenu.activeInHierarchy)
+            if (lastInteractableObject != null && lastInteractableObject.activeInHierarchy)
             {
                 character.cursorLocked = true;
                 character.UpdateCursorState();
-                upgradeMenu.SetActive(false);
+                lastInteractableObject.SetActive(false);
             }
         }
     }

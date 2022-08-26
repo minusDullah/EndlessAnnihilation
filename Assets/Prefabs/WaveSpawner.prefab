@@ -455,7 +455,7 @@ MonoBehaviour:
   waveValue: 0
   waveMultiplier: 5
   totalKills: 0
-  timeRemaining: 60
+  timeRemaining: 120
   enemiesToSpawn: []
   spawnLocation:
   - {fileID: 4553064473831359935}
