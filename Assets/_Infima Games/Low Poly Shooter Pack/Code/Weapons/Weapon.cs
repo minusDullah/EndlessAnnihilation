@@ -144,8 +144,6 @@ namespace InfimaGames.LowPolyShooterPack
         [Tooltip("")]
         [SerializeField]
         private AudioClip audioClipBoltAction;
-
-        [SerializeField] public bool weaponOwned;
         #endregion
 
         #region FIELDS
@@ -157,7 +155,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Attachment Manager.
         /// </summary>
-        private WeaponAttachmentManagerBehaviour attachmentManager;
+        public WeaponAttachmentManagerBehaviour attachmentManager;
 
         /// <summary>
         /// Amount of ammunition left.
@@ -169,25 +167,25 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Equipped scope Reference.
         /// </summary>
-        private ScopeBehaviour scopeBehaviour;
-        
+        public ScopeBehaviour scopeBehaviour;
+
         /// <summary>
         /// Equipped Magazine Reference.
         /// </summary>
-        private MagazineBehaviour magazineBehaviour;
+        public MagazineBehaviour magazineBehaviour;
         /// <summary>
         /// Equipped Muzzle Reference.
         /// </summary>
-        private MuzzleBehaviour muzzleBehaviour;
+        public MuzzleBehaviour muzzleBehaviour;
 
         /// <summary>
         /// Equipped Laser Reference.
         /// </summary>
-        private LaserBehaviour laserBehaviour;
+        public LaserBehaviour laserBehaviour;
         /// <summary>
         /// Equipped Grip Reference.
         /// </summary>
-        private GripBehaviour gripBehaviour;
+        public GripBehaviour gripBehaviour;
 
         #endregion
 
@@ -211,7 +209,6 @@ namespace InfimaGames.LowPolyShooterPack
         
         protected override void Awake()
         {
-            weaponOwned = false;
             //Get Animator.
             animator = GetComponent<Animator>();
             //Get Attachment Manager.
@@ -228,18 +225,7 @@ namespace InfimaGames.LowPolyShooterPack
         {
             #region Cache Attachment References
 
-            //Get Scope.
-            scopeBehaviour = attachmentManager.GetEquippedScope();
-            
-            //Get Magazine.
-            magazineBehaviour = attachmentManager.GetEquippedMagazine();
-            //Get Muzzle.
-            muzzleBehaviour = attachmentManager.GetEquippedMuzzle();
-
-            //Get Laser.
-            laserBehaviour = attachmentManager.GetEquippedLaser();
-            //Get Grip.
-            gripBehaviour = attachmentManager.GetEquippedGrip();
+            UpdateWeaponBehaviour();
 
             #endregion
 
@@ -406,6 +392,20 @@ namespace InfimaGames.LowPolyShooterPack
         #endregion
 
         #region METHODS
+
+        public void UpdateWeaponBehaviour()
+        {
+            //Get Scope.
+            scopeBehaviour = attachmentManager.GetEquippedScope();
+            //Get Magazine.
+            magazineBehaviour = attachmentManager.GetEquippedMagazine();
+            //Get Muzzle.
+            muzzleBehaviour = attachmentManager.GetEquippedMuzzle();
+            //Get Laser.
+            laserBehaviour = attachmentManager.GetEquippedLaser();
+            //Get Grip.
+            gripBehaviour = attachmentManager.GetEquippedGrip();
+        }
 
         /// <summary>
         /// Reload.

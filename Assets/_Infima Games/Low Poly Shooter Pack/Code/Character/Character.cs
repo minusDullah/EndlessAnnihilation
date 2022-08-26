@@ -216,11 +216,11 @@ namespace InfimaGames.LowPolyShooterPack
 		/// The magazine equipped on the character's weapon.
 		/// </summary>
 		private MagazineBehaviour equippedWeaponMagazine;
-		
-		/// <summary>
-		/// True if the character is reloading.
-		/// </summary>
-		private bool reloading;
+
+        /// <summary>
+        /// True if the character is reloading.
+        /// </summary>
+        private bool reloading;
 		
 		/// <summary>
 		/// True if the character is inspecting its weapon.
@@ -424,7 +424,7 @@ namespace InfimaGames.LowPolyShooterPack
 			//Save Aiming Value.
 			wasAiming = aiming;
 
-			if (Keyboard.current.escapeKey.wasReleasedThisFrame)
+			if (Keyboard.current.escapeKey.wasPressedThisFrame)
 			{
 				if (settingsMenuExten.menuIsEnabled)
 				{
@@ -433,8 +433,8 @@ namespace InfimaGames.LowPolyShooterPack
 				}
 				else
 				{
-					settingsMenuExten.Show();
 					settingsMenu.SetActive(true);
+					settingsMenuExten.Show();
 				}
 			}
 		}
@@ -792,6 +792,8 @@ namespace InfimaGames.LowPolyShooterPack
 			equippedWeaponScope = weaponAttachmentManager.GetEquippedScope();
 			//Get equipped magazine. We need this one for its settings!
 			equippedWeaponMagazine = weaponAttachmentManager.GetEquippedMagazine();
+
+			equippedWeapon.GetComponent<Weapon>().UpdateWeaponBehaviour();
 		}
 
 		private void FireEmpty()
@@ -1536,7 +1538,10 @@ namespace InfimaGames.LowPolyShooterPack
 			if (weaponAttachment == null)
 				return;
 
+			//updates gameobjects aka turns off and on
 			weaponAttachment.UpdateAttachments();
+
+			//changes weapon behaviour
 			RefreshWeaponSetup();
 		}
 

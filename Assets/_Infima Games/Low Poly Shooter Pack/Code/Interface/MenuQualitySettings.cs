@@ -130,6 +130,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             LoadFullscreen();
 
             gameObject.SetActive(false);
+            menuIsEnabled = false;
         }
 
         public void SetFullscreen(bool isFullscreen)
