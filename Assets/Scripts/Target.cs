@@ -47,6 +47,7 @@ public class Target : MonoBehaviour, IDamageable
         health -= damage;
         if (health <= 0)
         {
+            waveSpawner.totalKills++;
             SetAllCollidersStatus();
             DeathSound();
             navMeshAgent.isStopped = true;

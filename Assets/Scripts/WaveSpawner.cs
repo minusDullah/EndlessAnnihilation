@@ -9,6 +9,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] public int currWave;
     [SerializeField] private int waveValue;
     [SerializeField] private int waveMultiplier = 10;
+    [SerializeField] public int totalKills;
     [SerializeField] public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
     [SerializeField] public List<Transform> spawnLocation = new List<Transform>();
