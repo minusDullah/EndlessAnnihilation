@@ -32,7 +32,7 @@ public class EAInteractor : MonoBehaviour
         animator = interactUI.GetComponentInChildren<Animator>();
     }
 
-    public void LateUpdate()
+    public void Update()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
@@ -60,7 +60,7 @@ public class EAInteractor : MonoBehaviour
                 animator.SetBool(stateName, false);
             }
 
-            if (_numFound == 0)
+            if (upgradeMenu.activeInHierarchy)
             {
                 character.cursorLocked = true;
                 character.UpdateCursorState();

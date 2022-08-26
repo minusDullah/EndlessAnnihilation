@@ -338,14 +338,13 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		protected override void Start()
 		{
-			currDamage = gameObject.GetComponentInChildren<Weapon>().damagePerBullet;
-
 			weaponAttachment = equippedWeapon.GetAttachmentManager().GetComponent<WeaponAttachmentManager>();
-
 			ScopeMenuUpdate();
 			MuzzleMenuUpdate();
 			LaserMenuUpdate();
 			GripMenuUpdate();
+
+			currDamage = gameObject.GetComponentInChildren<Weapon>().damagePerBullet;
 
 			//Max out the grenades.
 			grenadeCount = grenadeTotal;
@@ -636,6 +635,12 @@ namespace InfimaGames.LowPolyShooterPack
 
 		private void Inspect()
 		{
+			weaponAttachment = equippedWeapon.GetAttachmentManager().GetComponent<WeaponAttachmentManager>();
+			ScopeMenuUpdate();
+			MuzzleMenuUpdate();
+			LaserMenuUpdate();
+			GripMenuUpdate();
+			
 			//State.
 			inspecting = true;
 			//Play.
