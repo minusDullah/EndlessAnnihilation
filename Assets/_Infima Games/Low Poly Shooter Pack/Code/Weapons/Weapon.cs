@@ -55,6 +55,9 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField] 
         public float headshotMultiplier = 1.5f;
 
+        [SerializeField] private int ammunitionMax;
+        [SerializeField] private int ammunitionInventory;
+
         [Title(label: "Reloading")]
         
         [Tooltip("Determines if this weapon reloads in cycles, meaning that it inserts one bullet at a time, or not.")]
@@ -225,6 +228,9 @@ namespace InfimaGames.LowPolyShooterPack
         {
             #region Cache Attachment References
 
+            ammunitionMax = magazineBehaviour.GetAmmunitionMax();
+            ammunitionInventory = ammunitionMax;
+
             UpdateWeaponBehaviour();
 
             #endregion
@@ -267,7 +273,9 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return 1.0f;
         }
-        
+
+        public override int GetAmmunitionInventory() => ammunitionInventory;
+
         /// <summary>
         /// GetAnimator.
         /// </summary>
@@ -353,6 +361,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public override bool IsBoltAction() => boltAction;
 
+
         /// <summary>
         /// GetAutomaticallyReloadOnEmpty.
         /// </summary>
@@ -412,6 +421,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public override void Reload()
         {
+            if (ammunitionInventory <= 0)
+                return;
             //Set Reloading Bool. This helps cycled reloads know when they need to stop cycling.
             const string boolName = "Reloading";
             animator.SetBool(boolName, true);
@@ -472,9 +483,16 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public override void FillAmmunition(int amount)
         {
+
+            int fill = GetAmmunitionAmountFill(amount != 0 ? Mathf.Clamp(ammunitionCurrent + amount,
+                0, GetAmmunitionTotal()) : magazineBehaviour.GetAmmunitionTotal());
+
+
+            RemoveAmmunitionAmount(fill);
+
+
             //Update the value by a certain amount.
-            ammunitionCurrent = amount != 0 ? Mathf.Clamp(ammunitionCurrent + amount, 
-                0, GetAmmunitionTotal()) : magazineBehaviour.GetAmmunitionTotal();
+            ammunitionCurrent += fill;
         }
         /// <summary>
         /// SetSlideBack.
@@ -494,6 +512,31 @@ namespace InfimaGames.LowPolyShooterPack
             //Spawn casing prefab at spawn point.
             if(prefabCasing != null && socketEjection != null)
                 Instantiate(prefabCasing, socketEjection.position, socketEjection.rotation);
+        }
+
+        public void RemoveAmmunitionAmount(int total)
+        {
+            ammunitionInventory -= ammunitionInventory - total < 0 ? 0 : total;
+        }
+
+
+
+        public int GetAmmunitionAmountFill(int total)
+        {
+            int fillAmount = ammunitionInventory <= total ? ammunitionInventory : total;
+            int diffrence = ammunitionCurrent + fillAmount - magazineBehaviour.GetAmmunitionTotal();
+            return ammunitionCurrent + fillAmount >= magazineBehaviour.GetAmmunitionTotal() ? fillAmount - diffrence : fillAmount;
+        }
+
+        public void AddAmmunitionInventoryAmount(int total)
+        {
+            int diffrence = ammunitionInventory + total - ammunitionMax;
+            int amount = ammunitionInventory + total >= ammunitionMax ? diffrence : total;
+
+            if (ammunitionInventory + total >= ammunitionMax)
+                ammunitionInventory = ammunitionMax;
+            else
+                ammunitionInventory += amount;
         }
         #endregion
     }

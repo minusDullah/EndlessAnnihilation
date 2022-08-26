@@ -721,6 +721,10 @@ namespace InfimaGames.LowPolyShooterPack
 		{
 			#region Animation
 
+			if (equippedWeapon.GetAmmunitionInventory() <= 0)
+				return;
+
+
 			//Get the name of the animation state to play, which depends on weapon settings, and ammunition!
 			string stateName = equippedWeapon.HasCycledReload() ? "Reload Open" :
 				(equippedWeapon.HasAmmunition() ? "Reload" : "Reload Empty");

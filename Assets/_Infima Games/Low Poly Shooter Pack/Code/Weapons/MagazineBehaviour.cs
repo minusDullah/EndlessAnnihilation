@@ -20,6 +20,9 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public abstract Sprite GetSprite();
 
+        public abstract int GetAmmunitionMax();
+
+
         #endregion
     }
 }

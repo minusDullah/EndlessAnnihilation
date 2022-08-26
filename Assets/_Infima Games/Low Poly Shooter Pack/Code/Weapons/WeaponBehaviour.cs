@@ -105,6 +105,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// Returns the Weapon's Animator component.
         /// </summary>
         public abstract Animator GetAnimator();
+        public abstract int GetAmmunitionInventory();
 
         /// <summary>
         /// Returns the value of canReloadAimed.
