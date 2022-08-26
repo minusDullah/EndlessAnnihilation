@@ -373,7 +373,7 @@ GameObject:
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: waveSpawner
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -451,9 +451,11 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 4972308482775631872, guid: e66fd7302f888ab4e9b6d518221b238d,
       type: 3}
     cost: 1
-  currWave: 2
+  currWave: 10
   waveValue: 0
   waveMultiplier: 5
+  totalKills: 0
+  timeRemaining: 60
   enemiesToSpawn: []
   spawnLocation:
   - {fileID: 4553064473831359935}
@@ -477,6 +479,7 @@ MonoBehaviour:
   waveTimer: 0
   spawnInterval: 1
   spawnTimer: 0
+  timerText: {fileID: 0}
 --- !u!1 &4553064474490920217
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -10,23 +11,31 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private int waveValue;
     [SerializeField] private int waveMultiplier = 10;
     [SerializeField] public int totalKills;
+    [SerializeField] public float timeRemaining = 60;
     [SerializeField] public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
     [SerializeField] public List<Transform> spawnLocation = new List<Transform>();
     [SerializeField] public int waveDuration;
-    [SerializeField] private float waveTimer;
+    [SerializeField] public float waveTimer;
     [SerializeField] private float spawnInterval;
     [SerializeField] private float spawnTimer;
+
+    [SerializeField] private TextMeshProUGUI timerText;
 
     // Start is called before the first frame update
     void Start()
     {
+        timerText = GameObject.FindGameObjectWithTag("CountdownTimer").GetComponent<TextMeshProUGUI>();
         GenerateWave();
+        SetTimer(timeRemaining);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        timeRemaining -= Time.deltaTime;
+        SetTimer(timeRemaining);
+
         if (spawnTimer <= 0)
         {
             //spawn an enemy
@@ -49,6 +58,14 @@ public class WaveSpawner : MonoBehaviour
             spawnTimer -= Time.fixedDeltaTime;
             waveTimer -= Time.fixedDeltaTime;
         }
+    }
+
+    private void SetTimer(float currentTime)
+    {
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+
+        timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 
     public void GenerateWave()

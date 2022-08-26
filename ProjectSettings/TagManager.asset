@@ -31,6 +31,7 @@ TagManager:
   - Inventory
   - ItemContainer
   - AttachmentMenu
+  - CountdownTimer
   layers:
   - Default
   - TransparentFX
