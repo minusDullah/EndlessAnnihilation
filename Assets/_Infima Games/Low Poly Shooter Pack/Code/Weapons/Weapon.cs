@@ -59,7 +59,9 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField] private int ammunitionInventory;
 
         [Title(label: "Reloading")]
-        
+
+        [SerializeField] public int reloadSpeed;
+
         [Tooltip("Determines if this weapon reloads in cycles, meaning that it inserts one bullet at a time, or not.")]
         [SerializeField]
         private bool cycledReload;
@@ -150,7 +152,7 @@ namespace InfimaGames.LowPolyShooterPack
         #endregion
 
         #region FIELDS
-
+        public Animator characterAnimator;
         /// <summary>
         /// Weapon Animator.
         /// </summary>
@@ -429,8 +431,10 @@ namespace InfimaGames.LowPolyShooterPack
             
             //Try Play Reload Sound.
             ServiceLocator.Current.Get<IAudioManagerService>().PlayOneShot(HasAmmunition() ? audioClipReload : audioClipReloadEmpty, new AudioSettings(1.0f, 0.0f, false));
-            
+            Character character = characterBehaviour.GetComponent<Character>();
             //Play Reload Animation.
+            character.characterAnimator.speed = reloadSpeed;
+            animator.speed = reloadSpeed;
             animator.Play(cycledReload ? "Reload Open" : (HasAmmunition() ? "Reload" : "Reload Empty"), 0, 0.0f);
         }
         /// <summary>

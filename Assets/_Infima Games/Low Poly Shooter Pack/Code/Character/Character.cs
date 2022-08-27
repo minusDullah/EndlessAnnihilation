@@ -736,7 +736,6 @@ namespace InfimaGames.LowPolyShooterPack
 
 			//Set Reloading Bool. This helps cycled reloads know when they need to stop cycling.
 			characterAnimator.SetBool(AHashes.Reloading, reloading = true);
-			
 			//Reload.
 			equippedWeapon.Reload();
 		}
@@ -1696,6 +1695,9 @@ namespace InfimaGames.LowPolyShooterPack
 		{
 			//Stop reloading!
 			reloading = false;
+			Animator weaponAnimator = equippedWeapon.GetAnimator();
+			characterAnimator.speed = 1;
+			weaponAnimator.speed = 1;
 		}
 
 		/// <summary>
