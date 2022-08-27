@@ -11,6 +11,7 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
     [SerializeField] private GameObject weaponHolder;
     [SerializeField] private Weapon weapon;
     [SerializeField] private int randomNumber;
+    [SerializeField] private bool cooldownOff = true;
 
     public void Start()
     {
@@ -23,6 +24,11 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
 
     public void Interact(EAInteractor interactor)
     {
+        if (!cooldownOff)
+            return;
+
+        cooldownOff = false;
+
         randomNumber = Random.Range(0, weaponHolder.transform.childCount);
 
         weapon = weaponHolder.transform.GetChild(randomNumber).GetComponent<Weapon>();
@@ -33,14 +39,37 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
         weapon.transform.localRotation = Quaternion.identity;
         weapon.transform.localScale = Vector3.one;
 
+        if (inventory.weapons.Count == 1)
+        {
+            inventory.weapons.Capacity = 2;
+            inventory.weapons.Insert(inventory.GetEquippedIndex()+1, weapon);
+            StartCoroutine(character.Equip(1));
+            StartCoroutine(CoolDown());
+            return;
+        }
+
         GameObject equippedWeapon = inventory.GetEquipped().gameObject;
-        equippedWeapon.transform.SetParent(weaponHolder.transform);
 
         inventory.weapons.RemoveAt(inventory.GetEquippedIndex());
         inventory.weapons.Insert(inventory.GetEquippedIndex(), weapon);
 
-        equippedWeapon.SetActive(false);
-
         StartCoroutine(character.Equip(inventory.weapons.Count - 1 <= 0 ? 0 : inventory.weapons.Count - 1));
+
+        StartCoroutine(DisableWeapon(equippedWeapon));
+
+        StartCoroutine(CoolDown());
+    }
+
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(1.25f);
+        cooldownOff = true;
+    }
+
+    IEnumerator DisableWeapon(GameObject equippedWeapon)
+    {
+        yield return new WaitForSeconds(.3f);
+        equippedWeapon.transform.SetParent(weaponHolder.transform);
+        equippedWeapon.SetActive(false);
     }
 }
