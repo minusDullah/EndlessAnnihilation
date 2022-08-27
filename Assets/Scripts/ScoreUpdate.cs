@@ -14,14 +14,22 @@ public class ScoreUpdate : MonoBehaviour
 
     private void Start()
     {
-        scoreText.text = ("" + 0);
+        scoreText.text = ("" + scoreTotal);
     }
 
-    public void UpdateScore()
+    public void UpdateScoreGain()
     {
         scoreTotal += scoreBuffer;
         scoreText.text = ("" + scoreTotal);
         scoreGainUI.text = ("+" + scoreBuffer);
+        PlayAnimation();
+    }
+
+    public void UpdateScoreLose(int scoreLost)
+    {
+        scoreTotal -= scoreLost;
+        scoreText.text = ("" + scoreTotal);
+        scoreGainUI.text = ("-" + scoreLost);
         PlayAnimation();
     }
 
@@ -40,11 +48,11 @@ public class ScoreUpdate : MonoBehaviour
     public void CalculateScore(int scoreWorth)
     {
         scoreBuffer += scoreWorth;
-        if (IsInvoking("UpdateScore"))
+        if (IsInvoking("UpdateScoreGain"))
         {
             CancelInvoke();
         }
-        Invoke("UpdateScore", .1f);
+        Invoke("UpdateScoreGain", .1f);
     }
 
     private void ResetBuffer()
