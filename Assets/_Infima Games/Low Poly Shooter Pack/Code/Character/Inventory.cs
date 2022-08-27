@@ -23,7 +23,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Currently equipped index.
         /// </summary>
-        public int equippedIndex = -1;
+        public int equippedIndex = 0;
 
         #endregion
         
@@ -52,7 +52,7 @@ namespace InfimaGames.LowPolyShooterPack
                 return equipped;
             
             //The index needs to be within the array's bounds.
-            if (index > weapons.Count - 1)
+            if (index > weapons.Count)
                 return equipped;
 
             //No point in allowing equipping the already-equipped weapon.
