@@ -19,7 +19,6 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
         character = inventory.GetComponentInParent<Character>();
     }
 
-
     public string InteractionPrompt => _prompt;
 
     public void Interact(EAInteractor interactor)
@@ -32,8 +31,14 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
         randomNumber = Random.Range(0, weaponHolder.transform.childCount);
 
         weapon = weaponHolder.transform.GetChild(randomNumber).GetComponent<Weapon>();
-
+        //.SetSiblingIndex(0);
         weapon.gameObject.transform.SetParent(inventory.transform);
+
+
+        if (inventory.GetEquippedIndex() != weapon.transform.GetSiblingIndex())
+        {
+            weapon.transform.SetSiblingIndex(inventory.GetEquippedIndex());
+        }
 
         weapon.transform.localPosition = Vector3.zero;
         weapon.transform.localRotation = Quaternion.identity;
