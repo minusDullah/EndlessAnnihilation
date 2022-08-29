@@ -24,6 +24,9 @@ public class ZombieFreezePowerUp : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (waveSpawner.enemiesFrozen)
+            return;
+
         if (other.CompareTag("Player"))
         {
             waveSpawner.enemiesFrozen = true;
