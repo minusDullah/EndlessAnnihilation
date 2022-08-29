@@ -8,12 +8,12 @@ public class DoublePointsPowerUp : MonoBehaviour
     [SerializeField] private float PerkCooldown = 15f;
     [SerializeField] private ScoreUpdate scoreUI;
     [SerializeField] private MeshRenderer mesh;
-    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private SphereCollider sphereCollider;
 
     private void Start()
     {
         mesh = GetComponent<MeshRenderer>();
-        boxCollider = GetComponent<BoxCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
         scoreUI = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
     }
 
@@ -28,7 +28,7 @@ public class DoublePointsPowerUp : MonoBehaviour
 
     IEnumerator PerkLength()
     {
-        boxCollider.enabled = false;
+        sphereCollider.enabled = false;
         mesh.enabled = false;
         yield return new WaitForSeconds(PerkCooldown);
         scoreUI.doublePoints = false;

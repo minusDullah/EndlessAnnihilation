@@ -12,14 +12,14 @@ public class ZombieFreezePowerUp : MonoBehaviour
     [SerializeField] private WaveSpawner waveSpawner;
 
     [SerializeField] private MeshRenderer mesh;
-    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private SphereCollider sphereCollider;
 
     private void Start()
     {
         zombieHolder = GameObject.FindGameObjectWithTag("ZombieHolder");
         waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
         mesh = GetComponent<MeshRenderer>();
-        boxCollider = GetComponent<BoxCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -41,7 +41,7 @@ public class ZombieFreezePowerUp : MonoBehaviour
 
     IEnumerator PerkLength()
     {
-        boxCollider.enabled = false;
+        sphereCollider.enabled = false;
         mesh.enabled = false;
         yield return new WaitForSeconds(PerkCooldown);
 

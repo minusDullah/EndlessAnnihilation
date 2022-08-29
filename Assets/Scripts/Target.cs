@@ -64,8 +64,8 @@ public class Target : MonoBehaviour, IDamageable
 
     private void ChanceOfPowerUp()
     {
-        int randomPowerUp = Random.Range(0, 100);
-        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1.75f, transform.position.z);
+        int randomPowerUp = Random.Range(0, 250);
+        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z);
         if (randomPowerUp <= 5) { Instantiate(waveSpawner.powerUps[0], spawnPos, Quaternion.identity); }
         if(randomPowerUp > 5 && randomPowerUp <= 10) { Instantiate(waveSpawner.powerUps[1], spawnPos, Quaternion.identity); }
         if(randomPowerUp > 10 && randomPowerUp <= 15) { Instantiate(waveSpawner.powerUps[2], spawnPos, Quaternion.identity); }

@@ -482,10 +482,10 @@ MonoBehaviour:
   timerText: {fileID: 0}
   zombieHolder: {fileID: 0}
   powerUps:
-  - {fileID: 7128697020485807658, guid: 38ba138eaef374941bf7cd3d18bc664e, type: 3}
-  - {fileID: 3796530512065754559, guid: 4104f41c693c55444bc9107b07265679, type: 3}
-  - {fileID: 8188612151980436926, guid: 7918cb4d174a9f141b72cb7e06e01f62, type: 3}
-  - {fileID: 731155519789960342, guid: 7e1967d16f8ada54bb8abec2b935afcc, type: 3}
+  - {fileID: 1618490157314234068, guid: 3378cbba042582d408b24827be5ef051, type: 3}
+  - {fileID: 6548920825225374291, guid: dfaf05f76c8f35540946e351699fb599, type: 3}
+  - {fileID: 7570456258771205639, guid: 6aa62a0a019a31b4583da280a0a3f546, type: 3}
+  - {fileID: 2952545155131912937, guid: f15de78fa71d7254cb2401c75537d41a, type: 3}
   enemiesFrozen: 0
 --- !u!1 &4553064474490920217
 GameObject:

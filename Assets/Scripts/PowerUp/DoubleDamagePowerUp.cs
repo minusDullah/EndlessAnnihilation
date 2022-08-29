@@ -9,12 +9,12 @@ public class DoubleDamagePowerUp : MonoBehaviour
     [SerializeField] private float PerkCooldown = 15f;
     [SerializeField] private Inventory inventory;
     [SerializeField] private MeshRenderer mesh;
-    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private SphereCollider sphereCollider;
 
     private void Start()
     {
         mesh = GetComponent<MeshRenderer>();
-        boxCollider = GetComponent<BoxCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Inventory>();
     }
 
@@ -30,7 +30,7 @@ public class DoubleDamagePowerUp : MonoBehaviour
 
     IEnumerator PerkLength(Weapon currWeapon)
     {
-        boxCollider.enabled = false;
+        sphereCollider.enabled = false;
         mesh.enabled = false;
         yield return new WaitForSeconds(PerkCooldown);
         currWeapon.damagePerBullet /= damageMultiplier;
