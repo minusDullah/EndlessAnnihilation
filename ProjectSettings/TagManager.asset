@@ -32,6 +32,7 @@ TagManager:
   - ItemContainer
   - AttachmentMenu
   - CountdownTimer
+  - ZombieHolder
   layers:
   - Default
   - TransparentFX

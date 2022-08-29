@@ -5,9 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private NavMeshAgent navAgent;
+    public NavMeshAgent navAgent;
     private HealthController playerHealth;
-    private Transform playerTransform;
     private Animator animator;
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
@@ -18,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float enemyDamage = 25f;
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 15f;
+    [SerializeField] public float randomSpeed;
     [SerializeField] private float attackCooldown = .8f;
     [SerializeField] private float animationBuffer = .3f;
     [SerializeField] private bool triggerEntered = false;
@@ -25,7 +25,6 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        playerTransform = _player.transform;
         playerHealth = _player.GetComponent<HealthController>();
         waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
 
@@ -35,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         rb.isKinematic = true;
-        float randomSpeed = Random.Range(waveSpawner.currWave/1.5F, waveSpawner.currWave);
+        randomSpeed = Random.Range(waveSpawner.currWave/1.5F, waveSpawner.currWave);
         randomSpeed = Mathf.Clamp(randomSpeed, minSpeed, maxSpeed);
         navAgent.speed = randomSpeed;
         animator.CrossFade(MovingAnim(), 1, 0);
@@ -43,6 +42,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (waveSpawner.enemiesFrozen)
+        {
+            triggerEntered = false;
+            animator.CrossFade("Idle", 1.3f, 0);
+        }
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) { return; }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dying") || animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
@@ -83,24 +88,24 @@ public class EnemyMovement : MonoBehaviour
         triggerEntered = false;
     }
 
-    void enemyDestination()
+    private void enemyDestination()
     {
-        navAgent.SetDestination(playerTransform.position);
+        navAgent.SetDestination(_player.transform.position);
     }
 
-    void DealDamage()
+    private void DealDamage()
     {
         playerHealth.TakeDamage(enemyDamage);
     }
 
-    void ChooseAnimation()
+    private void ChooseAnimation()
     {
         int atkAnim = Random.Range(0, 2);
         if (atkAnim == 0) { animator.CrossFade("Attack_Left", .05f, 0); }
         if (atkAnim == 1) { animator.CrossFade("Attack_Right", .05f, 0); }
     }
 
-    string MovingAnim()
+    private string MovingAnim()
     {
         if (navAgent.speed <= 2)
         {

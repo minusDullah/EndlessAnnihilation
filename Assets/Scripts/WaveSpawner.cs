@@ -13,18 +13,21 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] public int totalKills;
     [SerializeField] public float timeRemaining = 60;
     [SerializeField] public List<GameObject> enemiesToSpawn = new List<GameObject>();
+    [SerializeField] public GameObject zombieHolder;
 
     [SerializeField] public List<Transform> spawnLocation = new List<Transform>();
     [SerializeField] public int waveDuration;
     [SerializeField] public float waveTimer;
     [SerializeField] private float spawnInterval;
     [SerializeField] private float spawnTimer;
+    [SerializeField] public bool enemiesFrozen;
 
     [SerializeField] private TextMeshProUGUI timerText;
 
     // Start is called before the first frame update
     void Start()
     {
+        zombieHolder = GameObject.FindGameObjectWithTag("ZombieHolder");
         timerText = GameObject.FindGameObjectWithTag("CountdownTimer").GetComponent<TextMeshProUGUI>();
         GenerateWave();
         SetTimer(timeRemaining);
@@ -36,27 +39,31 @@ public class WaveSpawner : MonoBehaviour
         timeRemaining -= Time.deltaTime;
         SetTimer(timeRemaining);
 
-        if (spawnTimer <= 0)
+        if (!enemiesFrozen)
         {
-            //spawn an enemy
-            if (enemiesToSpawn.Count > 0)
+            if (spawnTimer <= 0!)
             {
-                int spawnPos = Random.Range(0, spawnLocation.Count);
-                Instantiate(enemiesToSpawn[0], spawnLocation[spawnPos].position, Quaternion.identity); // spawn first enemy in our list
-                enemiesToSpawn.RemoveAt(0); // and remove it
-                spawnTimer = spawnInterval;
+                //spawn an enemy
+                if (enemiesToSpawn.Count > 0)
+                {
+                    int spawnPos = Random.Range(0, spawnLocation.Count);
+                    var enemy = Instantiate(enemiesToSpawn[0], spawnLocation[spawnPos].position, Quaternion.identity); // spawn first enemy in our list
+                    enemy.transform.parent = zombieHolder.transform;
+                    enemiesToSpawn.RemoveAt(0); // and remove it
+                    spawnTimer = spawnInterval;
+                }
+                else
+                {
+                    waveTimer = 0; // if no enemies remain, end wave
+                    currWave++;
+                    GenerateWave();
+                }
             }
             else
             {
-                waveTimer = 0; // if no enemies remain, end wave
-                currWave++;
-                GenerateWave();
+                spawnTimer -= Time.fixedDeltaTime;
+                waveTimer -= Time.fixedDeltaTime;
             }
-        }
-        else
-        {
-            spawnTimer -= Time.fixedDeltaTime;
-            waveTimer -= Time.fixedDeltaTime;
         }
     }
 

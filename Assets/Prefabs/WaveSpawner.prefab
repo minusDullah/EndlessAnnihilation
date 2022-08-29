@@ -451,12 +451,13 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 4972308482775631872, guid: e66fd7302f888ab4e9b6d518221b238d,
       type: 3}
     cost: 1
-  currWave: 1
+  currWave: 555
   waveValue: 0
   waveMultiplier: 5
   totalKills: 0
   timeRemaining: 120
   enemiesToSpawn: []
+  zombieHolder: {fileID: 0}
   spawnLocation:
   - {fileID: 4553064473831359935}
   - {fileID: 4553064474244487173}

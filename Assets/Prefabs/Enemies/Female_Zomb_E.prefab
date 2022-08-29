@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: -146802748921192601}
   m_Layer: 0
   m_Name: Female_Zomb_E
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1023,9 +1023,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4929c35893ef94bb0890e363d9db7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navAgent: {fileID: 0}
   enemyDamage: 20
   minSpeed: 0.5
   maxSpeed: 6
+  randomSpeed: 0
   attackCooldown: 0.77
   animationBuffer: 0.3
   triggerEntered: 0
@@ -1047,6 +1049,7 @@ MonoBehaviour:
   bloodFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   bloodFXPosition: {fileID: 7222934209784057132}
   minimapIcon: {fileID: 2431178088615314654}
+  waveSpawner: {fileID: 0}
   scoreUpdate: {fileID: 0}
   enemyAudioSource: {fileID: -7820803991245576088}
   enemyDie:

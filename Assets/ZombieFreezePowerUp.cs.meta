@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f513af78d98029948926c89eea52677b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - zombieHolder: {instanceID: 0}
+  - mesh: {instanceID: 0}
+  - boxCollider: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
