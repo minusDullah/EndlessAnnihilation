@@ -3068,6 +3068,8 @@ MonoBehaviour:
   scoreGainUI: {fileID: 3477037845535183041}
   scoreText: {fileID: 6672248031123440771}
   anim: {fileID: 5166198687468096091}
+  doublePoints: 0
+  pointsMultiplier: 2
 --- !u!1 &8526386306062065574
 GameObject:
   m_ObjectHideFlags: 0

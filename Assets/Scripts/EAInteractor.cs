@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using InfimaGames.LowPolyShooterPack;
-using System;
 using TMPro;
 using InfimaGames.LowPolyShooterPack.Interface;
 

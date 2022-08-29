@@ -140,16 +140,6 @@ namespace InfimaGames.LowPolyShooterPack
 
 		[Title(label: "Damage Boost")]
 
-		[Header("Default Stats")]
-		[SerializeField] private float defaultDamage;
-		[SerializeField] private float defaultRateOfFire;
-		[SerializeField] private float defaultReloadSpeed;
-		[SerializeField] private float defaultMovementSpeedRunning;
-        [SerializeField] private float defaultMovementSpeedAiming;
-        [SerializeField] private float defaultMovementSpeedCrouching;
-        [SerializeField] private float defaultMovementSpeedWalking;
-		[SerializeField] private float defaultHP;
-
 		[Header("Stat Multipliers")]
 		[SerializeField] public float weaponDamageMultiplier;
 		[SerializeField] public float rateOfFireMultiplier;
@@ -164,6 +154,8 @@ namespace InfimaGames.LowPolyShooterPack
 		[Title(label: "Attachemnt UI")]
 		[SerializeField] public GameObject attachmentMenu;
 		[SerializeField] public GameObject settingsMenu;
+		[SerializeField] public Movement movement;
+		[SerializeField] public HealthController health;
 		[SerializeField] public GameObject upgradeMenu;
 		[SerializeField] public WeaponAttachmentManager weaponAttachment;
 		[SerializeField] public MenuQualitySettings settingsMenuExten;
@@ -348,6 +340,8 @@ namespace InfimaGames.LowPolyShooterPack
 			settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
 			settingsMenuExten = settingsMenu.GetComponent<MenuQualitySettings>();
 			upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
+			movement = gameObject.GetComponent<Movement>();
+			health = gameObject.GetComponent<HealthController>();
 		}
 		/// <summary>
 		/// Start.
@@ -1364,20 +1358,6 @@ namespace InfimaGames.LowPolyShooterPack
 					case InputActionPhase.Performed:
 							
 							Weapon currWeapon = gameObject.GetComponentInChildren<Weapon>();
-							Movement movement = gameObject.GetComponent<Movement>();
-							HealthController health = gameObject.GetComponent<HealthController>();	
-
-							defaultDamage = currWeapon.damagePerBullet;
-							defaultRateOfFire = currWeapon.roundsPerMinutes;
-							defaultReloadSpeed = currWeapon.reloadSpeed;
-
-							defaultMovementSpeedRunning = movement.speedRunning;
-        					defaultMovementSpeedAiming = movement.speedAiming;
-        					defaultMovementSpeedCrouching = movement.speedCrouching;
-        					defaultMovementSpeedWalking = movement.speedWalking;
-
-							defaultHP = health.maxPlayerHealth;
-							
 
 							currWeapon.damagePerBullet *= weaponDamageMultiplier;
 							currWeapon.roundsPerMinutes *= rateOfFireMultiplier;
@@ -1403,17 +1383,17 @@ namespace InfimaGames.LowPolyShooterPack
 
 			yield return new WaitForSeconds(buffBoostCDTimer);
 
-			currWeapon.damagePerBullet = defaultDamage;
-			currWeapon.roundsPerMinutes = defaultRateOfFire;
-			currWeapon.reloadSpeed = defaultReloadSpeed;
+			currWeapon.damagePerBullet /= weaponDamageMultiplier;
+			currWeapon.roundsPerMinutes /= rateOfFireMultiplier;
+			currWeapon.reloadSpeed /= reloadSpeedMultiplier;
 
-			movement.speedRunning = defaultMovementSpeedRunning;
-        	movement.speedAiming = defaultMovementSpeedAiming;
-        	movement.speedCrouching = defaultMovementSpeedCrouching;
-        	movement.speedWalking = defaultMovementSpeedWalking;
+			movement.speedRunning /= movementSpeedMultiplier;
+			movement.speedAiming /= movementSpeedMultiplier;
+			movement.speedCrouching /= movementSpeedMultiplier;
+			movement.speedWalking /= movementSpeedMultiplier;
 
-			health.maxPlayerHealth = defaultHP;
-        	health.canRegen = true;
+			health.currentPlayerHealth *= maxHealthMultiplier;
+			health.canRegen = true;
 
 			buffBoostCD = false;
 		}

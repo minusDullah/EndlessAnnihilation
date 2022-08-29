@@ -55,7 +55,7 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField] 
         public float headshotMultiplier = 1.5f;
 
-        [SerializeField] private int ammunitionMax;
+        [SerializeField] public int ammunitionMax;
         [SerializeField] private int ammunitionInventory;
 
         [Title(label: "Reloading")]
@@ -149,6 +149,7 @@ namespace InfimaGames.LowPolyShooterPack
         [Tooltip("")]
         [SerializeField]
         private AudioClip audioClipBoltAction;
+
         #endregion
 
         #region FIELDS
@@ -165,7 +166,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// Amount of ammunition left.
         /// </summary>
-        private int ammunitionCurrent;
+        public int ammunitionCurrent;
 
         #region Attachment Behaviours
         

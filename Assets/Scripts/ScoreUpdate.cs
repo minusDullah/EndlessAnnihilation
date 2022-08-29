@@ -11,6 +11,8 @@ public class ScoreUpdate : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreGainUI;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Animator anim;
+    [SerializeField] public bool doublePoints;
+    [SerializeField] public int pointsMultiplier;
 
     private void Start()
     {
@@ -19,6 +21,10 @@ public class ScoreUpdate : MonoBehaviour
 
     public void UpdateScoreGain()
     {
+        if(doublePoints == true)
+        {
+            scoreBuffer *= pointsMultiplier;
+        }
         scoreTotal += scoreBuffer;
         scoreText.text = ("" + scoreTotal);
         scoreGainUI.text = ("+" + scoreBuffer);
