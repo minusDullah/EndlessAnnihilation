@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -76,6 +77,19 @@ public class WaveSpawner : MonoBehaviour
 
     private void SetTimer(float currentTime)
     {
+        if(currentTime <= 0)
+        {
+            string sceneToLoad = SceneManager.GetActiveScene().path;
+
+            #if UNITY_EDITOR
+            //Load the scene.
+            UnityEditor.SceneManagement.EditorSceneManager.LoadSceneAsyncInPlayMode(sceneToLoad, new LoadSceneParameters(LoadSceneMode.Single));
+            #else
+            //Load the scene.
+            SceneManager.LoadSceneAsync(sceneToLoad, new LoadSceneParameters(LoadSceneMode.Single));
+            #endif
+        }
+
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 

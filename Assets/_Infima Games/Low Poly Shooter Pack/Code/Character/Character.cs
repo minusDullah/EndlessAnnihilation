@@ -96,7 +96,7 @@ namespace InfimaGames.LowPolyShooterPack
 
 		[Tooltip("Determines how fast the character's weapons are aimed.")]
 		[SerializeField]
-		private float aimingSpeedMultiplier = 1.0f;
+		public float aimingSpeedMultiplier = 1.0f;
 		
 		[Title(label: "Animation Procedural")]
 		
@@ -1363,6 +1363,8 @@ namespace InfimaGames.LowPolyShooterPack
 							currWeapon.roundsPerMinutes *= rateOfFireMultiplier;
 							currWeapon.reloadSpeed *= reloadSpeedMultiplier;
 
+							aimingSpeedMultiplier = currWeapon.reloadSpeed;
+
 							movement.speedRunning *= movementSpeedMultiplier;
         					movement.speedAiming *= movementSpeedMultiplier;
         					movement.speedCrouching *= movementSpeedMultiplier;
@@ -1723,11 +1725,12 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		public override void AnimationEndedReload()
 		{
+			Weapon currWeapon = gameObject.GetComponentInChildren<Weapon>();
 			//Stop reloading!
 			reloading = false;
 			Animator weaponAnimator = equippedWeapon.GetAnimator();
-			characterAnimator.speed = 1;
-			weaponAnimator.speed = 1;
+			characterAnimator.speed /= currWeapon.reloadSpeed;
+			weaponAnimator.speed /= currWeapon.reloadSpeed;
 		}
 
 		/// <summary>

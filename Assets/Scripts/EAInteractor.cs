@@ -43,7 +43,7 @@ public class EAInteractor : MonoBehaviour
 
             animator.SetBool(stateName, true);
 
-            if (interactionText.text == "")
+            if (interactionText.text == "" || interactionText.text != interactable.InteractionPrompt)
             {
                 interactionText.text = interactable.InteractionPrompt;
             }
