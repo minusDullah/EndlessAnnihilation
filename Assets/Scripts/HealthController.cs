@@ -8,9 +8,9 @@ public class HealthController : MonoBehaviour
 {
     [Header("Player Health Amount")]
     public float currentPlayerHealth = 100f;
-    [SerializeField] private float maxPlayerHealth = 100f;
+    [SerializeField] public float maxPlayerHealth = 100f;
     [SerializeField] private int regenRate = 1;
-    [SerializeField] private bool canRegen = false;
+    [SerializeField] public bool canRegen = false;
 
     [Header("Player Invulnerable when hit")]
     [SerializeField] private float invulnerableTimer = .5f;
@@ -45,7 +45,7 @@ public class HealthController : MonoBehaviour
         StartCoroutine(playBGMusic());
     }
 
-    void UpdateHealth()
+    public void UpdateHealth()
     {
         Color splatterAlpha = redSplatterImage.color;
         splatterAlpha.a = 1 - (currentPlayerHealth / maxPlayerHealth);

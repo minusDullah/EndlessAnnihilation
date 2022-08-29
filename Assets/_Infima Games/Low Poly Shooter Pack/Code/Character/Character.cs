@@ -139,11 +139,27 @@ namespace InfimaGames.LowPolyShooterPack
 		private bool holdToAim = true;
 
 		[Title(label: "Damage Boost")]
-		[SerializeField] public float currDamage;
-		[SerializeField] public float oldDamage;
-		[SerializeField] public bool damageBoostCD;
-		[SerializeField] public float damageBoost = 2f;
-		[SerializeField] public float damageBoostCDTimer = 5f;
+
+		[Header("Default Stats")]
+		[SerializeField] private float defaultDamage;
+		[SerializeField] private float defaultRateOfFire;
+		[SerializeField] private float defaultReloadSpeed;
+		[SerializeField] private float defaultMovementSpeedRunning;
+        [SerializeField] private float defaultMovementSpeedAiming;
+        [SerializeField] private float defaultMovementSpeedCrouching;
+        [SerializeField] private float defaultMovementSpeedWalking;
+		[SerializeField] private float defaultHP;
+
+		[Header("Stat Multipliers")]
+		[SerializeField] public float weaponDamageMultiplier;
+		[SerializeField] public float rateOfFireMultiplier;
+		[SerializeField] public float reloadSpeedMultiplier;
+		[SerializeField] public float movementSpeedMultiplier;
+		[SerializeField] public float maxHealthMultiplier;
+
+		[Header("CD Details")]
+		[SerializeField] public bool buffBoostCD;
+		[SerializeField] public float buffBoostCDTimer = 5f;
 
 		[Title(label: "Attachemnt UI")]
 		[SerializeField] public GameObject attachmentMenu;
@@ -343,8 +359,6 @@ namespace InfimaGames.LowPolyShooterPack
 			MuzzleMenuUpdate();
 			LaserMenuUpdate();
 			GripMenuUpdate();
-
-			currDamage = gameObject.GetComponentInChildren<Weapon>().damagePerBullet;
 
 			//Max out the grenades.
 			grenadeCount = grenadeTotal;
@@ -1337,7 +1351,7 @@ namespace InfimaGames.LowPolyShooterPack
 
 		public void OnTryDamageBoost(InputAction.CallbackContext context)
 		{
-			if (!damageBoostCD)
+			if (!buffBoostCD)
 			{
 				//Block while the cursor is unlocked.
 				if (!cursorLocked)
@@ -1348,24 +1362,60 @@ namespace InfimaGames.LowPolyShooterPack
 				{
 					//Performed.
 					case InputActionPhase.Performed:
-							oldDamage = currDamage;
-							currDamage *= damageBoost;
-							gameObject.GetComponentInChildren<Weapon>().damagePerBullet = currDamage;
-							StartCoroutine(DamageBoostCooldown());
+
+							Weapon currWeapon = gameObject.GetComponentInChildren<Weapon>();
+							Movement movement = gameObject.GetComponent<Movement>();
+							HealthController health = gameObject.GetComponent<HealthController>();	
+
+							defaultDamage = currWeapon.damagePerBullet;
+							defaultRateOfFire = currWeapon.roundsPerMinutes;
+							defaultReloadSpeed = currWeapon.reloadSpeed;
+
+							defaultMovementSpeedRunning = movement.speedRunning;
+        					defaultMovementSpeedAiming = movement.speedAiming;
+        					defaultMovementSpeedCrouching = movement.speedCrouching;
+        					defaultMovementSpeedWalking = movement.speedWalking;
+
+							defaultHP = health.maxPlayerHealth;
+							
+
+							currWeapon.damagePerBullet *= weaponDamageMultiplier;
+							currWeapon.roundsPerMinutes *= rateOfFireMultiplier;
+							currWeapon.reloadSpeed *= reloadSpeedMultiplier;
+
+							movement.speedRunning *= movementSpeedMultiplier;
+        					movement.speedAiming *= movementSpeedMultiplier;
+        					movement.speedCrouching *= movementSpeedMultiplier;
+        					movement.speedWalking *= movementSpeedMultiplier;
+
+							health.currentPlayerHealth /= maxHealthMultiplier;
+							health.UpdateHealth();
+							
+							StartCoroutine(DamageBoostCooldown(currWeapon, movement, health));
 						break;
 				}
 			}
 		}
 
-		IEnumerator DamageBoostCooldown()
+		IEnumerator DamageBoostCooldown(Weapon currWeapon, Movement movement, HealthController health)
 		{
-			damageBoostCD = true;
+			buffBoostCD = true;
 
-			yield return new WaitForSeconds(damageBoostCDTimer);
+			yield return new WaitForSeconds(buffBoostCDTimer);
 
-			gameObject.GetComponentInChildren<Weapon>().damagePerBullet = oldDamage;
-			currDamage = oldDamage;
-			damageBoostCD = false;
+			currWeapon.damagePerBullet = defaultDamage;
+			currWeapon.roundsPerMinutes = defaultRateOfFire;
+			currWeapon.reloadSpeed = defaultReloadSpeed;
+
+			movement.speedRunning = defaultMovementSpeedRunning;
+        	movement.speedAiming = defaultMovementSpeedAiming;
+        	movement.speedCrouching = defaultMovementSpeedCrouching;
+        	movement.speedWalking = defaultMovementSpeedWalking;
+
+			health.maxPlayerHealth = defaultHP;
+        	health.canRegen = true;
+
+			buffBoostCD = false;
 		}
 
 		/// <summary>

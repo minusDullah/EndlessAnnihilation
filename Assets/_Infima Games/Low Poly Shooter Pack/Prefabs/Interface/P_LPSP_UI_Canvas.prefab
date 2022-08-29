@@ -2520,7 +2520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadeSlider: {fileID: 3247785514477940642}
-  damageBoostSlider: {fileID: 2106643150379251238}
+  buffBoostSlider: {fileID: 2106643150379251238}
   character: {fileID: 0}
 --- !u!1 &6520662847420304414
 GameObject:

@@ -45,7 +45,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("Amount of shots this weapon can shoot in a minute. It determines how fast the weapon shoots.")]
         [SerializeField] 
-        private int roundsPerMinutes = 200;
+        public float roundsPerMinutes = 200;
         
         [Tooltip("Amount of damage weapon does per bullet.")]
         [SerializeField] 
@@ -60,7 +60,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Title(label: "Reloading")]
 
-        [SerializeField] public int reloadSpeed;
+        [SerializeField] public float reloadSpeed;
 
         [Tooltip("Determines if this weapon reloads in cycles, meaning that it inserts one bullet at a time, or not.")]
         [SerializeField]
@@ -425,16 +425,26 @@ namespace InfimaGames.LowPolyShooterPack
         {
             if (ammunitionInventory <= 0)
                 return;
+
+            Character character = characterBehaviour.GetComponent<Character>();
+            character.characterAnimator.speed = reloadSpeed;
+            animator.speed = reloadSpeed;
+
             //Set Reloading Bool. This helps cycled reloads know when they need to stop cycling.
             const string boolName = "Reloading";
             animator.SetBool(boolName, true);
+
+            //Try Play Reload Sound.          
+            if(animator.speed > 1)
+            {
+                ServiceLocator.Current.Get<IAudioManagerService>().PlayOneShotPitchUp(reloadSpeed, HasAmmunition() ? audioClipReload : audioClipReloadEmpty, new AudioSettings(1.0f, 0.0f, false));
+            }
+            else
+            {
+                ServiceLocator.Current.Get<IAudioManagerService>().PlayOneShot(HasAmmunition() ? audioClipReload : audioClipReloadEmpty, new AudioSettings(1.0f, 0.0f, false));
+            }
             
-            //Try Play Reload Sound.
-            ServiceLocator.Current.Get<IAudioManagerService>().PlayOneShot(HasAmmunition() ? audioClipReload : audioClipReloadEmpty, new AudioSettings(1.0f, 0.0f, false));
-            Character character = characterBehaviour.GetComponent<Character>();
             //Play Reload Animation.
-            character.characterAnimator.speed = reloadSpeed;
-            animator.speed = reloadSpeed;
             animator.Play(cycledReload ? "Reload Open" : (HasAmmunition() ? "Reload" : "Reload Empty"), 0, 0.0f);
         }
         /// <summary>

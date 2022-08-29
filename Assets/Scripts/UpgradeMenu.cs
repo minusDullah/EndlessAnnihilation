@@ -44,15 +44,10 @@ public class UpgradeMenu : MonoBehaviour
     }
 
     #region Damage Boost
-
-    public void DamageBoostDamageUpgrade()
-    {
-        character.damageBoost += damageBoostIncrease;
-    }
     
     public void DamageBoostCDUpgrade()
     {
-        character.damageBoostCDTimer -= DamageBoostCDTimerDecrease;
+        character.buffBoostCDTimer -= DamageBoostCDTimerDecrease;
     }
 
     #endregion

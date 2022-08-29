@@ -31,7 +31,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("The speed of the player while walking.")]
         [SerializeField]
-        private float speedWalking = 4.0f;
+        public float speedWalking = 4.0f;
         
         [Tooltip("How fast the player moves while aiming.")]
         [SerializeField]

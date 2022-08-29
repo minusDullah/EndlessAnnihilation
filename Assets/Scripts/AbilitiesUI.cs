@@ -8,13 +8,13 @@ using UnityEngine.InputSystem;
 public class AbilitiesUI : MonoBehaviour
 {
     [SerializeField] private Slider grenadeSlider;
-    [SerializeField] private Slider damageBoostSlider;
+    [SerializeField] private Slider buffBoostSlider;
     [SerializeField] private Character character;
 
     void Start()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        damageBoostSlider.maxValue = character.damageBoostCDTimer;
+        buffBoostSlider.maxValue = character.buffBoostCDTimer;
         grenadeSlider.maxValue = character.grenadeCDTimer;
     }
 
@@ -31,19 +31,19 @@ public class AbilitiesUI : MonoBehaviour
         else
         {
             grenadeSlider.value = 0;
-        }        
+        }
         
-        if (character.damageBoostCD)
+        if (character.buffBoostCD)
         {
-            if (damageBoostSlider.value <= 0)
+            if (buffBoostSlider.value <= 0)
             {
-                damageBoostSlider.value = character.damageBoostCDTimer;
+                buffBoostSlider.value = character.buffBoostCDTimer;
             }
-            damageBoostSlider.value -= 1 * Time.deltaTime;
+            buffBoostSlider.value -= 1 * Time.deltaTime;
         }
         else
         {
-            damageBoostSlider.value = 0;
+            buffBoostSlider.value = 0;
         }
 
 
