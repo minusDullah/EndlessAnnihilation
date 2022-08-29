@@ -553,6 +553,16 @@ namespace InfimaGames.LowPolyShooterPack
             else
                 ammunitionInventory += amount;
         }
+
+        public void RPMPerkActive(float rateOfFireMultiplier)
+        {
+            roundsPerMinutes *= rateOfFireMultiplier;
+        }
+
+        public void ReloadSpeedPerkActive(float reloadSpeedMultiplier)
+        {
+            reloadSpeed *= reloadSpeedMultiplier;
+        }
         #endregion
     }
 }

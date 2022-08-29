@@ -82,6 +82,9 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
     IEnumerator DisableWeapon(GameObject equippedWeapon)
     {
         yield return new WaitForSeconds(.3f);
+        Weapon currWeapon = equippedWeapon.GetComponent<Weapon>();
+        currWeapon.AddAmmunitionInventoryAmount(currWeapon.ammunitionMax);
+        currWeapon.FillAmmunition(currWeapon.ammunitionMax);
         equippedWeapon.transform.SetParent(weaponHolder.transform);
         equippedWeapon.SetActive(false);
     }

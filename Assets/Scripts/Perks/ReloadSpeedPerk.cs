@@ -19,6 +19,9 @@ public class ReloadSpeedPerk : MonoBehaviour, IInteractable
     [SerializeField] private ScoreUpdate scoreUI;
     [SerializeField] private Inventory inventory;
     [SerializeField] private Character character;
+    [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private Weapon currWeapon;
+
     public void Start()
     {
         scoreUI = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
@@ -40,8 +43,18 @@ public class ReloadSpeedPerk : MonoBehaviour, IInteractable
 
         alreadyBought = true;
 
-        Weapon currWeapon = inventory.GetEquipped().GetComponent<Weapon>();
         character.characterAnimator.speed *= reloadSpeedMultiplier;
-        currWeapon.reloadSpeed *= reloadSpeedMultiplier;
+
+        for (int i = 0; i < inventory.transform.childCount; i++)
+        {
+            currWeapon = inventory.transform.GetChild(i).GetComponent<Weapon>();
+            currWeapon.ReloadSpeedPerkActive(reloadSpeedMultiplier);
+        }
+
+        for (int i = 0; i < weaponHolder.transform.childCount; i++)
+        {
+            currWeapon = weaponHolder.transform.GetChild(i).GetComponent<Weapon>();
+            currWeapon.ReloadSpeedPerkActive(reloadSpeedMultiplier);
+        }
     }
 }

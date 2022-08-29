@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navAgent: {fileID: 0}
+  rb: {fileID: 0}
   enemyDamage: 20
   minSpeed: 0.5
   maxSpeed: 6
@@ -81,6 +82,7 @@ MonoBehaviour:
   attackCooldown: 0.77
   animationBuffer: 0.3
   triggerEntered: 0
+  target: {fileID: 0}
 --- !u!114 &-3898335239771936458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  scoreWorth: 50
-  destroyTimer: 8
+  scoreWorth: 100
+  destroyTimer: 5
   bloodFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   bloodFXPosition: {fileID: 551503847148025032}
   minimapIcon: {fileID: 3030094258726434407}

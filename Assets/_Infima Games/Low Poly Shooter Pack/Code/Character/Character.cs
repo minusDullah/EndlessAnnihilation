@@ -163,6 +163,7 @@ namespace InfimaGames.LowPolyShooterPack
 		[SerializeField] public TMP_Dropdown muzzleMenu;
 		[SerializeField] public TMP_Dropdown gripMenu;
 		[SerializeField] public TMP_Dropdown laserMenu;
+		[SerializeField] private Weapon currWeapon;
 		#endregion
 
 		#region FIELDS
@@ -228,7 +229,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// <summary>
         /// True if the character is reloading.
         /// </summary>
-        private bool reloading;
+        public bool reloading;
 		
 		/// <summary>
 		/// True if the character is inspecting its weapon.
@@ -1356,14 +1357,15 @@ namespace InfimaGames.LowPolyShooterPack
 				{
 					//Performed.
 					case InputActionPhase.Performed:
-							
-							Weapon currWeapon = gameObject.GetComponentInChildren<Weapon>();
 
-							currWeapon.damagePerBullet *= weaponDamageMultiplier;
-							currWeapon.roundsPerMinutes *= rateOfFireMultiplier;
-							currWeapon.reloadSpeed *= reloadSpeedMultiplier;
-
-							aimingSpeedMultiplier = currWeapon.reloadSpeed;
+							for (int i = 0; i < inventory.transform.childCount; i++)
+							{
+								currWeapon = inventory.transform.GetChild(i).GetComponent<Weapon>();
+								currWeapon.damagePerBullet *= weaponDamageMultiplier;
+								currWeapon.roundsPerMinutes *= rateOfFireMultiplier;
+								currWeapon.reloadSpeed *= reloadSpeedMultiplier;
+								aimingSpeedMultiplier = reloadSpeedMultiplier;
+							}
 
 							movement.speedRunning *= movementSpeedMultiplier;
         					movement.speedAiming *= movementSpeedMultiplier;
@@ -1373,21 +1375,26 @@ namespace InfimaGames.LowPolyShooterPack
 							health.currentPlayerHealth /= maxHealthMultiplier;
 							health.UpdateHealth();
 							
-							StartCoroutine(DamageBoostCooldown(currWeapon, movement, health));
+							StartCoroutine(DamageBoostCooldown(movement, health));
 						break;
 				}
 			}
 		}
 
-		IEnumerator DamageBoostCooldown(Weapon currWeapon, Movement movement, HealthController health)
+		IEnumerator DamageBoostCooldown(Movement movement, HealthController health)
 		{
 			buffBoostCD = true;
 
 			yield return new WaitForSeconds(buffBoostCDTimer);
 
-			currWeapon.damagePerBullet /= weaponDamageMultiplier;
-			currWeapon.roundsPerMinutes /= rateOfFireMultiplier;
-			currWeapon.reloadSpeed /= reloadSpeedMultiplier;
+			for (int i = 0; i < inventory.transform.childCount; i++)
+			{
+				currWeapon = inventory.transform.GetChild(i).GetComponent<Weapon>();
+				currWeapon.damagePerBullet /= weaponDamageMultiplier;
+				currWeapon.roundsPerMinutes /= rateOfFireMultiplier;
+				currWeapon.reloadSpeed /= reloadSpeedMultiplier;
+				aimingSpeedMultiplier /= reloadSpeedMultiplier;
+			}
 
 			movement.speedRunning /= movementSpeedMultiplier;
 			movement.speedAiming /= movementSpeedMultiplier;

@@ -18,6 +18,9 @@ public class RPMPerk : MonoBehaviour, IInteractable
     [SerializeField] private bool alreadyBought = false;
     [SerializeField] private ScoreUpdate scoreUI;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private Weapon currWeapon;
+
     public void Start()
     {
         scoreUI = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
@@ -38,8 +41,16 @@ public class RPMPerk : MonoBehaviour, IInteractable
 
         alreadyBought = true;
 
-        Weapon currWeapon = inventory.GetEquipped().GetComponent<Weapon>();
+        for (int i = 0; i < inventory.transform.childCount; i++)
+        {
+            currWeapon = inventory.transform.GetChild(i).GetComponent<Weapon>();
+            currWeapon.RPMPerkActive(rateOfFireMultiplier);
+        }
 
-        currWeapon.roundsPerMinutes *= rateOfFireMultiplier;
+        for (int i = 0; i < weaponHolder.transform.childCount; i++)
+        {
+            currWeapon = weaponHolder.transform.GetChild(i).GetComponent<Weapon>();
+            currWeapon.RPMPerkActive(rateOfFireMultiplier);
+        }
     }
 }

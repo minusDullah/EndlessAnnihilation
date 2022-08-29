@@ -48,7 +48,7 @@ public class EAInteractor : MonoBehaviour
                 interactionText.text = interactable.InteractionPrompt;
             }
 
-            if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame)
+            if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame && !character.reloading)
             {
                 interactable.Interact(this);
             }

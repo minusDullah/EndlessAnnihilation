@@ -5,6 +5,7 @@ public class MaxAmmoPowerUp : MonoBehaviour
 {
 
     [SerializeField] private Inventory inventory;
+    [SerializeField] private Weapon currWeapon;
 
     private void Start()
     {
@@ -15,8 +16,11 @@ public class MaxAmmoPowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Weapon currWeapon = inventory.GetEquipped().GetComponent<Weapon>();
-            currWeapon.AddAmmunitionInventoryAmount(currWeapon.ammunitionMax);
+            for (int i = 0; i < inventory.transform.childCount; i++)
+            {
+                currWeapon = inventory.transform.GetChild(i).GetComponent<Weapon>();
+                currWeapon.AddAmmunitionInventoryAmount(currWeapon.ammunitionMax);
+            }
             Destroy(gameObject);
         }
     }
