@@ -457,7 +457,6 @@ MonoBehaviour:
   totalKills: 0
   timeRemaining: 120
   enemiesToSpawn: []
-  zombieHolder: {fileID: 0}
   spawnLocation:
   - {fileID: 4553064473831359935}
   - {fileID: 4553064474244487173}
@@ -481,6 +480,13 @@ MonoBehaviour:
   spawnInterval: 1
   spawnTimer: 0
   timerText: {fileID: 0}
+  zombieHolder: {fileID: 0}
+  powerUps:
+  - {fileID: 7128697020485807658, guid: 38ba138eaef374941bf7cd3d18bc664e, type: 3}
+  - {fileID: 3796530512065754559, guid: 4104f41c693c55444bc9107b07265679, type: 3}
+  - {fileID: 8188612151980436926, guid: 7918cb4d174a9f141b72cb7e06e01f62, type: 3}
+  - {fileID: 731155519789960342, guid: 7e1967d16f8ada54bb8abec2b935afcc, type: 3}
+  enemiesFrozen: 0
 --- !u!1 &4553064474490920217
 GameObject:
   m_ObjectHideFlags: 0

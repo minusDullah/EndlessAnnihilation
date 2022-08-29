@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public NavMeshAgent navAgent;
     private HealthController playerHealth;
     private Animator animator;
-    private Rigidbody rb;
+    public Rigidbody rb;
     private CapsuleCollider capsuleCollider;
     private WaveSpawner waveSpawner;
     private GameObject _player;
@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float attackCooldown = .8f;
     [SerializeField] private float animationBuffer = .3f;
     [SerializeField] private bool triggerEntered = false;
+    [SerializeField] private Target target;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
         playerHealth = _player.GetComponent<HealthController>();
         waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
 
+        target = GetComponent<Target>();
         navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -42,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (waveSpawner.enemiesFrozen)
+        if (waveSpawner.enemiesFrozen && target.health > 0)  
         {
             triggerEntered = false;
             animator.CrossFade("Idle", 1.3f, 0);

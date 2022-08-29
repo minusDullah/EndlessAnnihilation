@@ -17,11 +17,6 @@ public class DoublePointsPowerUp : MonoBehaviour
         scoreUI = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
     }
 
-    private void Update()
-    {
-        Debug.Log(PerkCooldown);
-    }
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

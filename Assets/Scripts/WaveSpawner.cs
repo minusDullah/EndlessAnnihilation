@@ -6,6 +6,8 @@ using TMPro;
 public class WaveSpawner : MonoBehaviour
 {
     //https://www.youtube.com/watch?v=7T-MTo8Uaio
+
+    [Header("Enemy Stats")]
     [SerializeField] public List<Enemy> enemies = new List<Enemy>();
     [SerializeField] public int currWave;
     [SerializeField] private int waveValue;
@@ -13,16 +15,21 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] public int totalKills;
     [SerializeField] public float timeRemaining = 60;
     [SerializeField] public List<GameObject> enemiesToSpawn = new List<GameObject>();
-    [SerializeField] public GameObject zombieHolder;
 
+    [Header("Wave Stats")]
     [SerializeField] public List<Transform> spawnLocation = new List<Transform>();
     [SerializeField] public int waveDuration;
     [SerializeField] public float waveTimer;
     [SerializeField] private float spawnInterval;
     [SerializeField] private float spawnTimer;
+    [SerializeField] private TextMeshProUGUI timerText;
+
+    [Header("Zombie References")]
+    [SerializeField] public GameObject zombieHolder;
+    [SerializeField] public GameObject[] powerUps;
     [SerializeField] public bool enemiesFrozen;
 
-    [SerializeField] private TextMeshProUGUI timerText;
+    
 
     // Start is called before the first frame update
     void Start()

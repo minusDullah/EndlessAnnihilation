@@ -15,7 +15,7 @@ public class Target : MonoBehaviour, IDamageable
     [SerializeField] private Transform bloodFXPosition;
     [SerializeField] private GameObject minimapIcon;
     [SerializeField] private WaveSpawner waveSpawner;
-    public ScoreUpdate scoreUpdate;
+    [SerializeField] public ScoreUpdate scoreUpdate;
 
     [Header("Audio")]
     [SerializeField] private AudioSource enemyAudioSource;
@@ -53,12 +53,23 @@ public class Target : MonoBehaviour, IDamageable
             DeathSound();
             navMeshAgent.isStopped = true;
             int dieAnim = Random.Range(0, 2);
-            if(dieAnim == 0) { animator.Play("Dying", 0); }
-            if(dieAnim == 1) { animator.Play("Death", 0); }
+            if (dieAnim == 0) { animator.Play("Dying", 0); }
+            if (dieAnim == 1) { animator.Play("Death", 0); }
             ScoreOnDeath();
             FXonDeath();
             RemoveFromMinimap();
+            ChanceOfPowerUp();
         }
+    }
+
+    private void ChanceOfPowerUp()
+    {
+        int randomPowerUp = Random.Range(0, 100);
+        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1.75f, transform.position.z);
+        if (randomPowerUp <= 5) { Instantiate(waveSpawner.powerUps[0], spawnPos, Quaternion.identity); }
+        if(randomPowerUp > 5 && randomPowerUp <= 10) { Instantiate(waveSpawner.powerUps[1], spawnPos, Quaternion.identity); }
+        if(randomPowerUp > 10 && randomPowerUp <= 15) { Instantiate(waveSpawner.powerUps[2], spawnPos, Quaternion.identity); }
+        if(randomPowerUp > 15 && randomPowerUp <= 20) { Instantiate(waveSpawner.powerUps[3], spawnPos, Quaternion.identity); }
     }
 
     private void ScoreOnDeath()

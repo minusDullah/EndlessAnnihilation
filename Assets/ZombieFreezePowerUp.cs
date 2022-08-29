@@ -46,8 +46,11 @@ public class ZombieFreezePowerUp : MonoBehaviour
         yield return new WaitForSeconds(PerkCooldown);
 
         foreach (EnemyMovement enemyMovement in enemyMovement)
-            enemyMovement.navAgent.speed = enemyMovement.randomSpeed;
-
+            if(enemyMovement.navAgent != null)
+            {
+                enemyMovement.navAgent.speed = enemyMovement.randomSpeed;
+            }
+            
         waveSpawner.enemiesFrozen = false;
         Destroy(gameObject);
     }
