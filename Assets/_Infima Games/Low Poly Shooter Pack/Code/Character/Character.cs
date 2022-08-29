@@ -1362,7 +1362,7 @@ namespace InfimaGames.LowPolyShooterPack
 				{
 					//Performed.
 					case InputActionPhase.Performed:
-
+							
 							Weapon currWeapon = gameObject.GetComponentInChildren<Weapon>();
 							Movement movement = gameObject.GetComponent<Movement>();
 							HealthController health = gameObject.GetComponent<HealthController>();	
