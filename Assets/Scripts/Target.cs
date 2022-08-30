@@ -55,13 +55,13 @@ public class Target : MonoBehaviour, IDamageable
             ScoreOnDeath();
             FXonDeath();
             RemoveFromMinimap();
-            ChanceOfPowerUp();
+            ChanceOfPowerUp(250);
         }
     }
 
-    private void ChanceOfPowerUp()
+    private void ChanceOfPowerUp(int range)
     {
-        int randomPowerUp = Random.Range(0, 250);
+        int randomPowerUp = Random.Range(0, range);
         Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z);
         if (randomPowerUp <= 5) { Instantiate(waveSpawner.powerUps[0], spawnPos, Quaternion.identity); }
         if(randomPowerUp > 5 && randomPowerUp <= 10) { Instantiate(waveSpawner.powerUps[1], spawnPos, Quaternion.identity); }

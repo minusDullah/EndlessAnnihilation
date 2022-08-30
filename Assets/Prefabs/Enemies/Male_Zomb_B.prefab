@@ -2110,7 +2110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 150
   scoreWorth: 100
-  destroyTimer: 5
+  destroyTimer: 8
   bloodFX: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
   bloodFXPosition: {fileID: 7254048020258248421}
   minimapIcon: {fileID: 5851739447463116773}

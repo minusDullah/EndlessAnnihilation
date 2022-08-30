@@ -486,6 +486,7 @@ MonoBehaviour:
   - {fileID: 6548920825225374291, guid: dfaf05f76c8f35540946e351699fb599, type: 3}
   - {fileID: 7570456258771205639, guid: 6aa62a0a019a31b4583da280a0a3f546, type: 3}
   - {fileID: 2952545155131912937, guid: f15de78fa71d7254cb2401c75537d41a, type: 3}
+  - {fileID: 2952545155131912937, guid: 813b17f2d6091d74fbb7c49847f3a6b7, type: 3}
   enemiesFrozen: 0
 --- !u!1 &4553064474490920217
 GameObject:

@@ -61,7 +61,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void DisablePhysics()
+    public void DisablePhysics()
     {
         animator.enabled = false;
         capsuleCollider.enabled = false;
@@ -70,7 +70,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !waveSpawner.enemiesFrozen)
+        if (other.CompareTag("Player") && !waveSpawner.enemiesFrozen && animator.enabled)
         {
             triggerEntered = true;
             while (triggerEntered && GetComponent<Target>().health > 0)

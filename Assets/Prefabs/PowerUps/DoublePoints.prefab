@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd23a16922c3f904e939e70f26d9a7b5, type: 2}
+  - {fileID: 2100000, guid: 6c0d25474dfd33349bfeedd203d2a3e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,6 +109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PerkCooldown: 15
+  destroyTimer: 15
+  rotateSpeed: 2
+  randomRotationX: 0
+  randomRotationY: 0
+  randomRotationZ: 0
   scoreUI: {fileID: 0}
   mesh: {fileID: 0}
   sphereCollider: {fileID: 0}
