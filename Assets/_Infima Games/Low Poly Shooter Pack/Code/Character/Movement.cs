@@ -80,7 +80,7 @@ namespace InfimaGames.LowPolyShooterPack
         public float jumpForce = 100.0f;
 
         [SerializeField]
-        private float remainingJumps = 1f;
+        public float remainingJumps = 1f;
 
         [SerializeField]
         public float allowedJumps = 1f;

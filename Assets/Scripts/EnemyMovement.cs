@@ -46,7 +46,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (waveSpawner.enemiesFrozen && target.health > 0)  
         {
-            triggerEntered = false;
             animator.CrossFade("Idle", 1.3f, 0);
         }
 
@@ -71,7 +70,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !waveSpawner.enemiesFrozen)
         {
             triggerEntered = true;
             while (triggerEntered && GetComponent<Target>().health > 0)

@@ -20,14 +20,11 @@ public class Target : MonoBehaviour, IDamageable
     [Header("Audio")]
     [SerializeField] private AudioSource enemyAudioSource;
     [SerializeField] private AudioClip[] enemyDie;
-
     
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private bool pointsGained;
     private bool soundPlayed;
-    
-
     private void Start()
     {
         animator = GetComponent<Animator>();

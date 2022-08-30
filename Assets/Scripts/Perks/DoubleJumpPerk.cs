@@ -38,5 +38,6 @@ public class DoubleJumpPerk : MonoBehaviour, IInteractable
         alreadyBought = true;
 
         movement.allowedJumps = maxAllowedJumps;
+        movement.remainingJumps = maxAllowedJumps;
     }
 }

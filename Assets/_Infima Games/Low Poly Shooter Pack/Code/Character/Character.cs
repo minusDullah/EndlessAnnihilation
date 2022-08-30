@@ -715,8 +715,10 @@ namespace InfimaGames.LowPolyShooterPack
 			characterAnimator.CrossFade(stateName, 0.05f, layerOverlay, 0);
 
 			//Play bolt actioning animation if needed, and if we have ammunition. We don't play this for the last shot.
-			if (equippedWeapon.IsBoltAction() && equippedWeapon.HasAmmunition())
+			if (equippedWeapon.IsBoltAction() && equippedWeapon.HasAmmunition()) {
 				UpdateBolt(true);
+			}
+				
 
 			//Automatically reload the weapon if we need to. This is very helpful for things like grenade launchers or rocket launchers.
 			if (!equippedWeapon.HasAmmunition() && equippedWeapon.GetAutomaticallyReloadOnEmpty())
@@ -870,6 +872,7 @@ namespace InfimaGames.LowPolyShooterPack
 			//Update.
 			characterAnimator.SetBool(AHashes.Bolt, bolting = value);
 		}
+
 		/// <summary>
 		/// Updates the "Holstered" variable, along with the Character's Animator value.
 		/// </summary>
