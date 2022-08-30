@@ -5,12 +5,20 @@ using System.Collections.Generic;
 
 public class ZombieFreezePowerUp : MonoBehaviour
 {
-    [Header("Perk Stats")]
+    [Header("Powerup Stats")]
     public List<EnemyMovement> enemyMovement;
     [SerializeField] private float PerkCooldown = 5f;
+    [SerializeField] private float destroyTimer = 15f;
+
+    [Header("Rotation")]
+    [SerializeField] private float rotateSpeed = 2f;
+    [SerializeField] private float randomRotationX;
+    [SerializeField] private float randomRotationY;
+    [SerializeField] private float randomRotationZ;
+
+    [Header("References")]
     [SerializeField] private GameObject zombieHolder;
     [SerializeField] private WaveSpawner waveSpawner;
-
     [SerializeField] private MeshRenderer mesh;
     [SerializeField] private SphereCollider sphereCollider;
 
@@ -20,12 +28,21 @@ public class ZombieFreezePowerUp : MonoBehaviour
         waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
         mesh = GetComponent<MeshRenderer>();
         sphereCollider = GetComponent<SphereCollider>();
+        randomRotationX = Random.Range(-rotateSpeed, rotateSpeed);
+        randomRotationY = Random.Range(-rotateSpeed, rotateSpeed);
+        randomRotationZ = Random.Range(-rotateSpeed, rotateSpeed);
+        Destroy(gameObject, destroyTimer);
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Rotate(new Vector3(randomRotationX, randomRotationY, randomRotationZ), Space.World);
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (waveSpawner.enemiesFrozen)
-            return;
+            Destroy(gameObject);
 
         if (other.CompareTag("Player"))
         {
