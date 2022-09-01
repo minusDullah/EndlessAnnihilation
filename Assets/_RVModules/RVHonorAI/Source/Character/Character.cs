@@ -364,6 +364,8 @@ namespace RVHonorAI
         /// <summary>
         /// Receive set damage. Returned value is actual dealt damage  
         /// </summary>
+        /// 
+
         public virtual float ReceiveDamage(float _damage, Object _damageSource, DamageType _damageType, bool _damageEnemyOnly, Vector3 _hitPoint = default,
             Vector3 _hitForce = default, float _forceRadius = default)
         {

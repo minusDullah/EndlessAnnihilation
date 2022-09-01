@@ -563,6 +563,11 @@ namespace InfimaGames.LowPolyShooterPack
         {
             reloadSpeed *= reloadSpeedMultiplier;
         }
+
+        public override float GetBulletDamage()
+        {
+            return damagePerBullet;
+        }
         #endregion
     }
 }
