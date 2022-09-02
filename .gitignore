@@ -77,11 +77,4 @@ build/*
 TempBuild/*
 !build/build.xml
 
-Assets/_Infima Games
-Assets/_BloodDecalsAndEffects
-Assets/_Loading Screen
-Assets/_LP
-Assets/_Octave3D World Builder
-Assets/_PlayerPrefsEditor
-Assets/_polyperfect
 Assets/_WeaponsCrate
