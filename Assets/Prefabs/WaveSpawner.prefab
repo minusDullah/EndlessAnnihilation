@@ -451,7 +451,7 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 4972308482775631872, guid: e66fd7302f888ab4e9b6d518221b238d,
       type: 3}
     cost: 1
-  currWave: 2
+  currWave: 4
   waveValue: 0
   waveMultiplier: 5
   totalKills: 0
