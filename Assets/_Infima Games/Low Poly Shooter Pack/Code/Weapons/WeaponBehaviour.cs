@@ -165,7 +165,6 @@ namespace InfimaGames.LowPolyShooterPack
         /// Returns the weapon's attachment manager component.
         /// </summary>
         public abstract WeaponAttachmentManagerBehaviour GetAttachmentManager();
-        public abstract float GetBulletDamage();
         
         #endregion
 

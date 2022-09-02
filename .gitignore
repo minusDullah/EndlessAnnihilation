@@ -77,15 +77,11 @@ build/*
 TempBuild/*
 !build/build.xml
 
-/Assets/_Creepy_Cat
-Build.zip
-Endless Annihilation.zip
-/Assets/_GUI PRO Kit - Fantasy RPG/
-Assets/_GUI PRO Kit - Fantasy RPG.meta
-Assets/_polyperfect/Low Poly Ultimate Pack
-Assets/_GabrielBissonnette
+Assets/_Infima Games
+Assets/_BloodDecalsAndEffects
 Assets/_Loading Screen
+Assets/_LP
 Assets/_Octave3D World Builder
-Assets/_ParadoxNotion
-Assets/_Plugins
-Assets/_Polytope Studio
+Assets/_PlayerPrefsEditor
+Assets/_polyperfect
+Assets/_WeaponsCrate
