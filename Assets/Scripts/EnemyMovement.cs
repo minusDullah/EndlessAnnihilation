@@ -106,7 +106,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (navAgent.speed > 2.5 && navAgent.speed <= 4.5)
         {
-            int runAnim = Random.Range(0, 3);
+            int runAnim = Random.Range(0, 2);
             if (runAnim == 0) { return "Walk"; }
             else return "Walk_2";
         }

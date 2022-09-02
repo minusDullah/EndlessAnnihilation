@@ -54,6 +54,7 @@ namespace InfimaGames.LowPolyShooterPack
         [Tooltip("Multiplies the damage amount by.")]
         [SerializeField] 
         public float headshotMultiplier = 1.5f;
+        public float headshotBonusMultiplier = 1.5f;
 
         [SerializeField] public int ammunitionMax;
         [SerializeField] private int ammunitionInventory;

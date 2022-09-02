@@ -54,12 +54,11 @@ public class ZombieFreezePowerUp : MonoBehaviour
 
             foreach (EnemyMovement enemyMovement in enemyMovement)
             {
+                enemyMovement.animator.CrossFade("Idle", .5f, 0);
                 enemyMovement.navAgent.speed *= 0;
                 enemyMovement.capsuleCollider.enabled = false;
-                enemyMovement.animator.CrossFade("Idle", .1f, 0);
             }
                 
-
             StartCoroutine(PerkLength());
         }
     }

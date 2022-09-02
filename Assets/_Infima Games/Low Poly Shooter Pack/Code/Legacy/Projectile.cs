@@ -25,6 +25,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 		public float damage;
 		private float headshotMultiplier;
+		private float headshotBonusMultiplier;
 
 		[Header("Impact Effect Prefabs")]
 		public Transform[] bloodImpactPrefabs;
@@ -36,8 +37,9 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		private void Start()
 		{
 			//Get damage from parent weapon then set parent to nothing so projectiles dont follow when moving weapon
-			damage = gameObject.GetComponentInParent<Weapon>().damagePerBullet;
-			headshotMultiplier = gameObject.GetComponentInParent<Weapon>().headshotMultiplier;
+			damage = GetComponentInParent<Weapon>().damagePerBullet;
+			headshotMultiplier = GetComponentInParent<Weapon>().headshotMultiplier;
+			headshotBonusMultiplier = GetComponentInParent<Weapon>().headshotBonusMultiplier;
 			gameObject.transform.SetParent(null);
 			//Grab the game mode service, we need it to access the player character!
 			var gameModeService = ServiceLocator.Current.Get<IGameModeService>();
@@ -174,7 +176,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				Target target = collision.gameObject.GetComponentInParent<Target>();
                 if (target.health <= damage * headshotMultiplier)
                 {
-					target.scoreWorth = target.scoreWorth * 2;
+					target.scoreWorth = target.scoreWorth * headshotBonusMultiplier;
 				}
 				Transform bloodFX = Instantiate(bloodImpactPrefabs[Random.Range(0, bloodImpactPrefabs.Length)], transform.position, Quaternion.LookRotation(collision.contacts[0].normal));
 				Transform chunkFX = Instantiate(chunkPrefabs[Random.Range(0, chunkPrefabs.Length)], transform.position, Quaternion.LookRotation(collision.contacts[0].normal));
