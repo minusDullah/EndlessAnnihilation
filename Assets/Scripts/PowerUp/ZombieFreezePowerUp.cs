@@ -53,7 +53,12 @@ public class ZombieFreezePowerUp : MonoBehaviour
             }
 
             foreach (EnemyMovement enemyMovement in enemyMovement)
+            {
                 enemyMovement.navAgent.speed *= 0;
+                enemyMovement.capsuleCollider.enabled = false;
+                enemyMovement.animator.CrossFade("Idle", .1f, 0);
+            }
+                
 
             StartCoroutine(PerkLength());
         }
@@ -69,6 +74,8 @@ public class ZombieFreezePowerUp : MonoBehaviour
             if(enemyMovement.navAgent != null)
             {
                 enemyMovement.navAgent.speed = enemyMovement.randomSpeed;
+                enemyMovement.capsuleCollider.enabled = true;
+                enemyMovement.animator.CrossFade(enemyMovement.MovingAnim(), .5f, 0);
             }
             
         waveSpawner.enemiesFrozen = false;

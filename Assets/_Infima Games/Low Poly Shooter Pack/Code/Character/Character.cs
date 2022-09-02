@@ -306,6 +306,7 @@ namespace InfimaGames.LowPolyShooterPack
 		/// True if the game cursor is locked! Used when pressing "Escape" to allow developers to more easily access the editor.
 		/// </summary>
 		public bool cursorLocked;
+		public bool escapeKeyPressed;
 		/// <summary>
 		/// Amount of shots fired in succession. We use this value to increase the spread, and also to apply recoil
 		/// </summary>
@@ -433,8 +434,9 @@ namespace InfimaGames.LowPolyShooterPack
 			//Save Aiming Value.
 			wasAiming = aiming;
 
-			if (Keyboard.current.escapeKey.wasPressedThisFrame)
+			if (escapeKeyPressed)
 			{
+				escapeKeyPressed = false;
 				if (settingsMenuExten.menuIsEnabled)
 				{
 					settingsMenuExten.Hide();
@@ -1794,6 +1796,18 @@ namespace InfimaGames.LowPolyShooterPack
 		{
 			//Set Active.
 			knife.SetActive(active != 0);
+		}
+
+		public void EscapeKeyPressed(InputAction.CallbackContext context)
+        {
+			switch (context)
+			{
+				//Performed.
+				case { phase: InputActionPhase.Performed }:
+					escapeKeyPressed = true;
+					break;
+			}
+			
 		}
 
 		#endregion

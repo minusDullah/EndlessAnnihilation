@@ -17,6 +17,7 @@ public class EAInteractor : MonoBehaviour
     [SerializeField] public TextMeshProUGUI interactionText;
     [SerializeField] private Animator animator;
     [SerializeField] private string stateName = "Visible";
+    [SerializeField] private bool interactKeyPressed;
 
     private readonly Collider[] _colliders = new Collider[3];
     
@@ -48,7 +49,7 @@ public class EAInteractor : MonoBehaviour
                 interactionText.text = interactable.InteractionPrompt;
             }
 
-            if (interactable != null && Keyboard.current.fKey.wasPressedThisFrame && !character.reloading)
+            if (interactable != null && interactKeyPressed && !character.reloading)
             {
                 interactable.Interact(this);
             }
@@ -68,6 +69,11 @@ public class EAInteractor : MonoBehaviour
                 lastInteractableObject.SetActive(false);
             }
         }
+    }
+
+    public void InteractKeyPressed(InputAction.CallbackContext context)
+    {
+        interactKeyPressed = true;
     }
 
     private void OnDrawGizmos()

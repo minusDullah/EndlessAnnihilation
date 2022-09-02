@@ -30,6 +30,38 @@ Transform:
   m_Father: {fileID: 6476294273279874715}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5556605104942177230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 155548, guid: d50f5f5d5a171443fa76bc1f6fc90473,
+    type: 3}
+  m_PrefabInstance: {fileID: 8145764602824990322}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8145764602824817026}
+  m_Layer: 0
+  m_Name: 'Effect_08 (Missing Prefab with guid: d50f5f5d5a171443fa76bc1f6fc90473)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8145764602824817026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 485360, guid: d50f5f5d5a171443fa76bc1f6fc90473,
+    type: 3}
+  m_PrefabInstance: {fileID: 8145764602824990322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5556605104942177230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6476294273279874693}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6476294273279576705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1277,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 0.9
   m_Height: 1.61
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
@@ -2426,9 +2458,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d50f5f5d5a171443fa76bc1f6fc90473, type: 3}
---- !u!4 &8145764602824817026 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 485360, guid: d50f5f5d5a171443fa76bc1f6fc90473,
-    type: 3}
-  m_PrefabInstance: {fileID: 8145764602824990322}
-  m_PrefabAsset: {fileID: 0}

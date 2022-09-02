@@ -23,15 +23,15 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		[Tooltip("Maximum time after impact that the bullet is destroyed")]
 		public float maxDestroyTime;
 
+		public float damage;
+		private float headshotMultiplier;
+
 		[Header("Impact Effect Prefabs")]
 		public Transform[] bloodImpactPrefabs;
-
+		public Transform[] chunkPrefabs;
 		public Transform[] metalImpactPrefabs;
 		public Transform[] dirtImpactPrefabs;
 		public Transform[] concreteImpactPrefabs;
-
-		public float damage;
-		private float headshotMultiplier;
 
 		private void Start()
 		{
@@ -159,6 +159,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			if (collision.transform.tag == "Hitbox")
 			{
 				Transform bloodFX = Instantiate(bloodImpactPrefabs[Random.Range(0, bloodImpactPrefabs.Length)], transform.position,Quaternion.LookRotation(collision.contacts[0].normal));
+				Transform chunkFX = Instantiate(chunkPrefabs[Random.Range(0, chunkPrefabs.Length)], transform.position,Quaternion.LookRotation(collision.contacts[0].normal));
 				bloodFX.transform.parent = collision.transform;
 				//Get damageable component on object
 				IDamageable damageable = collision.transform.GetComponentInParent<IDamageable>();
@@ -176,6 +177,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 					target.scoreWorth = target.scoreWorth * 2;
 				}
 				Transform bloodFX = Instantiate(bloodImpactPrefabs[Random.Range(0, bloodImpactPrefabs.Length)], transform.position, Quaternion.LookRotation(collision.contacts[0].normal));
+				Transform chunkFX = Instantiate(chunkPrefabs[Random.Range(0, chunkPrefabs.Length)], transform.position, Quaternion.LookRotation(collision.contacts[0].normal));
 				bloodFX.transform.parent = collision.transform;
 				//Get damageable component on object
 				IDamageable damageable = collision.transform.GetComponentInParent<IDamageable>();

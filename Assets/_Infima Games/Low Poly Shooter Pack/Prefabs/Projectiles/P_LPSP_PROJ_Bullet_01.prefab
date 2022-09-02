@@ -189,8 +189,11 @@ MonoBehaviour:
   destroyOnImpact: 0
   minDestroyTime: 0.01
   maxDestroyTime: 0.05
+  damage: 0
   bloodImpactPrefabs:
   - {fileID: 4418440862474872, guid: a845e59c374ae0240812749e46f13033, type: 3}
+  chunkPrefabs:
+  - {fileID: 4765838103219372, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
   metalImpactPrefabs:
   - {fileID: 4458509032938956, guid: 79927c6543a058b4383885fac101fe2e, type: 3}
   dirtImpactPrefabs:
