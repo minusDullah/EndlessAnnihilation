@@ -64,9 +64,10 @@ public class EnemyMovement : MonoBehaviour
         if (other.CompareTag("Player") && !waveSpawner.enemiesFrozen && animator.enabled)
         {
             triggerEntered = true;
+            navAgent.speed = 0;
             while (triggerEntered && GetComponent<Target>().health > 0)
             {
-                ChooseAnimation();
+                ChooseAttackAnimation();
                 yield return new WaitForSeconds(animationBuffer);
                 DealDamage();
                 yield return new WaitForSeconds(attackCooldown);
@@ -78,6 +79,7 @@ public class EnemyMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(animationBuffer);
         animator.CrossFade(MovingAnim(), animationBuffer, 0);
+        navAgent.speed = randomSpeed;
         triggerEntered = false;
     }
 
@@ -91,7 +93,7 @@ public class EnemyMovement : MonoBehaviour
         playerHealth.TakeDamage(enemyDamage);
     }    
 
-    private void ChooseAnimation()
+    private void ChooseAttackAnimation()
     {
         int atkAnim = Random.Range(0, 2);
         if (atkAnim == 0) { animator.CrossFade("Attack_Left", 0f, 0); }

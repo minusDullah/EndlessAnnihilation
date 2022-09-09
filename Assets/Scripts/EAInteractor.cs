@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using InfimaGames.LowPolyShooterPack;
 using TMPro;
 using InfimaGames.LowPolyShooterPack.Interface;
+using System.Collections;
 
 public class EAInteractor : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class EAInteractor : MonoBehaviour
         animator = interactUI.GetComponentInChildren<Animator>();
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
@@ -44,7 +45,7 @@ public class EAInteractor : MonoBehaviour
 
             animator.SetBool(stateName, true);
 
-            if (interactionText.text == "" || interactionText.text != interactable.InteractionPrompt)
+            if (interactionText.text == "")
             {
                 interactionText.text = interactable.InteractionPrompt;
             }
@@ -74,6 +75,13 @@ public class EAInteractor : MonoBehaviour
     public void InteractKeyPressed(InputAction.CallbackContext context)
     {
         interactKeyPressed = true;
+        StartCoroutine(KeyCooldown());
+    }
+
+    IEnumerator KeyCooldown()
+    {
+        yield return new WaitForSeconds(.1f);
+        interactKeyPressed = false;
     }
 
     private void OnDrawGizmos()

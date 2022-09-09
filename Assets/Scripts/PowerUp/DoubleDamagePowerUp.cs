@@ -40,18 +40,23 @@ public class DoubleDamagePowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Weapon currWeapon = inventory.GetEquipped().GetComponent<Weapon>();
-            currWeapon.damagePerBullet *= damageMultiplier;
-            StartCoroutine(PerkLength(currWeapon));
+            foreach (Weapon currWeapon in inventory.weapons)
+            {
+                currWeapon.damagePerBullet *= damageMultiplier;
+            }
+            StartCoroutine(PerkLength());
         }
     }
 
-    IEnumerator PerkLength(Weapon currWeapon)
+    IEnumerator PerkLength()
     {
         sphereCollider.enabled = false;
         mesh.enabled = false;
         yield return new WaitForSeconds(PerkCooldown);
-        currWeapon.damagePerBullet /= damageMultiplier;
-        Destroy(gameObject);
+        foreach (Weapon currWeapon in inventory.weapons)
+        {
+            currWeapon.damagePerBullet /= damageMultiplier;
+        }
+        Destroy(gameObject, .5f);
     }
 }

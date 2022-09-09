@@ -494,9 +494,9 @@ MonoBehaviour:
   grenadeTimer: 1.5
   explosionPrefab: {fileID: 4811645123968692, guid: 301583a5af63a494298d60cd9f296909,
     type: 3}
-  radius: 15
+  radius: 5
   power: 100
-  grenadeDamage: 125
-  minimumForce: 3000
+  grenadeDamage: 50
+  minimumForce: 5000
   maximumForce: 10000
   impactSound: {fileID: 82305533685823640}

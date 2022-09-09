@@ -67,6 +67,7 @@ public class Target : MonoBehaviour, IDamageable
         if(randomPowerUp > 5 && randomPowerUp <= 10) { Instantiate(waveSpawner.powerUps[1], spawnPos, Quaternion.identity); }
         if(randomPowerUp > 10 && randomPowerUp <= 15) { Instantiate(waveSpawner.powerUps[2], spawnPos, Quaternion.identity); }
         if(randomPowerUp > 15 && randomPowerUp <= 20) { Instantiate(waveSpawner.powerUps[3], spawnPos, Quaternion.identity); }
+        if(randomPowerUp > 20 && randomPowerUp <= 25) { Instantiate(waveSpawner.powerUps[4], spawnPos, Quaternion.identity); }
     }
 
     private void ScoreOnDeath()
