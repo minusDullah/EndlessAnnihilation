@@ -33,6 +33,7 @@ TagManager:
   - AttachmentMenu
   - CountdownTimer
   - ZombieHolder
+  - DamageBoostSlider
   layers:
   - Default
   - TransparentFX

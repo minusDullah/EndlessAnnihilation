@@ -45,15 +45,21 @@ public class ZombieGravity : MonoBehaviour
         {
             for (int i = 0; i < zombieHolder.transform.childCount; i++)
             {
-                enemyMovement.Add(zombieHolder.transform.GetChild(i).GetComponent<EnemyMovement>());
+                waveSpawner.enemiesFrozen = true;
+                if (zombieHolder.transform.GetChild(i).GetComponent<Target>().health > 0)
+                {
+                    enemyMovement.Add(zombieHolder.transform.GetChild(i).GetComponent<EnemyMovement>());
+                }
             }
 
             foreach (EnemyMovement enemyMovement in enemyMovement)
             {
-                enemyMovement.rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
                 enemyMovement.navAgent.speed *= 0;
+                enemyMovement.navAgent.isStopped = true;
                 enemyMovement.DisablePhysics();
+                enemyMovement.rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
                 enemyMovement.rb.useGravity = true;
+                enemyMovement.triggerEntered = false;
             }
 
             StartCoroutine(PerkLength());
@@ -73,6 +79,7 @@ public class ZombieGravity : MonoBehaviour
             enemyMovement.rb.isKinematic = true;
         }
 
+        waveSpawner.enemiesFrozen = false;
         Destroy(gameObject);
     }
 }

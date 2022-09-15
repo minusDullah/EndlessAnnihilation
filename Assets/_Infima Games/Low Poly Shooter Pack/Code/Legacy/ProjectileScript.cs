@@ -56,14 +56,11 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		         "before destroying object")]
 		public float destroyDelay;
 
-
 		private float damage;
-		private float headshotMultiplier;
 
 		private void Start()
 		{
 			damage = gameObject.GetComponentInParent<Weapon>().damagePerBullet;
-			headshotMultiplier = gameObject.GetComponentInParent<Weapon>().headshotMultiplier;
 			gameObject.transform.SetParent(null);
 			//If not using constant force (grenade launcher projectile)
 			if (!useConstantForce)

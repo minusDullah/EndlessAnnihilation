@@ -383,7 +383,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Update the capsule's height.
             controller.height = crouching ? crouchHeight : standingHeight;
             //Update the capsule's center.
-            controller.center = controller.height / 2.0f * Vector3.up;
+            controller.center = controller.height / 2f * Vector3.up;
         }
 
         public override void TryCrouch(bool value)

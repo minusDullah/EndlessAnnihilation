@@ -26,6 +26,9 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
 
     public void Interact(EAInteractor interactor)
     {
+        if (character.IsInspecting() || character.IsInvoking())
+                return;
+
         if (!cooldownOff)
                 return;
         
@@ -39,7 +42,7 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
         randomNumber = Random.Range(0, weaponHolder.transform.childCount);
 
         weapon = weaponHolder.transform.GetChild(randomNumber).GetComponent<Weapon>();
-        
+
         weapon.gameObject.transform.SetParent(inventory.transform);
 
 
@@ -62,7 +65,6 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
         }
 
         GameObject equippedWeapon = inventory.GetEquipped().gameObject;
-
         inventory.weapons.RemoveAt(inventory.GetEquippedIndex());
         inventory.weapons.Insert(inventory.GetEquippedIndex(), weapon);
 
@@ -75,9 +77,9 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
 
     IEnumerator CoolDown()
     {
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(2f);
         cooldownOff = true;
-    }
+    }   
 
     IEnumerator DisableWeapon(GameObject equippedWeapon)
     {
@@ -87,5 +89,11 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
         currWeapon.FillAmmunition(currWeapon.ammunitionMax);
         equippedWeapon.transform.SetParent(weaponHolder.transform);
         equippedWeapon.SetActive(false);
+        character.weaponAttachment.laserIndex = -1;
+        character.weaponAttachment.gripIndex = -1;
+        character.weaponAttachment.muzzleIndex = 0;
+        character.weaponAttachment.scopeIndex = -1;
+        equippedWeapon.GetComponent<Weapon>().UpdateWeaponBehaviour();
+        character.WeaponAttachmentUpdate();
     }
 }

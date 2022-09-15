@@ -10,11 +10,12 @@ public class AbilitiesUI : MonoBehaviour
     [SerializeField] private Slider grenadeSlider;
     [SerializeField] private Slider buffBoostSlider;
     [SerializeField] private Character character;
+    [SerializeField] private WaveSpawner waveSpawner;
 
     void Start()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        buffBoostSlider.maxValue = character.buffBoostCDTimer;
+        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
         grenadeSlider.maxValue = character.grenadeCDTimer;
     }
 
@@ -30,22 +31,16 @@ public class AbilitiesUI : MonoBehaviour
         }
         else
         {
-            grenadeSlider.value = 0;
+            grenadeSlider.value = buffBoostSlider.minValue;
         }
-        
+
         if (character.buffBoostCD)
         {
-            if (buffBoostSlider.value <= 0)
-            {
-                buffBoostSlider.value = character.buffBoostCDTimer;
-            }
-            buffBoostSlider.value -= 1 * Time.deltaTime;
+            buffBoostSlider.value = buffBoostSlider.maxValue;
         }
         else
         {
-            buffBoostSlider.value = 0;
+            buffBoostSlider.value = waveSpawner.buffKillCounter;
         }
-
-
     }
 }

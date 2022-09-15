@@ -497,6 +497,6 @@ MonoBehaviour:
   radius: 5
   power: 100
   grenadeDamage: 50
-  minimumForce: 5000
+  minimumForce: 3000
   maximumForce: 10000
   impactSound: {fileID: 82305533685823640}

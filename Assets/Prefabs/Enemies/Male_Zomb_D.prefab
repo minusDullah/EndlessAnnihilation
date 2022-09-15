@@ -1912,8 +1912,8 @@ GameObject:
   - component: {fileID: 3092938964862199194}
   - component: {fileID: -666741956983333116}
   - component: {fileID: -1908522132619569192}
-  - component: {fileID: -2586221765204281807}
   - component: {fileID: -3822168918955939852}
+  - component: {fileID: -3843079185341923222}
   m_Layer: 0
   m_Name: Male_Zomb_D
   m_TagString: Enemy
@@ -1930,7 +1930,7 @@ Transform:
   m_GameObject: {fileID: 6768964580323835772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 6768964580323402588}
   - {fileID: 6768964580323402590}
@@ -1977,8 +1977,8 @@ MonoBehaviour:
   waveSpawner: {fileID: 0}
   _player: {fileID: 0}
   enemyDamage: 20
-  minSpeed: 0.5
-  maxSpeed: 6
+  minSpeed: 1
+  maxSpeed: 10
   randomSpeed: 0
   attackCooldown: 0.77
   animationBuffer: 0.3
@@ -2173,7 +2173,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!54 &-2586221765204281807
+--- !u!136 &-3822168918955939852
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6768964580323835772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.9
+  m_Height: 1.61
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!54 &-3843079185341923222
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2189,20 +2203,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &-3822168918955939852
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6768964580323835772}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.9
-  m_Height: 1.61
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &6768964580323835774
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,17 +2284,17 @@ PrefabInstance:
     - target: {fileID: 2418698565395157921, guid: 0c634d13e2c29524da24aed04a7bb862,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 7.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2418698565395157921, guid: 0c634d13e2c29524da24aed04a7bb862,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 7.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2418698565395157921, guid: 0c634d13e2c29524da24aed04a7bb862,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 7.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2418698565395157921, guid: 0c634d13e2c29524da24aed04a7bb862,
         type: 3}

@@ -2594,7 +2594,7 @@ MonoBehaviour:
   showSocial3: 0
   showVersion: 1
   showFade: 1
-  sceneToLoad: Level_1
+  sceneToLoad: Desert_Level
   logo: {fileID: 21300000, guid: 13608ed6ad7a1fb4aacd43cbd09a716f, type: 3}
   background: {fileID: 21300000, guid: 059d9d3875305924c8af2ae35f523c09, type: 3}
   buttons: {fileID: 7158414126002435253, guid: 076197847ba151147b3f5ca6d92ef0fd, type: 3}

@@ -54,9 +54,11 @@ public class ZombieFreezePowerUp : MonoBehaviour
 
             foreach (EnemyMovement enemyMovement in enemyMovement)
             {
-                enemyMovement.animator.CrossFade("Idle", .5f, 0);
                 enemyMovement.navAgent.speed *= 0;
+                enemyMovement.navAgent.isStopped = true;
+                enemyMovement.animator.CrossFade("Idle", .5f, 0);
                 enemyMovement.capsuleCollider.enabled = false;
+                enemyMovement.triggerEntered = false;
             }
                 
             StartCoroutine(PerkLength());
@@ -72,6 +74,7 @@ public class ZombieFreezePowerUp : MonoBehaviour
         foreach (EnemyMovement enemyMovement in enemyMovement)
             if(enemyMovement.navAgent != null)
             {
+                enemyMovement.navAgent.isStopped = false;
                 enemyMovement.navAgent.speed = enemyMovement.randomSpeed;
                 enemyMovement.capsuleCollider.enabled = true;
                 enemyMovement.animator.CrossFade(enemyMovement.MovingAnim(), .5f, 0);

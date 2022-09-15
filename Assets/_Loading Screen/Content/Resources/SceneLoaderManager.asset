@@ -23,15 +23,14 @@ MonoBehaviour:
     FakeLoadingTime: 2
     Backgrounds:
     - {fileID: 21300000, guid: 2650407d6311724489f3256696e75bb0, type: 3}
-  - SceneName: Level_1
-    SceneAsset: {fileID: 102900000, guid: 39587da51cfc81e4f93d9e65340eb7ee, type: 3}
-    DisplayName: Test Stage
-    Description: Small city run over by the dead.
-    SkipType: 4
+  - SceneName: Desert_Level
+    SceneAsset: {fileID: 102900000, guid: e487c2987bf8d924081d09913a89e7f7, type: 3}
+    DisplayName: Desert_Level
+    Description: 
+    SkipType: 3
     LoadingType: 0
     FakeLoadingTime: 2
-    Backgrounds:
-    - {fileID: 21300000, guid: 2650407d6311724489f3256696e75bb0, type: 3}
+    Backgrounds: []
   tipsList:
   - Use explosives to deal with large groups.
   buildSettingsAsFallback: 1

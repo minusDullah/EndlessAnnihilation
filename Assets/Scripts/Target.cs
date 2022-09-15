@@ -7,6 +7,8 @@ public class Target : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     [SerializeField] public float health = 100f;
+    [SerializeField] public float minHealth = 100f;
+    [SerializeField] public float maxHealth = 999f;
     [SerializeField] public float scoreWorth = 50;
     [SerializeField] private int destroyTimer = 15;
 
@@ -20,7 +22,8 @@ public class Target : MonoBehaviour, IDamageable
     [Header("Audio")]
     [SerializeField] private AudioSource enemyAudioSource;
     [SerializeField] private AudioClip[] enemyDie;
-    
+
+    private AbilitiesUI DamageBoostSlider;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private bool pointsGained;
@@ -32,11 +35,12 @@ public class Target : MonoBehaviour, IDamageable
         enemyAudioSource = GetComponent<AudioSource>();
         scoreUpdate = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
         waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
+        DamageBoostSlider = GameObject.FindGameObjectWithTag("DamageBoostSlider").GetComponent<AbilitiesUI>();
         pointsGained = false;
         soundPlayed = false;
         pointsGained = false;
         health *= waveSpawner.currWave/4;
-        health = Mathf.Clamp(health, 100, 500);
+        health = Mathf.Clamp(health, minHealth, maxHealth);
     }
 
     public void TakeDamage(float damage)
@@ -45,7 +49,8 @@ public class Target : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             waveSpawner.totalKills++;
-            waveSpawner.timeRemaining += 5f;
+            waveSpawner.buffKillCounter -= 1;
+            waveSpawner.timeRemaining += 2f;
             SetAllCollidersStatus();
             DeathSound();
             navMeshAgent.isStopped = true;
@@ -55,7 +60,7 @@ public class Target : MonoBehaviour, IDamageable
             ScoreOnDeath();
             FXonDeath();
             RemoveFromMinimap();
-            ChanceOfPowerUp(250);
+            ChanceOfPowerUp(350);
         }
     }
 

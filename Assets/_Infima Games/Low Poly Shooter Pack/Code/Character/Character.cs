@@ -149,14 +149,12 @@ namespace InfimaGames.LowPolyShooterPack
 
 		[Header("CD Details")]
 		[SerializeField] public bool buffBoostCD;
-		[SerializeField] public float buffBoostCDTimer = 5f;
 
 		[Title(label: "Attachemnt UI")]
 		[SerializeField] public GameObject attachmentMenu;
 		[SerializeField] public GameObject settingsMenu;
-		[SerializeField] public Movement movement;
+		[SerializeField] public Movement movement; 
 		[SerializeField] public HealthController health;
-		[SerializeField] public GameObject upgradeMenu;
 		[SerializeField] public WeaponAttachmentManager weaponAttachment;
 		[SerializeField] public MenuQualitySettings settingsMenuExten;
 		[SerializeField] public TMP_Dropdown scopeMenu;
@@ -341,7 +339,6 @@ namespace InfimaGames.LowPolyShooterPack
 
 			settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
 			settingsMenuExten = settingsMenu.GetComponent<MenuQualitySettings>();
-			upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeMenu");
 			movement = gameObject.GetComponent<Movement>();
 			health = gameObject.GetComponent<HealthController>();
 		}
@@ -355,6 +352,8 @@ namespace InfimaGames.LowPolyShooterPack
 			MuzzleMenuUpdate();
 			LaserMenuUpdate();
 			GripMenuUpdate();
+			WeaponAttachmentUpdate();
+
 
 			//Max out the grenades.
 			grenadeCount = grenadeTotal;
@@ -651,7 +650,9 @@ namespace InfimaGames.LowPolyShooterPack
 			MuzzleMenuUpdate();
 			LaserMenuUpdate();
 			GripMenuUpdate();
-			
+
+			WeaponAttachmentUpdate();
+
 			//State.
 			inspecting = true;
 			//Play.
@@ -673,6 +674,7 @@ namespace InfimaGames.LowPolyShooterPack
 			characterAnimator.speed = 1f;
 			cursorLocked = true;
 			UpdateCursorState();
+			
 
 			attachmentMenu.SetActive(false);
 		}
@@ -1351,7 +1353,8 @@ namespace InfimaGames.LowPolyShooterPack
 
 		public void OnTryDamageBoost(InputAction.CallbackContext context)
 		{
-			if (!buffBoostCD)
+			WaveSpawner waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
+			if (!buffBoostCD && waveSpawner.buffKillCounter <= 0)
 			{
 				//Block while the cursor is unlocked.
 				if (!cursorLocked)
@@ -1380,17 +1383,16 @@ namespace InfimaGames.LowPolyShooterPack
 							health.currentPlayerHealth /= maxHealthMultiplier;
 							health.UpdateHealth();
 							
-							StartCoroutine(DamageBoostCooldown(movement, health));
+							StartCoroutine(DamageBoostCooldown(movement, health, waveSpawner));
 						break;
 				}
 			}
 		}
 
-		IEnumerator DamageBoostCooldown(Movement movement, HealthController health)
+		IEnumerator DamageBoostCooldown(Movement movement, HealthController health, WaveSpawner waveSpawner)
 		{
 			buffBoostCD = true;
-
-			yield return new WaitForSeconds(buffBoostCDTimer);
+			yield return new WaitForSeconds(10f);
 
 			for (int i = 0; i < inventory.transform.childCount; i++)
 			{
@@ -1409,6 +1411,7 @@ namespace InfimaGames.LowPolyShooterPack
 			health.currentPlayerHealth *= maxHealthMultiplier;
 			health.canRegen = true;
 
+			waveSpawner.buffKillCounter = 50;
 			buffBoostCD = false;
 		}
 
@@ -1582,9 +1585,6 @@ namespace InfimaGames.LowPolyShooterPack
 
 		public void WeaponAttachmentUpdate()
         {
-			if (weaponAttachment == null)
-				return;
-
 			//updates gameobjects aka turns off and on
 			weaponAttachment.UpdateAttachments();
 
@@ -1597,9 +1597,9 @@ namespace InfimaGames.LowPolyShooterPack
 			muzzleMenu.ClearOptions();
 			List<string> weaponAttachmentList = new List<string>();
 			int currentMuzzle = 0;
-			for (int i = 0; i < weaponAttachment.muzzleArray.Length; i++)
+			for (int i = 1; i < weaponAttachment.muzzleArray.Length; i++)
 			{
-				string weaponAttachmentCurrent = "Muzzle " + (i + 1);
+				string weaponAttachmentCurrent = "Muzzle " + (i);
 				weaponAttachmentList.Add(weaponAttachmentCurrent);
 				if(weaponAttachment.muzzleIndex == i)
                 {
@@ -1615,7 +1615,7 @@ namespace InfimaGames.LowPolyShooterPack
         {
 			scopeMenu.ClearOptions();
 			List<string> weaponAttachmentList = new List<string>();
-			int currentScope = 0;
+			int currentScope = 8;
 			for (int i = 0; i < weaponAttachment.scopeArray.Length; i++)
 			{
 				string weaponAttachmentCurrent = "Scope " + (i + 1);
@@ -1625,6 +1625,7 @@ namespace InfimaGames.LowPolyShooterPack
 					currentScope = i;
 				}
 			}
+			weaponAttachmentList.Add("No Scope");
 			scopeMenu.AddOptions(weaponAttachmentList);
 			scopeMenu.value = currentScope;
 			scopeMenu.RefreshShownValue();
@@ -1634,7 +1635,7 @@ namespace InfimaGames.LowPolyShooterPack
         {
 			laserMenu.ClearOptions();
 			List<string> weaponAttachmentList = new List<string>();
-			int currentLaser = 0;
+			int currentLaser = 2;
 			for (int i = 0; i < weaponAttachment.laserArray.Length; i++)
 			{
 				string weaponAttachmentCurrent = "Laser " + (i + 1);
@@ -1644,16 +1645,18 @@ namespace InfimaGames.LowPolyShooterPack
 					currentLaser = i;
 				}
 			}
+			weaponAttachmentList.Add("No Laser");
 			laserMenu.AddOptions(weaponAttachmentList);
 			laserMenu.value = currentLaser;
 			laserMenu.RefreshShownValue();
+
 		}		
 		
 		public void GripMenuUpdate()
         {
 			gripMenu.ClearOptions();
 			List<string> weaponAttachmentList = new List<string>();
-			int currentGrip = 0;
+			int currentGrip = 3;
 			for (int i = 0; i < weaponAttachment.gripArray.Length; i++)
 			{
 				string weaponAttachmentCurrent = "Grip " + (i + 1);
@@ -1663,6 +1666,7 @@ namespace InfimaGames.LowPolyShooterPack
 					currentGrip = i;
 				}
 			}
+			weaponAttachmentList.Add("No Grip");
 			gripMenu.AddOptions(weaponAttachmentList);
 			gripMenu.value = currentGrip;
 			gripMenu.RefreshShownValue();
@@ -1810,8 +1814,8 @@ namespace InfimaGames.LowPolyShooterPack
 			
 		}
 
-		#endregion
+        #endregion
 
-		#endregion
-	}
+        #endregion
+    }
 }

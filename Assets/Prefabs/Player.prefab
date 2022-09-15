@@ -431,6 +431,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 1faa6b60e979ab943acaba86b74a23b7, type: 2}
   spriteBody: {fileID: 21300000, guid: d046e191cca72234f808841e75fb8720, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -953,7 +955,7 @@ RectTransform:
   m_Children:
   - {fileID: 154754575716571299}
   m_Father: {fileID: 5582942048936078299}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1772,6 +1774,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 721c041fc33a0bc4fa626ec5c5ffd1ca, type: 2}
   spriteBody: {fileID: 21300000, guid: 3ac6bd3c94406ee4b93468601b767738, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -3440,6 +3444,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: b44a243981f153642b5cb4a1e2ce0c87, type: 2}
   spriteBody: {fileID: 21300000, guid: 9220d2cdf69e88c4eaebe5809c96284e, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -4431,6 +4437,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 921a0029ada06e04ab83361ebdc2ced3, type: 2}
   spriteBody: {fileID: 21300000, guid: 5a14700245f962143931ba8b9a4bf95a, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -5441,6 +5449,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1679295593729814, guid: edf8c9b19ab77cd458707a7f9b3d825d,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: a8ceb8f74503cf14f997ca44fd67156f, type: 2}
   spriteBody: {fileID: 21300000, guid: 897505ac4e7e88f4487e9dd8aeffc8ca, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -6410,6 +6420,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 1288116e5192cd84b808721e453eb7e7, type: 2}
   spriteBody: {fileID: 21300000, guid: bcc477d9e47ffcf41acc147a6fc51cf9, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -21288,6 +21300,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 72af04fc692398745b4ded1eda224fa4, type: 2}
   spriteBody: {fileID: 21300000, guid: c30ffab659c921b4db24b61094105fe6, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -26799,6 +26813,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: e5b7cd02c74bcc24387d5226d3465762, type: 2}
   spriteBody: {fileID: 21300000, guid: edee8eb0c15b6064f943ec1b17135006, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -30653,6 +30669,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 0ef5ab816395d5c408eae1d1195c410c, type: 2}
   spriteBody: {fileID: 21300000, guid: 14fbfa1e6f824a6438189267b87f44b8, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -39827,6 +39845,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 227c83fdfbb09484f8ce88cdfcd6a122, type: 2}
   spriteBody: {fileID: 21300000, guid: 3ee33b9e6ad82e546a501e13d9410ab0, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -40896,7 +40916,7 @@ RectTransform:
   m_Children:
   - {fileID: 4573417957036367485}
   m_Father: {fileID: 5582942048936078299}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -41008,7 +41028,7 @@ Transform:
   - {fileID: 9197414730954094619}
   - {fileID: 6034287860018697479}
   m_Father: {fileID: 5582942048936078299}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4573417958440299197
 GameObject:
@@ -41038,7 +41058,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5582942048936078299}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4591295785001933734
 GameObject:
@@ -50760,7 +50780,6 @@ Transform:
   - {fileID: 2229637535102782950}
   - {fileID: 1932072578274447562}
   - {fileID: 7301377608174860764}
-  - {fileID: 7736201037342673449}
   - {fileID: 7736201037236025847}
   - {fileID: 4573417958440299196}
   - {fileID: 890665911798179031}
@@ -50781,13 +50800,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.5
-  m_Radius: 1
+  m_Height: 2
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0
-  m_SkinWidth: 0.02
+  m_SkinWidth: 0.08
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!82 &4400838148084186557
 AudioSource:
   m_ObjectHideFlags: 0
@@ -50913,7 +50932,7 @@ MonoBehaviour:
   jumpForce: 1
   remainingJumps: 0
   allowedJumps: 0
-  stickToGroundForce: 1
+  stickToGroundForce: 0.5
   canCrouch: 1
   canCrouchWhileFalling: 0
   canJumpWhileCrouching: 0
@@ -50991,12 +51010,10 @@ MonoBehaviour:
   movementSpeedMultiplier: 1.5
   maxHealthMultiplier: 1.5
   buffBoostCD: 0
-  buffBoostCDTimer: 5
   attachmentMenu: {fileID: 154754575354642849}
-  settingsMenu: {fileID: 0}
+  settingsMenu: {fileID: 154754575716571302}
   movement: {fileID: 0}
   health: {fileID: 0}
-  upgradeMenu: {fileID: 0}
   weaponAttachment: {fileID: 0}
   settingsMenuExten: {fileID: 0}
   scopeMenu: {fileID: 7287988769239608586}
@@ -51443,6 +51460,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1500b140-0b9e-469c-91ca-e7f4462b5b66
     m_ActionName: Player/Toggle Laser[/Keyboard/j,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3bda6b03-5634-432d-9480-3966ff1f704f
+    m_ActionName: Player/Damage Boost[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ec9b54a7-a5b0-47fa-9fa5-581afb53e75b
+    m_ActionName: Player/Interact[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -51876,7 +51901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5582942048936078299}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &6762263615600377400
 SpriteRenderer:
@@ -55744,6 +55769,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 588e5a327922e1f4e9254d9b9488cad7, type: 2}
   spriteBody: {fileID: 21300000, guid: 1cd7ab0ded13ed149b0d00e451ed37d2, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -63757,6 +63784,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 214b4496003eb7643958067947e35a34, type: 2}
   spriteBody: {fileID: 21300000, guid: 17563cc85a0ef4a4cabf1ca909b2fa31, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -66243,7 +66272,7 @@ MonoBehaviour:
   reloadSpeed: 1
   cycledReload: 0
   canReloadWhenFull: 0
-  automaticReloadOnEmpty: 1
+  automaticReloadOnEmpty: 0
   automaticReloadOnEmptyDelay: 0.25
   socketEjection: {fileID: 2657263470191204458}
   canReloadAimed: 0
@@ -66251,6 +66280,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 2100000, guid: feaaf94c1c67c5c449e2b7ea49db3313, type: 2}
+  muzzleTint: {fileID: 2100000, guid: 8adeec65686b8f2418219361b43c1f59, type: 2}
   controller: {fileID: 22100000, guid: 993d360352221784a9f198b1779f7ee2, type: 2}
   spriteBody: {fileID: 21300000, guid: bca66733c81204145bb9007230e68706, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -66304,12 +66335,12 @@ MonoBehaviour:
   - {fileID: 8384397541115146628}
   - {fileID: 2560090642216802376}
   - {fileID: 2295423415832660993}
-  laserIndex: 0
+  laserIndex: -1
   laserIndexRandom: 0
   laserArray:
   - {fileID: 8040375408111576961}
   - {fileID: 5325222802977845155}
-  gripIndex: 0
+  gripIndex: -1
   gripIndexRandom: 0
   gripArray:
   - {fileID: 46269335078469338}
@@ -71003,7 +71034,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5582942048936078299}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!20 &7736201037236025844
 Camera:
@@ -71048,88 +71079,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &7736201037342673448
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7736201037342673449}
-  - component: {fileID: 7736201037342673454}
-  m_Layer: 7
-  m_Name: MinimapIcon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7736201037342673449
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7736201037342673448}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.7, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5582942048936078299}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!212 &7736201037342673454
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7736201037342673448}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c4e2123aca855c547899d4e1cbd4312b, type: 3}
-  m_Color: {r: 0.011559963, g: 1, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &7739726329222702875
 GameObject:
   m_ObjectHideFlags: 0
@@ -71578,6 +71527,8 @@ MonoBehaviour:
   prefabCasing: {fileID: 0}
   prefabProjectile: {fileID: 1670969100947644, guid: 6eff2e3f87451484da970b33bbf1411f,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 1e7a1bd7304ade54f9fbbec8df086aff, type: 2}
   spriteBody: {fileID: 21300000, guid: a64d5ac6f08b42c40ab639b957890bce, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -79160,6 +79111,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 6593f7d4f840f4e44b9903e6f36bac23, type: 2}
   spriteBody: {fileID: 21300000, guid: 29d42a588ada78c47aa1735164b9b86d, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -79944,7 +79897,7 @@ MonoBehaviour:
   shotCount: 1
   spread: 0.25
   projectileImpulse: 400
-  roundsPerMinutes: 1600
+  roundsPerMinutes: 850
   damagePerBullet: 75
   headshotMultiplier: 1.5
   headshotBonusMultiplier: 1.5
@@ -79961,6 +79914,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 1ef37ebe38602934290eff157e183e5d, type: 2}
   spriteBody: {fileID: 21300000, guid: cae8f7fee08d5804198ddee2305aa1ce, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}
@@ -79995,7 +79950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scopeDefaultShow: 1
   scopeDefaultBehaviour: {fileID: 4650044312183687883}
-  scopeIndex: 2
+  scopeIndex: -1
   scopeIndexFirst: -1
   scopeIndexRandom: 0
   scopeArray:
@@ -83824,6 +83779,8 @@ MonoBehaviour:
     type: 3}
   prefabProjectile: {fileID: 1086664671600574, guid: 5953171a59c27394e9ad5cbb564affa8,
     type: 3}
+  muzzleFlash: {fileID: 0}
+  muzzleTint: {fileID: 0}
   controller: {fileID: 22100000, guid: 10f0359b8acaa884f84935b3e29a4327, type: 2}
   spriteBody: {fileID: 21300000, guid: ccee2405335b2a849ad2b5d03c55d663, type: 3}
   audioClipHolster: {fileID: 8300000, guid: 8c4ede782a70c6e4b9e515d40d6e6e69, type: 3}

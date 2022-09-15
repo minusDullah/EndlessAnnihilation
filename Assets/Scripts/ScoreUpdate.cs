@@ -54,6 +54,10 @@ public class ScoreUpdate : MonoBehaviour
     public void CalculateScore(float scoreWorth)
     {
         scoreBuffer += scoreWorth;
+
+        if (scoreBuffer == 0)
+            return;
+
         if (IsInvoking("UpdateScoreGain"))
         {
             CancelInvoke();

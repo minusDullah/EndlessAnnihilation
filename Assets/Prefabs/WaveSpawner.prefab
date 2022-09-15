@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -105,10 +105,11 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 4972308482775631872, guid: e66fd7302f888ab4e9b6d518221b238d,
       type: 3}
     cost: 1
-  currWave: 4
+  currWave: 5
   waveValue: 0
   waveMultiplier: 5
   totalKills: 0
+  buffKillCounter: 50
   timeRemaining: 120
   enemiesToSpawn: []
   spawnLocation:
@@ -129,9 +130,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   waveDuration: 45
   waveTimer: 0
-  spawnInterval: 1
+  spawnInterval: 4
   spawnTimer: 0
   timerText: {fileID: 0}
   zombieHolder: {fileID: 0}

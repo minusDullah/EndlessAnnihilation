@@ -30,7 +30,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         [Tooltip("Firing Particles.")]
         [SerializeField]
-        private GameObject prefabFlashParticles;
+        public GameObject prefabFlashParticles;
 
         [Tooltip("Number of particles to emit when firing.")]
         [SerializeField]

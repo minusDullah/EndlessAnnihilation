@@ -715,26 +715,56 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114310305166333120, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310305166333120, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.28051433
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310305166333120, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7169812
+      objectReference: {fileID: 0}
     - target: {fileID: 114350209622200388, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
         type: 3}
       propertyPath: m_Text
       value: ENDLESS <color=#FF0000>ANNIHILATION</color>
       objectReference: {fileID: 0}
+    - target: {fileID: 114401630242750860, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.13679248
+      objectReference: {fileID: 0}
+    - target: {fileID: 114401630242750860, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3683607
+      objectReference: {fileID: 0}
+    - target: {fileID: 114401630242750860, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114600426214099230, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 059d9d3875305924c8af2ae35f523c09,
+      objectReference: {fileID: 21300000, guid: 2dc742a09d9f59a4186cff46c6db374d,
         type: 3}
     - target: {fileID: 114600426214099230, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.4117647
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114600426214099230, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.4117647
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114600426214099230, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
         type: 3}
@@ -899,6 +929,16 @@ PrefabInstance:
     - target: {fileID: 224149302406622096, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224555524377337672, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224555524377337672, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224617769090561790, guid: 3a9e4211cc9364b4b8d2cfa7e49b7e29,

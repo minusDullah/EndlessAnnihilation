@@ -2636,7 +2636,7 @@ GameObject:
   - component: {fileID: 5892634237663847710}
   m_Layer: 5
   m_Name: Ability
-  m_TagString: Untagged
+  m_TagString: DamageBoostSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2677,6 +2677,7 @@ MonoBehaviour:
   grenadeSlider: {fileID: 3247785514477940642}
   buffBoostSlider: {fileID: 2106643150379251238}
   character: {fileID: 0}
+  waveSpawner: {fileID: 0}
 --- !u!1 &6520662847420304414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,9 +3063,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 3
+  m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 3
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

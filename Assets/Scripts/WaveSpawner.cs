@@ -14,6 +14,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private int waveValue;
     [SerializeField] private int waveMultiplier = 10;
     [SerializeField] public int totalKills;
+    [SerializeField] public int buffKillCounter = 50;
     [SerializeField] public float timeRemaining = 60;
     [SerializeField] public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
@@ -29,6 +30,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] public GameObject zombieHolder;
     [SerializeField] public GameObject[] powerUps;
     [SerializeField] public bool enemiesFrozen;
+    [SerializeField] public bool enemiesGravity;
 
     
 
@@ -47,9 +49,9 @@ public class WaveSpawner : MonoBehaviour
         timeRemaining -= Time.deltaTime;
         SetTimer(timeRemaining);
 
-        if (!enemiesFrozen)
+        if (!enemiesFrozen && !enemiesFrozen)
         {
-            if (spawnTimer <= 0!)
+            if (spawnTimer <= 0)
             {
                 //spawn an enemy
                 if (enemiesToSpawn.Count > 0)

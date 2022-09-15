@@ -1,5 +1,6 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -98,6 +99,12 @@ namespace InfimaGames.LowPolyShooterPack
         [Tooltip("Projectile Prefab. This is the prefab spawned when the weapon shoots.")]
         [SerializeField]
         private GameObject prefabProjectile;
+        
+        [SerializeField]
+        public Material muzzleFlash;
+
+        [SerializeField]
+        public Material muzzleTint;
         
         [Tooltip("The AnimatorController a player character needs to use while wielding this weapon.")]
         [SerializeField] 
@@ -234,9 +241,7 @@ namespace InfimaGames.LowPolyShooterPack
 
             ammunitionMax = magazineBehaviour.GetAmmunitionMax();
             ammunitionInventory = ammunitionMax;
-
-            UpdateWeaponBehaviour();
-
+            FillAmmunition(ammunitionMax);
             #endregion
 
             //Max Out Ammo.
@@ -499,7 +504,6 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public override void FillAmmunition(int amount)
         {
-
             int fill = GetAmmunitionAmountFill(amount != 0 ? Mathf.Clamp(ammunitionCurrent + amount,
                 0, GetAmmunitionTotal()) : magazineBehaviour.GetAmmunitionTotal());
 
@@ -534,8 +538,6 @@ namespace InfimaGames.LowPolyShooterPack
         {
             ammunitionInventory -= ammunitionInventory - total < 0 ? 0 : total;
         }
-
-
 
         public int GetAmmunitionAmountFill(int total)
         {
