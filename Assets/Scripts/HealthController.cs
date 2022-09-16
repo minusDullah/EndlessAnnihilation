@@ -1,6 +1,9 @@
+using InfimaGames.LowPolyShooterPack;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -36,11 +39,36 @@ public class HealthController : MonoBehaviour
     [SerializeField] private AudioClip[] playerHeartbeat;
     [SerializeField] private AudioClip[] BGMusicTracks;
 
+    private GameObject playerMesh;
+    private GameObject zombieHolder;
+    private WaveSpawner waveSpawner;
+    private PlayerInput playerInput;
+    private CharacterController cc;
+    private Canvas canvasUI;
+    private Canvas timerUI;
+    private Inventory inventory;
+    private Camera mainCamera;
+    private bool dead;
+    public List<Target> enemies;
+
     private void Start()
     {
         hurtImage = GameObject.Find("RadialBloodHurt").GetComponent<Image>();
         redSplatterImage = GameObject.Find("RedSplatter").GetComponent<Image>();
+
+        playerMesh = GameObject.FindGameObjectWithTag("PlayerMesh");
+        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
+        zombieHolder = GameObject.FindGameObjectWithTag("ZombieHolder");
+        canvasUI = GameObject.FindGameObjectWithTag("DamageBoostSlider").GetComponentInParent<Canvas>();
+        timerUI = GameObject.FindGameObjectWithTag("CountdownTimer").GetComponentInParent<Canvas>();
+
+        cc = GetComponent<CharacterController>();
+        playerInput = GetComponent<PlayerInput>();
+        inventory = GetComponentInChildren<Inventory>();
+        mainCamera = GetComponentInChildren<Camera>();
+
         hurtImage.enabled = false;
+
         UpdateHealth();
         StartCoroutine(playBGMusic());
     }
@@ -55,7 +83,7 @@ public class HealthController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (currentPlayerHealth >= 0 && canTakeDamage == true)
+        if (currentPlayerHealth > 0 && canTakeDamage == true)
         {
             canTakeDamage = false;
             currentPlayerHealth -= damage;
@@ -68,9 +96,41 @@ public class HealthController : MonoBehaviour
         }
         else if(currentPlayerHealth <= 0)
         {
+            //Make character smaller and closer to the ground to make it look like the character fell
+            cc.center = cc.center / 2f;
+            cc.height = .5f;
+            cc.minMoveDistance = 1;
 
+            //Kill all zombies
+            Destroy(zombieHolder, 60f);
+            for (int i = 0; i < zombieHolder.transform.childCount; i++)
+            {
+                if (zombieHolder.transform.GetChild(i).GetComponent<Target>().health > 0)
+                {
+                    zombieHolder.transform.GetChild(i).GetComponent<CapsuleCollider>().isTrigger = false;
+                    zombieHolder.transform.GetChild(i).GetComponent<EnemyMovement>().triggerEntered = false;
+                }
+            }
+
+            //Remove player hands
+            playerMesh.SetActive(false);
+            //Stop wave spawner
+            waveSpawner.enabled = false;
+
+            //Disable Input
+            playerInput.actions.Disable();
+
+            //Remove weapons
+            inventory.gameObject.SetActive(false);
+            inventory.weapons.Clear();
+
+            //Get all UI and disable it
+            canvasUI.enabled = false;
+            timerUI.enabled = false;
+
+            dead = true;
+            /*
             string sceneToLoad = SceneManager.GetActiveScene().path;
-
             #if UNITY_EDITOR
             //Load the scene.
             UnityEditor.SceneManagement.EditorSceneManager.LoadSceneAsyncInPlayMode(sceneToLoad, new LoadSceneParameters(LoadSceneMode.Single));
@@ -78,6 +138,7 @@ public class HealthController : MonoBehaviour
             //Load the scene.
             SceneManager.LoadSceneAsync(sceneToLoad, new LoadSceneParameters(LoadSceneMode.Single));
             #endif
+            */
         }
     }
 
@@ -133,8 +194,19 @@ public class HealthController : MonoBehaviour
         StartCoroutine(playBGMusic());
     }
 
+    private void moveCameraUp()
+    {
+        mainCamera.transform.LookAt(playerMesh.transform);
+        mainCamera.transform.Translate(.1f * Vector3.up / 2, Space.World);
+    }
+
     private void Update()
     {
+        if(currentPlayerHealth <= 0 && dead == true)
+        {
+            moveCameraUp();
+        }
+       
         UpdateHealth();
         ChangeHeartbeatAudio();
 

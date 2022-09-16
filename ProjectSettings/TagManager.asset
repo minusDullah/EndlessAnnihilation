@@ -34,6 +34,7 @@ TagManager:
   - CountdownTimer
   - ZombieHolder
   - DamageBoostSlider
+  - PlayerMesh
   layers:
   - Default
   - TransparentFX

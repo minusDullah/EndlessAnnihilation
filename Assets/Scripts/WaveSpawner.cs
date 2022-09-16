@@ -46,10 +46,12 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+
         timeRemaining -= Time.deltaTime;
         SetTimer(timeRemaining);
 
-        if (!enemiesFrozen && !enemiesFrozen)
+        if (!enemiesFrozen || !enemiesGravity)
         {
             if (spawnTimer <= 0)
             {

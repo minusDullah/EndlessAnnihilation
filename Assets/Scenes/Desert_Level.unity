@@ -8809,6 +8809,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5652121995239638947, guid: 3bfa451b67c02ab49a73bbc3182b7970,
         type: 3}
+      propertyPath: _prompt
+      value: 'to buy RPM [Cost: 5000]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652121995239638947, guid: 3bfa451b67c02ab49a73bbc3182b7970,
+        type: 3}
+      propertyPath: perkCost
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652121995239638947, guid: 3bfa451b67c02ab49a73bbc3182b7970,
+        type: 3}
       propertyPath: weaponHolder
       value: 
       objectReference: {fileID: 94362418}
@@ -20780,6 +20790,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 1212115798142645468, guid: f3ed65a87eb193d419c0bac3738a93e2,
+        type: 3}
+      propertyPath: _prompt
+      value: 'to buy Double Jump [Cost: 5000]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212115798142645468, guid: f3ed65a87eb193d419c0bac3738a93e2,
+        type: 3}
+      propertyPath: perkCost
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 3571457767185301930, guid: f3ed65a87eb193d419c0bac3738a93e2,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22730,6 +22750,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 191009004170299008, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 583276250316743900, guid: 0287e5e5913e86e4ca61567bb6770bf2,
         type: 3}
       propertyPath: gripIndex
@@ -22820,6 +22845,16 @@ PrefabInstance:
       propertyPath: automaticReloadOnEmptyDelay
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1332902182075057022, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382767844897215184, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1553967564955701420, guid: 0287e5e5913e86e4ca61567bb6770bf2,
         type: 3}
       propertyPath: muzzleTint
@@ -22839,6 +22874,11 @@ PrefabInstance:
         type: 3}
       propertyPath: automaticReloadOnEmptyDelay
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565725633141380956, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1696166833519870174, guid: 0287e5e5913e86e4ca61567bb6770bf2,
         type: 3}
@@ -23015,6 +23055,11 @@ PrefabInstance:
       propertyPath: laserIndex
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3176120183085901046, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3223704527095870787, guid: 0287e5e5913e86e4ca61567bb6770bf2,
         type: 3}
       propertyPath: gripIndex
@@ -23024,6 +23069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: laserIndex
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576340016351811743, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3616531757393094105, guid: 0287e5e5913e86e4ca61567bb6770bf2,
         type: 3}
@@ -23054,6 +23104,31 @@ PrefabInstance:
         type: 3}
       propertyPath: automaticReloadOnEmptyDelay
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573417957523689439, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573417957523689439, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573417958440299197, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4722801773525982203, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4722801773525982203, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerMesh
       objectReference: {fileID: 0}
     - target: {fileID: 5012479888239434507, guid: 0287e5e5913e86e4ca61567bb6770bf2,
         type: 3}
@@ -23364,6 +23439,11 @@ PrefabInstance:
     - target: {fileID: 7736201035822794975, guid: 0287e5e5913e86e4ca61567bb6770bf2,
         type: 3}
       propertyPath: canCrouch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813854738711383027, guid: 0287e5e5913e86e4ca61567bb6770bf2,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7831041564614459484, guid: 0287e5e5913e86e4ca61567bb6770bf2,
@@ -25283,6 +25363,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197780699467048246, guid: 2d9d2121babe94f49a729a1577c046fc,
+        type: 3}
+      propertyPath: _prompt
+      value: 'to buy Health [Cost: 5000]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197780699467048246, guid: 2d9d2121babe94f49a729a1577c046fc,
+        type: 3}
+      propertyPath: perkCost
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d9d2121babe94f49a729a1577c046fc, type: 3}
@@ -27991,9 +28081,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5697139221370859283, guid: 38c81b6286e4f034a888a6d076c597ce,
         type: 3}
+      propertyPath: _prompt
+      value: 'to buy Random Weapon [Cost: 2500]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697139221370859283, guid: 38c81b6286e4f034a888a6d076c597ce,
+        type: 3}
       propertyPath: weaponHolder
       value: 
       objectReference: {fileID: 94362418}
+    - target: {fileID: 5697139221370859283, guid: 38c81b6286e4f034a888a6d076c597ce,
+        type: 3}
+      propertyPath: mysteryWeaponCost
+      value: 2500
+      objectReference: {fileID: 0}
     - target: {fileID: 5697139221370859284, guid: 38c81b6286e4f034a888a6d076c597ce,
         type: 3}
       propertyPath: m_Name
@@ -28955,6 +29055,7 @@ Transform:
   - {fileID: 77429782}
   - {fileID: 1680595957}
   - {fileID: 646753781}
+  - {fileID: 5697139221654173534}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31148,6 +31249,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -10.741
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134037306785907102, guid: 6c86915d80b65504b98795974039a68a,
+        type: 3}
+      propertyPath: _prompt
+      value: 'to buy Reload Speed [Cost: 5000]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134037306785907102, guid: 6c86915d80b65504b98795974039a68a,
+        type: 3}
+      propertyPath: perkCost
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 1134037306785907102, guid: 6c86915d80b65504b98795974039a68a,
         type: 3}
@@ -33577,6 +33688,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258375199996233498, guid: 8d0b84f55b3f3cd4a9d8f1d2023265da,
+        type: 3}
+      propertyPath: _prompt
+      value: 'to buy Agility [Cost: 5000]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258375199996233498, guid: 8d0b84f55b3f3cd4a9d8f1d2023265da,
+        type: 3}
+      propertyPath: perkCost
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 8321648993468489554, guid: 8d0b84f55b3f3cd4a9d8f1d2023265da,
         type: 3}
@@ -38842,3 +38963,78 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &5697139221654173534 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+    type: 3}
+  m_PrefabInstance: {fileID: 8040024787620681941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8040024787620681941
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1597166096}
+    m_Modifications:
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 91.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 159.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4798332
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.06938418
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8739527
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.03395205
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 7.235
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -122.788
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297483, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -5.129
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903275878297488, guid: 3c9275880a7f0484b89eca77933ef300,
+        type: 3}
+      propertyPath: m_Name
+      value: AmmoBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c9275880a7f0484b89eca77933ef300, type: 3}
