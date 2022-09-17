@@ -39,6 +39,9 @@ public class HealthController : MonoBehaviour
     [SerializeField] private AudioClip[] playerHeartbeat;
     [SerializeField] private AudioClip[] BGMusicTracks;
 
+    [Header("Leaderboard")]
+    [SerializeField] public Leaderboard leaderboard;
+
     private GameObject playerMesh;
     private GameObject zombieHolder;
     private WaveSpawner waveSpawner;
@@ -47,7 +50,6 @@ public class HealthController : MonoBehaviour
     private Canvas canvasUI;
     private Canvas timerUI;
     private Inventory inventory;
-    private Camera mainCamera;
     private bool dead;
     public List<Target> enemies;
 
@@ -65,7 +67,6 @@ public class HealthController : MonoBehaviour
         cc = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         inventory = GetComponentInChildren<Inventory>();
-        mainCamera = GetComponentInChildren<Camera>();
 
         hurtImage.enabled = false;
 
@@ -94,15 +95,16 @@ public class HealthController : MonoBehaviour
             startCooldown = true;
             StartCoroutine(Invulnerable());
         }
-        else if(currentPlayerHealth <= 0)
+        else if (currentPlayerHealth <= 0)
         {
             //Make character smaller and closer to the ground to make it look like the character fell
+            //cc.skinWidth = 3f;
+            cc.slopeLimit = 0f;
             cc.center = cc.center / 2f;
             cc.height = .5f;
-            cc.minMoveDistance = 1;
 
             //Kill all zombies
-            Destroy(zombieHolder, 60f);
+            Destroy(zombieHolder, 5f);
             for (int i = 0; i < zombieHolder.transform.childCount; i++)
             {
                 if (zombieHolder.transform.GetChild(i).GetComponent<Target>().health > 0)
@@ -128,7 +130,16 @@ public class HealthController : MonoBehaviour
             canvasUI.enabled = false;
             timerUI.enabled = false;
 
+            StartCoroutine(SetupRoutine());
+
             dead = true;
+
+            leaderboard.gameObject.SetActive(true);
+            leaderboard.GetComponent<Animator>().Play("Leaderboard");
+
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
             /*
             string sceneToLoad = SceneManager.GetActiveScene().path;
             #if UNITY_EDITOR
@@ -140,6 +151,12 @@ public class HealthController : MonoBehaviour
             #endif
             */
         }
+    }
+
+    IEnumerator SetupRoutine()
+    {
+        yield return leaderboard.SubmitScoreRoutine(waveSpawner.totalKills);
+        yield return leaderboard.FetchTopHighScoresRoutine();
     }
 
     private void PlayerHitAudio()
@@ -194,19 +211,8 @@ public class HealthController : MonoBehaviour
         StartCoroutine(playBGMusic());
     }
 
-    private void moveCameraUp()
-    {
-        mainCamera.transform.LookAt(playerMesh.transform);
-        mainCamera.transform.Translate(.1f * Vector3.up / 2, Space.World);
-    }
-
     private void Update()
     {
-        if(currentPlayerHealth <= 0 && dead == true)
-        {
-            moveCameraUp();
-        }
-       
         UpdateHealth();
         ChangeHeartbeatAudio();
 

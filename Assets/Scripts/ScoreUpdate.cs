@@ -6,6 +6,7 @@ using TMPro;
 public class ScoreUpdate : MonoBehaviour
 {
     [SerializeField] public float scoreTotal = 0;
+    [SerializeField] public float scoreTotalGame = 0;
     [SerializeField] public float scoreBuffer = 0;
     [SerializeField] private float previousScoreGain = 0;
     [SerializeField] private TextMeshProUGUI scoreGainUI;
@@ -26,6 +27,7 @@ public class ScoreUpdate : MonoBehaviour
             scoreBuffer *= pointsMultiplier;
         }
         scoreTotal += scoreBuffer;
+        scoreTotalGame += scoreBuffer;
         scoreText.text = ("" + scoreTotal);
         scoreGainUI.text = ("+" + scoreBuffer);
         PlayAnimation();

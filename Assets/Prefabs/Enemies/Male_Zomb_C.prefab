@@ -2039,7 +2039,7 @@ MonoBehaviour:
   _player: {fileID: 0}
   enemyDamage: 20
   minSpeed: 1
-  maxSpeed: 8
+  maxSpeed: 10
   randomSpeed: 0
   attackCooldown: 0.77
   animationBuffer: 0.3

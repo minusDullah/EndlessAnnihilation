@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] public int totalKills;
     [SerializeField] public int buffKillCounter = 50;
     [SerializeField] public float timeRemaining = 60;
+    [SerializeField] public float timeTotal;
     [SerializeField] public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
     [Header("Wave Stats")]
@@ -46,9 +47,8 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-
         timeRemaining -= Time.deltaTime;
+        timeTotal += Time.deltaTime;
         SetTimer(timeRemaining);
 
         if (!enemiesFrozen || !enemiesGravity)

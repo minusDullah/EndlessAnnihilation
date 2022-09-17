@@ -72,7 +72,7 @@ public class ZombieFreezePowerUp : MonoBehaviour
         yield return new WaitForSeconds(PerkCooldown);
 
         foreach (EnemyMovement enemyMovement in enemyMovement)
-            if(enemyMovement.navAgent != null)
+            if(enemyMovement.navAgent != null && enemyMovement.GetComponent<Target>().health > 0)
             {
                 enemyMovement.navAgent.isStopped = false;
                 enemyMovement.navAgent.speed = enemyMovement.randomSpeed;
