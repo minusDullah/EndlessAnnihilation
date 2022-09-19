@@ -632,7 +632,7 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 4972308482775631872, guid: e66fd7302f888ab4e9b6d518221b238d,
       type: 3}
     cost: 1
-  currWave: 1
+  currWave: 4
   waveValue: 0
   waveMultiplier: 5
   totalKills: 0
@@ -671,5 +671,5 @@ MonoBehaviour:
   - {fileID: 7570456258771205639, guid: 6aa62a0a019a31b4583da280a0a3f546, type: 3}
   - {fileID: 2952545155131912937, guid: f15de78fa71d7254cb2401c75537d41a, type: 3}
   - {fileID: 2952545155131912937, guid: 813b17f2d6091d74fbb7c49847f3a6b7, type: 3}
-  enemiesFrozen: 1
-  enemiesGravity: 1
+  enemiesFrozen: 0
+  enemiesGravity: 0

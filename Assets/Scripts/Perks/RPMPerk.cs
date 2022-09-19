@@ -19,9 +19,18 @@ public class RPMPerk : MonoBehaviour, IInteractable
     [SerializeField] private ScoreUpdate scoreUI;
     [SerializeField] private Inventory inventory;
     [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private GameObject player;
     [SerializeField] private Weapon currWeapon;
 
     public string InteractionPrompt => _prompt;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        weaponHolder = GameObject.FindGameObjectWithTag("Weapon");
+        scoreUI = player.GetComponentInChildren<ScoreUpdate>();
+        inventory = GetComponentInChildren<Inventory>();
+    }
 
     public void Interact(EAInteractor interactor)
     {

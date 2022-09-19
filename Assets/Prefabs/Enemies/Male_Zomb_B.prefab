@@ -2085,13 +2085,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4929c35893ef94bb0890e363d9db7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navAgent: {fileID: 0}
-  playerHealth: {fileID: 0}
-  animator: {fileID: 0}
-  rb: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  waveSpawner: {fileID: 0}
-  _player: {fileID: 0}
+  navAgent: {fileID: -6084617499999858577}
+  animator: {fileID: 8562734340737492858}
+  rb: {fileID: 4395452416215548337}
+  capsuleCollider: {fileID: 5467347655756083381}
+  target: {fileID: -4729748997500413606}
   enemyDamage: 20
   minSpeed: 1
   maxSpeed: 10
@@ -2099,7 +2097,6 @@ MonoBehaviour:
   attackCooldown: 0.77
   animationBuffer: 0.3
   triggerEntered: 0
-  target: {fileID: 0}
 --- !u!114 &-4729748997500413606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,6 +2124,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 30b5cdb33806ac34f87c14eb6972b39e, type: 3}
   - {fileID: 8300000, guid: 08cee32750f493e469764f89259e623f, type: 3}
   - {fileID: 8300000, guid: b6bb58e831b5bad44a01645dca5808f7, type: 3}
+  animator: {fileID: 8562734340737492858}
+  navMeshAgent: {fileID: -6084617499999858577}
 --- !u!195 &-6084617499999858577
 NavMeshAgent:
   m_ObjectHideFlags: 0

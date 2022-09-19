@@ -9,6 +9,7 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
     [SerializeField] private Inventory inventory;
     [SerializeField] private Character character;
     [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private GameObject player;
     [SerializeField] private ScoreUpdate scoreUI;
     [SerializeField] private int randomNumber;
     [SerializeField] private int mysteryWeaponCost = 5000;
@@ -18,7 +19,10 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
 
     public void Start()
     {
-        character = inventory.GetComponentInParent<Character>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        scoreUI = player.GetComponent<ScoreUpdate>();
+        inventory = player.GetComponentInChildren<Inventory>();
+        character = player.GetComponent<Character>();
     }
 
     public string InteractionPrompt => _prompt;

@@ -20,9 +20,19 @@ public class ReloadSpeedPerk : MonoBehaviour, IInteractable
     [SerializeField] private Inventory inventory;
     [SerializeField] private Character character;
     [SerializeField] private GameObject weaponHolder;
+    [SerializeField] private GameObject player;
     [SerializeField] private Weapon currWeapon;
 
     public string InteractionPrompt => _prompt;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        weaponHolder = GameObject.FindGameObjectWithTag("Weapon");
+        scoreUI = player.GetComponentInChildren<ScoreUpdate>();
+        inventory = GetComponentInChildren<Inventory>();
+        character = GetComponent<Character>();
+    }
 
     public void Interact(EAInteractor interactor)
     {

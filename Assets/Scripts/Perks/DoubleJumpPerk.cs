@@ -16,8 +16,16 @@ public class DoubleJumpPerk : MonoBehaviour, IInteractable
     [SerializeField] private bool alreadyBought = false;
     [SerializeField] private ScoreUpdate scoreUI;
     [SerializeField] private Movement movement;
+    [SerializeField] private GameObject player;
 
     public string InteractionPrompt => _prompt;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        scoreUI = player.GetComponentInChildren<ScoreUpdate>();
+        movement = player.GetComponent<Movement>();
+    }
 
     public void Interact(EAInteractor interactor)
     {

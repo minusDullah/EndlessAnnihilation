@@ -23,19 +23,22 @@ public class Target : MonoBehaviour, IDamageable
     [SerializeField] private AudioSource enemyAudioSource;
     [SerializeField] private AudioClip[] enemyDie;
 
-    private AbilitiesUI DamageBoostSlider;
-    private Animator animator;
-    private NavMeshAgent navMeshAgent;
+    [SerializeField] private Animator animator;
+    [SerializeField] private NavMeshAgent navMeshAgent;
+
+    private GameObject player;
     private bool pointsGained;
     private bool soundPlayed;
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
+
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyAudioSource = GetComponent<AudioSource>();
-        scoreUpdate = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
-        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
-        DamageBoostSlider = GameObject.FindGameObjectWithTag("DamageBoostSlider").GetComponent<AbilitiesUI>();
+        scoreUpdate = player.GetComponentInChildren<ScoreUpdate>();
+        
         pointsGained = false;
         soundPlayed = false;
         pointsGained = false;

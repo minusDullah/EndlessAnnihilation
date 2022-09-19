@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public NavMeshAgent navAgent;
-    public HealthController playerHealth;
-    public Animator animator;
-    public Rigidbody rb;
-    public CapsuleCollider capsuleCollider;
-    public WaveSpawner waveSpawner;
-    public GameObject _player;
+    private HealthController playerHealth;
+    private WaveSpawner waveSpawner;
+    private GameObject player;
+
+    [SerializeField] public NavMeshAgent navAgent;
+    [SerializeField] public Animator animator;
+    [SerializeField] public Rigidbody rb;
+    [SerializeField] public CapsuleCollider capsuleCollider;
+    [SerializeField] public Target target; 
 
     [Header("Enemy Stats")]
     [SerializeField] public float enemyDamage = 25f;
@@ -21,19 +23,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] public float attackCooldown = .8f;
     [SerializeField] public float animationBuffer = .3f;
     [SerializeField] public bool triggerEntered = false;
-    [SerializeField] public Target target;
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = _player.GetComponent<HealthController>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent<HealthController>();
         waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
-
-        target = GetComponent<Target>();
-        navAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
-        rb = GetComponent<Rigidbody>();
 
         rb.isKinematic = true;
         randomSpeed = Random.Range(waveSpawner.currWave/1.5F, waveSpawner.currWave);
@@ -85,7 +80,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void enemyDestination()
     {
-        navAgent.SetDestination(_player.transform.position);
+        navAgent.SetDestination(player.transform.position);
     }
 
     private void DealDamage()

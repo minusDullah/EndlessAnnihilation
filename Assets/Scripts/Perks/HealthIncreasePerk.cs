@@ -17,8 +17,16 @@ public class HealthIncreasePerk : MonoBehaviour, IInteractable
     [SerializeField] private ScoreUpdate scoreUI;
     [SerializeField] private Character character;
     [SerializeField] private HealthController health;
+    [SerializeField] private GameObject player;
 
     public string InteractionPrompt => _prompt;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        scoreUI = player.GetComponentInChildren<ScoreUpdate>();
+        health = player.GetComponent<HealthController>();
+    }
 
     public void Interact(EAInteractor interactor)
     {
