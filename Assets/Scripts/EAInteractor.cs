@@ -13,7 +13,6 @@ public class EAInteractor : MonoBehaviour
 
     [SerializeField] private Character character;
     [SerializeField] private GameObject lastInteractableObject;
-    [SerializeField] private GameObject upgradeMenu;
     [SerializeField] private GameObject interactUI;
     [SerializeField] public TextMeshProUGUI interactionText;
     [SerializeField] private Animator animator;
@@ -22,16 +21,7 @@ public class EAInteractor : MonoBehaviour
 
     private readonly Collider[] _colliders = new Collider[3];
     
-
     [SerializeField] private int _numFound;
-
-    public void Start()
-    {
-        character = gameObject.GetComponent<Character>();
-        interactUI = GameObject.FindGameObjectWithTag("InteractUI");
-        interactionText = interactUI.GetComponentInChildren<TextInteraction>().textToModify;
-        animator = interactUI.GetComponentInChildren<Animator>();
-    }
 
     public void FixedUpdate()
     {
@@ -45,7 +35,7 @@ public class EAInteractor : MonoBehaviour
 
             animator.SetBool(stateName, true);
 
-            if (interactionText.text == "")
+            if (interactionText.text == "" || interactionText.ToString() != interactable.InteractionPrompt)
             {
                 interactionText.text = interactable.InteractionPrompt;
             }

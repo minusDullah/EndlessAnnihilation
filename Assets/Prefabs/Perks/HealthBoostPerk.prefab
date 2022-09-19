@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &941220254631268139
 Transform:
@@ -42,7 +42,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451541358688294289}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.32, y: 1, z: 1.14}
@@ -59,8 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782aadcb1eb1e67438bf9848b5f1894f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: 'to buy Health [Cost: 2500]'
-  perkCost: 2500
+  _prompt: 'to buy Health [Cost: 5000]'
+  perkCost: 5000
   maxHealthMultiplier: 2
   alreadyBought: 0
   scoreUI: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7185477868602548028
 Transform:
@@ -91,8 +91,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5362316772061945799}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.24596855, y: 2, z: 0.24826908}
-  m_LocalScale: {x: 1.3424, y: 1.3423998, z: 1.3423998}
+  m_LocalPosition: {x: 0.1, y: 30, z: -0.5}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 941220254631268139}
   m_RootOrder: 1
@@ -165,7 +165,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2515917793691756380
 Transform:

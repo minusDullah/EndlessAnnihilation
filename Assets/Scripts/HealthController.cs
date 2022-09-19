@@ -42,32 +42,22 @@ public class HealthController : MonoBehaviour
     [Header("Leaderboard")]
     [SerializeField] public Leaderboard leaderboard;
 
-    private GameObject playerMesh;
-    private GameObject zombieHolder;
-    private WaveSpawner waveSpawner;
-    private PlayerInput playerInput;
-    private CharacterController cc;
-    private Canvas canvasUI;
-    private Canvas timerUI;
-    private Inventory inventory;
+    [SerializeField] private GameObject playerMesh;
+    [SerializeField] private GameObject zombieHolder;
+    [SerializeField] private WaveSpawner waveSpawner;
+    
+    [SerializeField] private Canvas canvasUI;
+    [SerializeField] private Canvas timerUI;
+
+    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private CharacterController cc;
+    [SerializeField] private Inventory inventory;
+
     private bool dead;
     public List<Target> enemies;
 
     private void Start()
     {
-        hurtImage = GameObject.Find("RadialBloodHurt").GetComponent<Image>();
-        redSplatterImage = GameObject.Find("RedSplatter").GetComponent<Image>();
-
-        playerMesh = GameObject.FindGameObjectWithTag("PlayerMesh");
-        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
-        zombieHolder = GameObject.FindGameObjectWithTag("ZombieHolder");
-        canvasUI = GameObject.FindGameObjectWithTag("DamageBoostSlider").GetComponentInParent<Canvas>();
-        timerUI = GameObject.FindGameObjectWithTag("CountdownTimer").GetComponentInParent<Canvas>();
-
-        cc = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>();
-        inventory = GetComponentInChildren<Inventory>();
-
         hurtImage.enabled = false;
 
         UpdateHealth();

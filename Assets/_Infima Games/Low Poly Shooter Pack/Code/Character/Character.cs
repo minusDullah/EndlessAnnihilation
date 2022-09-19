@@ -151,21 +151,24 @@ namespace InfimaGames.LowPolyShooterPack
 		[SerializeField] public bool buffBoostCD;
 
 		[Title(label: "Attachemnt UI")]
+		[SerializeField] private WaveSpawner waveSpawner;
 		[SerializeField] public GameObject attachmentMenu;
 		[SerializeField] public GameObject settingsMenu;
-		[SerializeField] public Movement movement; 
-		[SerializeField] public HealthController health;
-		[SerializeField] public WeaponAttachmentManager weaponAttachment;
-		[SerializeField] public MenuQualitySettings settingsMenuExten;
+		[SerializeField] public MenuQualitySettings settingsMenuScript;
 		[SerializeField] public TMP_Dropdown scopeMenu;
 		[SerializeField] public TMP_Dropdown muzzleMenu;
 		[SerializeField] public TMP_Dropdown gripMenu;
 		[SerializeField] public TMP_Dropdown laserMenu;
-		[SerializeField] private Weapon currWeapon;
 		#endregion
 
 		#region FIELDS
+		private Movement movement;
 
+		private HealthController health;
+
+		public WeaponAttachmentManager weaponAttachment;
+
+		private Weapon currWeapon;
 		/// <summary>
 		/// True if the character is aiming.
 		/// </summary>
@@ -337,8 +340,6 @@ namespace InfimaGames.LowPolyShooterPack
 			//Refresh!
 			RefreshWeaponSetup();
 
-			settingsMenu = GameObject.FindGameObjectWithTag("SettingsMenu");
-			settingsMenuExten = settingsMenu.GetComponent<MenuQualitySettings>();
 			movement = gameObject.GetComponent<Movement>();
 			health = gameObject.GetComponent<HealthController>();
 		}
@@ -436,15 +437,15 @@ namespace InfimaGames.LowPolyShooterPack
 			if (escapeKeyPressed)
 			{
 				escapeKeyPressed = false;
-				if (settingsMenuExten.menuIsEnabled)
+				if (settingsMenuScript.menuIsEnabled)
 				{
-					settingsMenuExten.Hide();
+					settingsMenuScript.Hide();
 					settingsMenu.SetActive(false);
 				}
 				else
 				{
 					settingsMenu.SetActive(true);
-					settingsMenuExten.Show();
+					settingsMenuScript.Show();
 				}
 			}
 		}
@@ -1353,7 +1354,6 @@ namespace InfimaGames.LowPolyShooterPack
 
 		public void OnTryDamageBoost(InputAction.CallbackContext context)
 		{
-			WaveSpawner waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
 			if (!buffBoostCD && waveSpawner.buffKillCounter <= 0)
 			{
 				//Block while the cursor is unlocked.

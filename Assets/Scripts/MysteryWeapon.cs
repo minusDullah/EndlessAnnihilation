@@ -10,15 +10,14 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
     [SerializeField] private Character character;
     [SerializeField] private GameObject weaponHolder;
     [SerializeField] private ScoreUpdate scoreUI;
-    [SerializeField] private Weapon weapon;
     [SerializeField] private int randomNumber;
     [SerializeField] private int mysteryWeaponCost = 5000;
     [SerializeField] private bool cooldownOff = true;
 
+    private Weapon weapon;
+
     public void Start()
     {
-        scoreUI = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Inventory>();
         character = inventory.GetComponentInParent<Character>();
     }
 

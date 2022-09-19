@@ -14,8 +14,6 @@ public class AbilitiesUI : MonoBehaviour
 
     void Start()
     {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
         grenadeSlider.maxValue = character.grenadeCDTimer;
     }
 

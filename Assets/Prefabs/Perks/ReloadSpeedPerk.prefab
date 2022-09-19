@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1009379356239147418
 Transform:
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02343d2b390a0f1499d00454da388b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: 'to buy Reload Speed [Cost: 2500]'
-  perkCost: 2500
+  _prompt: 'to buy Reload Speed [Cost: 5000]'
+  perkCost: 5000
   reloadSpeedMultiplier: 1.5
   alreadyBought: 0
   scoreUI: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3904926891353938557
 Transform:
@@ -92,13 +92,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8001813553887260768}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.016, y: 2, z: 0.24826908}
-  m_LocalScale: {x: 1.3424, y: 1.3423998, z: 1.3423998}
+  m_LocalRotation: {x: 0.7065447, y: 0.028186433, z: 0.028186452, w: 0.7065449}
+  m_LocalPosition: {x: -5.43, y: 29.56, z: 6.63}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 1009379356239147418}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 85.431, y: 90, z: 90}
 --- !u!212 &522373793073078405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2443130366607284717
 Transform:

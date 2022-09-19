@@ -38,8 +38,6 @@ public class WaveSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        zombieHolder = GameObject.FindGameObjectWithTag("ZombieHolder");
-        timerText = GameObject.FindGameObjectWithTag("CountdownTimer").GetComponent<TextMeshProUGUI>();
         GenerateWave();
         SetTimer(timeRemaining);
     }
