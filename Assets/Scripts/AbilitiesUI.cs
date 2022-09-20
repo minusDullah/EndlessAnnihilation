@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using InfimaGames.LowPolyShooterPack;
 using UnityEngine.InputSystem;
+using FishNet.Object;
 
-public class AbilitiesUI : MonoBehaviour
+public class AbilitiesUI : NetworkBehaviour
 {
     [SerializeField] private Slider grenadeSlider;
     [SerializeField] private Slider buffBoostSlider;
@@ -14,11 +15,15 @@ public class AbilitiesUI : MonoBehaviour
 
     void Start()
     {
+        waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
         grenadeSlider.maxValue = character.grenadeCDTimer;
     }
 
     void Update()
     {
+        if (!IsOwner)
+            return;
+
         if (character.grenadeCD)
         {
             if (grenadeSlider.value <= 0)

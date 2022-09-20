@@ -1,5 +1,6 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using FishNet.Object;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -7,7 +8,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// <summary>
     /// Camera Look. Handles the rotation of the camera.
     /// </summary>
-    public class CameraLook : MonoBehaviour
+    public class CameraLook : NetworkBehaviour
     {
         #region FIELDS SERIALIZED
         
@@ -75,6 +76,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private void LateUpdate()
         {
+            if (!IsOwner)
+                return;
             //Frame Input. The Input to add this frame!
             Vector2 frameInput = playerCharacter.IsCursorLocked() ? playerCharacter.GetInputLook() : default;
             //Sensitivity.

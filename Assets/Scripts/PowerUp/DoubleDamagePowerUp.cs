@@ -16,14 +16,13 @@ public class DoubleDamagePowerUp : MonoBehaviour
     [SerializeField] private float randomRotationZ;
 
     [Header("References")]
-    [SerializeField] private Inventory inventory;
     [SerializeField] private MeshRenderer mesh;
     [SerializeField] private SphereCollider sphereCollider;
 
+    private Inventory inventory;
+
     private void Start()
     {
-        mesh = GetComponent<MeshRenderer>();
-        sphereCollider = GetComponent<SphereCollider>();
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Inventory>();
         randomRotationX = Random.Range(-rotateSpeed, rotateSpeed);
         randomRotationY = Random.Range(-rotateSpeed, rotateSpeed);

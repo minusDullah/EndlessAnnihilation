@@ -2,12 +2,11 @@ using InfimaGames.LowPolyShooterPack;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using FishNet.Object;
 
-public class HealthController : MonoBehaviour
+public class HealthController : NetworkBehaviour
 {
     [Header("Player Health Amount")]
     public float currentPlayerHealth = 100f;
@@ -203,6 +202,9 @@ public class HealthController : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner)
+            return;
+
         UpdateHealth();
         ChangeHeartbeatAudio();
 

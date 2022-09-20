@@ -1,5 +1,6 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using FishNet.Object;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -7,7 +8,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// <summary>
     /// WallAvoidance. This component handles lowering the character's equipped item when near a wall.
     /// </summary>
-    public class WallAvoidance : MonoBehaviour
+    public class WallAvoidance : NetworkBehaviour
     {
         #region PROPERTIES
         
@@ -60,6 +61,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private void Update()
         {
+            if (!IsOwner)
+                return;
             //Check References.
             if (playerCamera == null)
             {

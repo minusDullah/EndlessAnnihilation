@@ -54,8 +54,10 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         protected override void Update()
         {
-	        //Interaction Trace.
-	        if (Physics.SphereCast(interactor.position, radius,
+            if (!IsOwner)
+                return;
+            //Interaction Trace.
+            if (Physics.SphereCast(interactor.position, radius,
 		            interactor.forward, out hitResult, maxDistance, mask))
 	        {
 		        //If we hit a collider.

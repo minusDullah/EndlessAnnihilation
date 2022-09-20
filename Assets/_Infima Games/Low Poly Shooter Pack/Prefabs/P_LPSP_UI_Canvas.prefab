@@ -1194,6 +1194,7 @@ GameObject:
   - component: {fileID: 5393623835024644608}
   - component: {fileID: 7786297501017679984}
   - component: {fileID: 3853359025209894021}
+  - component: {fileID: -4620337852454959964}
   m_Layer: 5
   m_Name: P_LPSP_UI_Canvas
   m_TagString: Untagged
@@ -1293,6 +1294,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 7786297501017679984}
+--- !u!114 &-4620337852454959964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393623835024644669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NetworkObserver: {fileID: 0}
+  <PrefabId>k__BackingField: -1
+  _scenePathHash: 0
+  <SceneId>k__BackingField: 0
+  <AssetPathHash>k__BackingField: 149653688098417398
+  _sceneNetworkObjects: []
+  <IsNested>k__BackingField: 0
+  <ComponentIndex>k__BackingField: 0
+  _networkBehaviours: []
+  <ParentNetworkObject>k__BackingField: {fileID: 0}
+  <ChildNetworkObjects>k__BackingField: []
+  _isNetworked: 1
+  _isGlobal: 0
+  _disableOnDespawn: 0
 --- !u!1 &5393623835113149036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,9 +2546,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8caaf60b8485dd4c9e40a1b379f0d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: -4620337852454959964}
+  _networkObjectCache: {fileID: 0}
   grenadeSlider: {fileID: 3247785514477940642}
   buffBoostSlider: {fileID: 2106643150379251238}
   character: {fileID: 0}
+  waveSpawner: {fileID: 0}
 --- !u!1 &6520662847420304414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTotal: 0
+  scoreTotalGame: 0
   scoreBuffer: 0
   previousScoreGain: 0
   scoreGainUI: {fileID: 3477037845535183041}

@@ -33,11 +33,12 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] public bool enemiesFrozen;
     [SerializeField] public bool enemiesGravity;
 
-    
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         GenerateWave();
         SetTimer(timeRemaining);
     }
@@ -65,8 +66,8 @@ public class WaveSpawner : MonoBehaviour
                 else
                 {
                     waveTimer = 0; // if no enemies remain, end wave
-                    currWave++;
-                    GenerateWave();
+                    //currWave++;
+                    //GenerateWave();
                 }
             }
             else
@@ -95,7 +96,7 @@ public class WaveSpawner : MonoBehaviour
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
-        timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+        //timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 
     public void GenerateWave()

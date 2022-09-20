@@ -23,6 +23,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		[Tooltip("Maximum time after impact that the bullet is destroyed")]
 		public float maxDestroyTime;
 
+		private ScoreUpdate scoreUpdate;
 		public float damage;
 		private float headshotMultiplier;
 		private float headshotBonusMultiplier;
@@ -36,6 +37,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 		private void Start()
 		{
+			
 			//Get damage from parent weapon then set parent to nothing so projectiles dont follow when moving weapon
 			damage = GetComponentInParent<Weapon>().damagePerBullet;
 			headshotMultiplier = GetComponentInParent<Weapon>().headshotMultiplier;
@@ -46,6 +48,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			//Ignore the main player character's collision. A little hacky, but it should work.
 			Physics.IgnoreCollision(gameModeService.GetPlayerCharacter().GetComponent<Collider>(),
 				GetComponent<Collider>());
+
+			scoreUpdate = gameModeService.GetPlayerCharacter().GetComponentInChildren<ScoreUpdate>();
 
 			//Start destroy timer
 			StartCoroutine(DestroyAfter());
@@ -166,7 +170,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				//Get damageable component on object
 				IDamageable damageable = collision.transform.GetComponentInParent<IDamageable>();
 				//Damage object
-				damageable?.TakeDamage(damage);
+				damageable?.TakeDamage(damage, scoreUpdate);
 				//Destroy bullet object
 				Destroy(gameObject);
 			}
@@ -184,7 +188,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				//Get damageable component on object
 				IDamageable damageable = collision.transform.GetComponentInParent<IDamageable>();
 				//Damage object
-				damageable?.TakeDamage(damage * headshotMultiplier);
+				damageable?.TakeDamage(damage * headshotMultiplier, scoreUpdate);
 				//Destroy bullet object
 				Destroy(gameObject);
 			}

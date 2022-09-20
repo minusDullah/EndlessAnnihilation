@@ -117,5 +117,5 @@ MonoBehaviour:
   randomRotationZ: 0
   zombieHolder: {fileID: 0}
   waveSpawner: {fileID: 0}
-  mesh: {fileID: 0}
-  sphereCollider: {fileID: 0}
+  mesh: {fileID: 5750780011691544009}
+  sphereCollider: {fileID: 5191470989000433360}

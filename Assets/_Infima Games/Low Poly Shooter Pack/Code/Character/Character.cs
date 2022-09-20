@@ -376,6 +376,8 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		protected override void Update()
 		{
+			if (!IsOwner)
+				return;
 			//Match Aim.
 			aiming = holdingButtonAim && CanAim();
 			//Match Run.

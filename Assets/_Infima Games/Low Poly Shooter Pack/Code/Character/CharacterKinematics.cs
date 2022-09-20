@@ -1,6 +1,7 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
 using UnityEngine;
+using FishNet.Object;
 using System.Collections.Generic;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -9,7 +10,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// Handles all the Inverse Kinematics needed for our Character.
     /// Very important. Uses Unity's IK code.
     /// </summary>
-    public class CharacterKinematics : MonoBehaviour
+    public class CharacterKinematics : NetworkBehaviour
     {
         #region FIELDS SERIALIZED
 
@@ -105,6 +106,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private void Update()
         {
+            if (!IsOwner)
+                return;
             //Get Left Constraint Alpha.
             alphaLeft = characterAnimator.GetFloat(AHashes.AlphaIKHandLeft);
             //Get Right Constraint Alpha.

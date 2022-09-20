@@ -5,40 +5,38 @@ using UnityEngine;
 
 public class MysteryWeapon : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _prompt;
-    [SerializeField] private Inventory inventory;
-    [SerializeField] private Character character;
-    [SerializeField] private GameObject weaponHolder;
-    [SerializeField] private GameObject player;
-    [SerializeField] private ScoreUpdate scoreUI;
+    [Header("Scriptable Object")]
+    [SerializeField] private InteractableBoxScriptable interactableBoxScriptable;
+
+    [Header("Weapon Box")]
     [SerializeField] private int randomNumber;
-    [SerializeField] private int mysteryWeaponCost = 5000;
     [SerializeField] private bool cooldownOff = true;
 
-    private Weapon weapon;
+    private GameObject weaponHolder;
 
-    public void Start()
+    private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        scoreUI = player.GetComponent<ScoreUpdate>();
-        inventory = player.GetComponentInChildren<Inventory>();
-        character = player.GetComponent<Character>();
+        weaponHolder = GameObject.FindGameObjectWithTag("Weapon");
     }
 
-    public string InteractionPrompt => _prompt;
+    public string InteractionPrompt => interactableBoxScriptable.prompt + " " + "[Cost: " + interactableBoxScriptable.cost + "]";
 
-    public void Interact(EAInteractor interactor)
+    public void Interact(ScoreUpdate scoreUI, GameObject player)
     {
+        Inventory inventory = player.GetComponentInChildren<Inventory>();
+        Character character = player.GetComponent<Character>();
+        Weapon weapon;
+
         if (character.IsInspecting() || character.IsInvoking())
                 return;
 
         if (!cooldownOff)
                 return;
         
-        if (scoreUI.scoreTotal < mysteryWeaponCost)
+        if (scoreUI.scoreTotal < interactableBoxScriptable.cost)
                 return;
 
-        scoreUI.UpdateScoreLose(mysteryWeaponCost);
+        scoreUI.UpdateScoreLose(interactableBoxScriptable.cost);
 
         cooldownOff = false;
 
@@ -73,7 +71,7 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
 
         StartCoroutine(character.Equip(inventory.GetEquippedIndex()));
 
-        StartCoroutine(DisableWeapon(equippedWeapon));
+        StartCoroutine(DisableWeapon(equippedWeapon, character));
 
         StartCoroutine(CoolDown());
     }
@@ -84,7 +82,7 @@ public class MysteryWeapon : MonoBehaviour, IInteractable
         cooldownOff = true;
     }   
 
-    IEnumerator DisableWeapon(GameObject equippedWeapon)
+    IEnumerator DisableWeapon(GameObject equippedWeapon, Character character)
     {
         yield return new WaitForSeconds(.3f);
         Weapon currWeapon = equippedWeapon.GetComponent<Weapon>();

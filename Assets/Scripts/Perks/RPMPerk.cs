@@ -5,44 +5,34 @@ using UnityEngine;
 
 public class RPMPerk : MonoBehaviour, IInteractable
 {
-    [Header("Prompt")]
-    [SerializeField] private string _prompt;
-
-    [Header("Cost")]
-    [SerializeField] private int perkCost = 2500;
+    [Header("Scriptable Object")]
+    [SerializeField] private PerkMachineScriptable perkMachineScriptable;
 
     [Header("Weapon")]
     [SerializeField] private float rateOfFireMultiplier = 2;
 
-    [Header("References")]
-    [SerializeField] private bool alreadyBought = false;
-    [SerializeField] private ScoreUpdate scoreUI;
-    [SerializeField] private Inventory inventory;
-    [SerializeField] private GameObject weaponHolder;
-    [SerializeField] private GameObject player;
-    [SerializeField] private Weapon currWeapon;
+    private GameObject weaponHolder;
 
-    public string InteractionPrompt => _prompt;
+    public string InteractionPrompt => perkMachineScriptable.prompt + " " + perkMachineScriptable.perkName + " " + "[Cost: " + perkMachineScriptable.perkCost + "]";
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         weaponHolder = GameObject.FindGameObjectWithTag("Weapon");
-        scoreUI = player.GetComponentInChildren<ScoreUpdate>();
-        inventory = GetComponentInChildren<Inventory>();
     }
 
-    public void Interact(EAInteractor interactor)
+    public void Interact(ScoreUpdate scoreUI, GameObject player)
     {
-        if (alreadyBought)
+        PerkHandler perkHandler = player.GetComponent<PerkHandler>();
+        Inventory inventory = player.GetComponentInChildren<Inventory>();
+        Weapon currWeapon;
+
+        if (perkHandler.AlreadyBought(perkMachineScriptable.perkName))
             return;
 
-        if (scoreUI.scoreTotal < perkCost)
+        if (scoreUI.scoreTotal < perkMachineScriptable.perkCost)
             return;
 
-        scoreUI.UpdateScoreLose(perkCost);
-
-        alreadyBought = true;
+        perkHandler.BuyPerk(perkMachineScriptable.perkName);
 
         for (int i = 0; i < inventory.transform.childCount; i++)
         {
@@ -53,7 +43,7 @@ public class RPMPerk : MonoBehaviour, IInteractable
         for (int i = 0; i < weaponHolder.transform.childCount; i++)
         {
             currWeapon = weaponHolder.transform.GetChild(i).GetComponent<Weapon>();
-            currWeapon.RPMPerkActive(rateOfFireMultiplier);
+            currWeapon.ReloadSpeedPerkActive(rateOfFireMultiplier);
         }
     }
 }

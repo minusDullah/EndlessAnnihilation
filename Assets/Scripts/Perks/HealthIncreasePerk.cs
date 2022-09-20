@@ -3,42 +3,26 @@ using InfimaGames.LowPolyShooterPack;
 
 public class HealthIncreasePerk : MonoBehaviour, IInteractable
 {
-    [Header("Prompt")]
-    [SerializeField] private string _prompt;
-
-    [Header("Cost")]
-    [SerializeField] private int perkCost = 2500;
+    [Header("Scriptable Object")]
+    [SerializeField] private PerkMachineScriptable perkMachineScriptable;
 
     [Header("Health")]
     [SerializeField] private float maxHealthMultiplier = 2;
 
-    [Header("References")]
-    [SerializeField] private bool alreadyBought = false;
-    [SerializeField] private ScoreUpdate scoreUI;
-    [SerializeField] private Character character;
-    [SerializeField] private HealthController health;
-    [SerializeField] private GameObject player;
+    public string InteractionPrompt => perkMachineScriptable.prompt + " " + perkMachineScriptable.perkName + " " + "[Cost: " + perkMachineScriptable.perkCost + "]";
 
-    public string InteractionPrompt => _prompt;
-
-    private void Start()
+    public void Interact(ScoreUpdate scoreUI, GameObject player)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        scoreUI = player.GetComponentInChildren<ScoreUpdate>();
-        health = player.GetComponent<HealthController>();
-    }
+        PerkHandler perkHandler = player.GetComponent<PerkHandler>();
+        HealthController health = player.GetComponent<HealthController>();
 
-    public void Interact(EAInteractor interactor)
-    {
-        if (alreadyBought)
+        if (perkHandler.AlreadyBought(perkMachineScriptable.perkName))
             return;
 
-        if (scoreUI.scoreTotal < perkCost)
+        if (scoreUI.scoreTotal < perkMachineScriptable.perkCost)
             return;
 
-        scoreUI.UpdateScoreLose(perkCost);
-
-        alreadyBought = true;
+        perkHandler.BuyPerk(perkMachineScriptable.perkName);
 
         health.maxPlayerHealth *= maxHealthMultiplier;
         health.currentPlayerHealth = health.maxPlayerHealth;

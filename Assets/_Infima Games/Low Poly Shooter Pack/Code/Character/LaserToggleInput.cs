@@ -1,5 +1,6 @@
 //Copyright 2022, Infima Games. All Rights Reserved.
 
+using FishNet.Object;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// LaserToggleInput. This class is called from the PlayerInput component, and tries to toggle the equipped weapon's flashlight/laser
     /// on/off.
     /// </summary>
-    public class LaserToggleInput : MonoBehaviour
+    public class LaserToggleInput : NetworkBehaviour
     {
         #region FIELDS SERIALIZED
         
@@ -50,6 +51,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private void Update()
         {
+            if (!IsOwner)
+                return;
             //Check References.
             if (animator == null || inventoryBehaviour == null)
             {

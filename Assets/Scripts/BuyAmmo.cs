@@ -5,37 +5,30 @@ using UnityEngine;
 
 public class BuyAmmo : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _prompt;
-    [SerializeField] private Inventory inventory;
-    [SerializeField] private Character character;
-    [SerializeField] private GameObject player;
-    [SerializeField] private ScoreUpdate scoreUI;
-    [SerializeField] private int ammoCost = 1000;
+    [Header("Scriptable Object")]
+    [SerializeField] private InteractableBoxScriptable interactableBoxScriptable;
+
+
     [SerializeField] private bool cooldownOff = true;
-    [SerializeField] private Weapon currWeapon;
 
-    public string InteractionPrompt => _prompt;
+    public string InteractionPrompt => interactableBoxScriptable.prompt + " " + "[Cost: " + interactableBoxScriptable.cost + "]";
 
-    private void Start()
+    public void Interact(ScoreUpdate scoreUI, GameObject player)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        scoreUI = player.GetComponent<ScoreUpdate>();
-        inventory = player.GetComponentInChildren<Inventory>();
-        character = player.GetComponent<Character>();
-    }
+        Inventory inventory = player.GetComponentInChildren<Inventory>();
+        Character character = player.GetComponent<Character>();
+        Weapon currWeapon;
 
-    public void Interact(EAInteractor interactor)
-    {
         if (character.IsInspecting() || character.IsInvoking())
             return;
 
         if (!cooldownOff)
             return;
 
-        if (scoreUI.scoreTotal < ammoCost)
+        if (scoreUI.scoreTotal < interactableBoxScriptable.cost)
             return;
 
-        scoreUI.UpdateScoreLose(ammoCost);
+        scoreUI.UpdateScoreLose(interactableBoxScriptable.cost);
 
         cooldownOff = false;
 

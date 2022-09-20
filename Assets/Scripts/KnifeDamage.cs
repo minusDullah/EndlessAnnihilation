@@ -14,7 +14,7 @@ public class KnifeDamage : MonoBehaviour
 			//Get damageable component on object
 			IDamageable damageable = other.transform.GetComponentInParent<IDamageable>();
 			//Damage object
-			damageable?.TakeDamage(knifeDamage);
+			damageable?.TakeDamage(knifeDamage, GetComponentInParent<ScoreUpdate>());
 		}
 	}
 }

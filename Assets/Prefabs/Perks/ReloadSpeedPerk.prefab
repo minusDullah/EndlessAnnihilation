@@ -46,15 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02343d2b390a0f1499d00454da388b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: 'to buy Reload Speed [Cost: 5000]'
+  perkMachineScriptable: {fileID: 11400000, guid: 98679360f9d2694438cc5c0c851a9a8a,
+    type: 2}
   perkCost: 5000
   reloadSpeedMultiplier: 1.5
-  alreadyBought: 0
-  scoreUI: {fileID: 0}
-  inventory: {fileID: 0}
-  character: {fileID: 0}
-  weaponHolder: {fileID: 0}
-  currWeapon: {fileID: 0}
 --- !u!65 &1532972179126102520
 BoxCollider:
   m_ObjectHideFlags: 0

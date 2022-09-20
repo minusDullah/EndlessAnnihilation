@@ -1,5 +1,6 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using FishNet.Object;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -9,7 +10,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// to the current character height. This means that no matter whether the character is crouching
     /// or not, the camera will be at the correct location.
     /// </summary>
-    public class CameraHeight : MonoBehaviour
+    public class CameraHeight : NetworkBehaviour
     {
         #region FIELDS SERIALIZED
 
@@ -44,6 +45,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private void Update()
         {
+            if (!IsOwner)
+                return;
             //Check for missing references.
             if (characterController == null)
             {

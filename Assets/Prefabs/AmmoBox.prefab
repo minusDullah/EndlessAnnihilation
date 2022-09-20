@@ -111,13 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780bb7988064d5c4eb931fbe071b226b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: 'to buy Ammo [Cost: 5000]'
-  inventory: {fileID: 0}
-  character: {fileID: 0}
-  scoreUI: {fileID: 0}
-  ammoCost: 5000
+  interactableBoxScriptable: {fileID: 11400000, guid: 0782751e5cc2e684e8ceff576f15a317,
+    type: 2}
   cooldownOff: 1
-  currWeapon: {fileID: 0}
 --- !u!1 &4590330905541362650
 GameObject:
   m_ObjectHideFlags: 0

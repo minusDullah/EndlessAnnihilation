@@ -148,12 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25afd180c95388a4c8f96c72b11591ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: 'to buy Double Jump [Cost: 5000]'
-  perkCost: 5000
+  perkMachineScriptable: {fileID: 11400000, guid: 2358f85482728884d967aef1fb3d08ad,
+    type: 2}
   maxAllowedJumps: 1
-  alreadyBought: 0
-  scoreUI: {fileID: 0}
-  movement: {fileID: 0}
 --- !u!65 &7058342804382273754
 BoxCollider:
   m_ObjectHideFlags: 0

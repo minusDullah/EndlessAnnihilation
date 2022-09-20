@@ -1,5 +1,6 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using FishNet.Object;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// LowerWeapon. This component handles lowering the character's weapon when the player wants to, or
     /// in specific situations where it is needed.
     /// </summary>
-    public class LowerWeapon : MonoBehaviour
+    public class LowerWeapon : NetworkBehaviour
     {
         #region FIELDS SERIALIZED
 
@@ -63,6 +64,8 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private void Update()
         {
+            if (!IsOwner)
+                return;
             //Check References.
             if (characterAnimator == null || characterBehaviour == null || inventoryBehaviour == null)
             {

@@ -3,41 +3,27 @@ using InfimaGames.LowPolyShooterPack;
 
 public class DoubleJumpPerk : MonoBehaviour, IInteractable
 {
-    [Header("Prompt")]
-    [SerializeField] private string _prompt;
-
-    [Header("Cost")]
-    [SerializeField] private int perkCost = 2500;
+    [Header("Scriptable Object")]
+    [SerializeField] private PerkMachineScriptable perkMachineScriptable;
 
     [Header("Movement")]
     [SerializeField] private int maxAllowedJumps = 1;
 
-    [Header("References")]
-    [SerializeField] private bool alreadyBought = false;
-    [SerializeField] private ScoreUpdate scoreUI;
-    [SerializeField] private Movement movement;
-    [SerializeField] private GameObject player;
+    public string InteractionPrompt => perkMachineScriptable.prompt + " " + perkMachineScriptable.perkName + " " + "[Cost: " + perkMachineScriptable.perkCost + "]";
 
-    public string InteractionPrompt => _prompt;
 
-    private void Start()
+    public void Interact(ScoreUpdate scoreUI, GameObject player)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        scoreUI = player.GetComponentInChildren<ScoreUpdate>();
-        movement = player.GetComponent<Movement>();
-    }
+        PerkHandler perkHandler = player.GetComponent<PerkHandler>();
+        Movement movement = player.GetComponent<Movement>();
 
-    public void Interact(EAInteractor interactor)
-    {
-        if (alreadyBought)
+        if (perkHandler.AlreadyBought(perkMachineScriptable.perkName))
             return;
 
-        if (scoreUI.scoreTotal < perkCost)
+        if (scoreUI.scoreTotal < perkMachineScriptable.perkCost)
             return;
 
-        scoreUI.UpdateScoreLose(perkCost);
-
-        alreadyBought = true;
+        perkHandler.BuyPerk(perkMachineScriptable.perkName);
 
         movement.allowedJumps = maxAllowedJumps;
         movement.remainingJumps = maxAllowedJumps;

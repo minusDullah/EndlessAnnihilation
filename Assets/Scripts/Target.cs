@@ -41,12 +41,11 @@ public class Target : MonoBehaviour, IDamageable
         
         pointsGained = false;
         soundPlayed = false;
-        pointsGained = false;
         health *= waveSpawner.currWave/4;
         health = Mathf.Clamp(health, minHealth, maxHealth);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, ScoreUpdate scoreUpdate)
     {
         health -= damage;
         if (health <= 0)
@@ -124,7 +123,6 @@ public class Target : MonoBehaviour, IDamageable
             {
                 c.gameObject.tag = "Untagged";
             }
-            
         }
     }
 }

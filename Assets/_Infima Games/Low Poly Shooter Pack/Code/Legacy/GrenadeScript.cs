@@ -129,7 +129,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 					//Get damageable component on object
 					IDamageable damageable = hit.transform.GetComponentInParent<IDamageable>();
 					//Damage object
-					damageable?.TakeDamage(grenadeDamage);
+					damageable?.TakeDamage(grenadeDamage, GetComponentInParent<ScoreUpdate>());
 					//Destroy bullet object
 					Destroy(gameObject);
 				}

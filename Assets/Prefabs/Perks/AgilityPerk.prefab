@@ -59,13 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46c96b576d255a48bceecd2ae479cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: 'to buy Agility [Cost: 5000]'
-  perkCost: 5000
+  perkMachineScriptable: {fileID: 11400000, guid: 7f3b88b44eb2e504e891b6811880053f,
+    type: 2}
   movementSpeedMultiplier: 1.5
   jumpForceMultiplier: 2
-  alreadyBought: 0
-  scoreUI: {fileID: 0}
-  movement: {fileID: 0}
 --- !u!1 &4086630849617580067
 GameObject:
   m_ObjectHideFlags: 0

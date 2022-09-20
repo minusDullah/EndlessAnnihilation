@@ -1,11 +1,13 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
+using FishNet.Object;
+
 namespace InfimaGames.LowPolyShooterPack
 {
     /// <summary>
     /// Game Mode Service.
     /// </summary>
-    public class GameModeService : IGameModeService
+    public class GameModeService : NetworkBehaviour, IGameModeService
     {
         #region FIELDS
         

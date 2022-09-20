@@ -1,6 +1,7 @@
 //Copyright 2022, Infima Games. All Rights Reserved.
 
 using UnityEngine;
+using FishNet.Object;
 
 namespace InfimaGames.LowPolyShooterPack
 {
@@ -9,7 +10,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// We have this a separate component so as to make sure that it can be super easily removed, and replaced
     /// for a more custom implementation, as our setup is quite basic at the moment.
     /// </summary>
-    public class FootstepPlayer : MonoBehaviour
+    public class FootstepPlayer : NetworkBehaviour
     {
         #region FIELDS SERIALIZED
         
@@ -66,6 +67,9 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private void Update()
         {
+            if (!IsOwner)
+                return;
+
             //Check for missing references.
             if (characterAnimator == null || movementBehaviour == null || audioSource == null)
             {

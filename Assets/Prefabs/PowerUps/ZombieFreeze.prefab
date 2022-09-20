@@ -110,7 +110,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMovement: []
   PerkCooldown: 10
+  destroyTimer: 15
+  rotateSpeed: 2
+  randomRotationX: 0
+  randomRotationY: 0
+  randomRotationZ: 0
   zombieHolder: {fileID: 0}
   waveSpawner: {fileID: 0}
-  mesh: {fileID: 0}
-  sphereCollider: {fileID: 0}
+  mesh: {fileID: 5750780011691544009}
+  sphereCollider: {fileID: 5191470989000433360}

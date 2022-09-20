@@ -15,15 +15,14 @@ public class DoublePointsPowerUp : MonoBehaviour
     [SerializeField] private float randomRotationZ;
 
     [Header("References")]
-    [SerializeField] private ScoreUpdate scoreUI;
     [SerializeField] private MeshRenderer mesh;
     [SerializeField] private SphereCollider sphereCollider;
 
+    private ScoreUpdate scoreUI;
+
     private void Start()
     {
-        mesh = GetComponent<MeshRenderer>();
-        sphereCollider = GetComponent<SphereCollider>();
-        scoreUI = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<ScoreUpdate>();
+        scoreUI = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ScoreUpdate>();
         randomRotationX = Random.Range(-rotateSpeed, rotateSpeed);
         randomRotationY = Random.Range(-rotateSpeed, rotateSpeed);
         randomRotationZ = Random.Range(-rotateSpeed, rotateSpeed);

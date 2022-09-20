@@ -1,5 +1,6 @@
 //Copyright 2022, Infima Games. All Rights Reserved.
 
+using FishNet.Object;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -7,7 +8,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// <summary>
     /// Interactor Behaviour.
     /// </summary>
-    public abstract class InteractorBehaviour : MonoBehaviour
+    public abstract class InteractorBehaviour : NetworkBehaviour
     {
         #region UNITY
 

@@ -1,6 +1,8 @@
+using UnityEngine;
+
 public interface IInteractable
 {
     public string InteractionPrompt { get; }
 
-    public void Interact(EAInteractor interactor);
+    public void Interact(ScoreUpdate scoreUI, GameObject player);
 }

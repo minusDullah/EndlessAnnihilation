@@ -59,13 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782aadcb1eb1e67438bf9848b5f1894f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: 'to buy Health [Cost: 5000]'
-  perkCost: 5000
+  perkMachineScriptable: {fileID: 11400000, guid: 6c91f769aac07e94fa0049e5b1c2418d,
+    type: 2}
   maxHealthMultiplier: 2
-  alreadyBought: 0
-  scoreUI: {fileID: 0}
-  character: {fileID: 0}
-  health: {fileID: 0}
 --- !u!1 &5362316772061945799
 GameObject:
   m_ObjectHideFlags: 0

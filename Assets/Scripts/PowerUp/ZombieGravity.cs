@@ -17,17 +17,16 @@ public class ZombieGravity : MonoBehaviour
     [SerializeField] private float randomRotationZ;
 
     [Header("References")]
-    [SerializeField] private GameObject zombieHolder;
-    [SerializeField] private WaveSpawner waveSpawner;
     [SerializeField] private MeshRenderer mesh;
     [SerializeField] private SphereCollider sphereCollider;
+
+    private GameObject zombieHolder;
+    private WaveSpawner waveSpawner;
 
     private void Start()
     {
         zombieHolder = GameObject.FindGameObjectWithTag("ZombieHolder");
         waveSpawner = GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveSpawner>();
-        mesh = GetComponent<MeshRenderer>();
-        sphereCollider = GetComponent<SphereCollider>();
         randomRotationX = Random.Range(-rotateSpeed, rotateSpeed);
         randomRotationY = Random.Range(-rotateSpeed, rotateSpeed);
         randomRotationZ = Random.Range(-rotateSpeed, rotateSpeed);
@@ -75,7 +74,7 @@ public class ZombieGravity : MonoBehaviour
         foreach (EnemyMovement enemyMovement in enemyMovement)
         {
             enemyMovement.rb.constraints = RigidbodyConstraints.None;
-            enemyMovement.GetComponent<Target>().TakeDamage(999);
+            enemyMovement.GetComponent<Target>().TakeDamage(999, GetComponentInParent<ScoreUpdate>());
             enemyMovement.rb.isKinematic = true;
         }
 

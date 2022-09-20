@@ -1,5 +1,6 @@
 //Copyright 2022, Infima Games. All Rights Reserved.
 
+using FishNet.Object;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +9,7 @@ namespace InfimaGames.LowPolyShooterPack
     /// <summary>
     /// Crouching Input.
     /// </summary>
-    public class CrouchingInput : MonoBehaviour
+    public class CrouchingInput : NetworkBehaviour
     {
         #region FIELDS SERIALIZED
 
@@ -46,9 +47,11 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private void Update()
         {
+            if (!IsOwner)
+                return;
             //Change the crouching state based on whether we're holding if we need to.
             //We only do this for hold-crouch, otherwise we don't even bother with this.
-            if(holdToCrouch)
+            if (holdToCrouch)
                 movementBehaviour.TryCrouch(holding);
         }
 

@@ -1,13 +1,14 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
 
 using UnityEngine;
+using FishNet.Object;
 
 namespace InfimaGames.LowPolyShooterPack
 {
     /// <summary>
     /// Character Abstract Behaviour.
     /// </summary>
-    public abstract class CharacterBehaviour : MonoBehaviour
+    public abstract class CharacterBehaviour : NetworkBehaviour
     {
         #region UNITY
 

@@ -115,5 +115,5 @@ MonoBehaviour:
   randomRotationY: 0
   randomRotationZ: 0
   scoreUI: {fileID: 0}
-  mesh: {fileID: 0}
-  sphereCollider: {fileID: 0}
+  mesh: {fileID: 7089917407724771326}
+  sphereCollider: {fileID: 4739271762954048528}

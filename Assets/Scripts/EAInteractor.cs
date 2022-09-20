@@ -4,8 +4,9 @@ using InfimaGames.LowPolyShooterPack;
 using TMPro;
 using InfimaGames.LowPolyShooterPack.Interface;
 using System.Collections;
+using FishNet.Object;
 
-public class EAInteractor : MonoBehaviour
+public class EAInteractor : NetworkBehaviour
 {
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius;
@@ -25,6 +26,9 @@ public class EAInteractor : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (!IsOwner)
+            return;
+
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
 
         if (_numFound > 0)
@@ -42,7 +46,7 @@ public class EAInteractor : MonoBehaviour
 
             if (interactable != null && interactKeyPressed && !character.reloading)
             {
-                interactable.Interact(this);
+                interactable.Interact(gameObject.GetComponentInChildren<ScoreUpdate>(), gameObject);
             }
         }
         else

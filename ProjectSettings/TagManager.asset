@@ -24,17 +24,9 @@ TagManager:
   - FxTemporaire
   - Knife
   - Grenade
-  - UpgradeMenu
-  - SettingsMenu
-  - InteractUI
   - Weapon
-  - Inventory
   - ItemContainer
-  - AttachmentMenu
-  - CountdownTimer
   - ZombieHolder
-  - DamageBoostSlider
-  - PlayerMesh
   layers:
   - Default
   - TransparentFX

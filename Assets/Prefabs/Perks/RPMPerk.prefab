@@ -59,14 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa404d9342f09c9499c3006ed5d1357e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: 'to buy RPM [Cost: 5000]'
-  perkCost: 5000
+  perkMachineScriptable: {fileID: 11400000, guid: 5970286f4e39b3f48b258c6bc4a5f9d6,
+    type: 2}
   rateOfFireMultiplier: 1.25
-  alreadyBought: 0
-  scoreUI: {fileID: 0}
-  inventory: {fileID: 0}
-  weaponHolder: {fileID: 0}
-  currWeapon: {fileID: 0}
 --- !u!1 &1460979360861288890
 GameObject:
   m_ObjectHideFlags: 0
